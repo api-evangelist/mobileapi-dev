@@ -1,0 +1,43 @@
+{
+  "name": "Platform",
+  "description": "Structure of the MobileAPI Platform resource as returned by the device-specifications API.",
+  "type": "object",
+  "required": [],
+  "fields": [
+    {
+      "name": "id",
+      "type": "integer",
+      "description": "ID",
+      "readOnly": true,
+      "format": null
+    },
+    {
+      "name": "os",
+      "type": "string",
+      "description": "Operating system",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "chipset",
+      "type": "string",
+      "description": "Chipset/SoC",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "cpu",
+      "type": "string",
+      "description": "CPU specifications",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "gpu",
+      "type": "string",
+      "description": "GPU specifications",
+      "readOnly": false,
+      "format": null
+    }
+  ]
+}

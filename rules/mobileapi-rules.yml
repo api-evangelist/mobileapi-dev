@@ -1,0 +1,105 @@
+extends:
+  - spectral:oas
+rules:
+  # MobileAPI.dev: every operation must declare a summary in Title Case.
+  mobileapi-operation-summary-required:
+    description: Every operation must have a summary.
+    given: "$.paths.*[get,post,put,patch,delete]"
+    severity: error
+    then:
+      field: summary
+      function: truthy
+
+  mobileapi-operation-summary-title-case:
+    description: Operation summaries should be in Title Case (first word capitalized, no trailing period).
+    given: "$.paths.*[get,post,put,patch,delete].summary"
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z\\[].*[^\\.]$"
+
+  # MobileAPI.dev: tags must use lowercase-hyphenated form (Django REST Framework default).
+  mobileapi-tags-lowercase-hyphen:
+    description: Tags should be lowercase, hyphen-separated.
+    given: "$.paths.*[get,post,put,patch,delete].tags[*]"
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z0-9][a-z0-9\\-]*$"
+
+  # MobileAPI.dev: every operation must declare an operationId for client codegen.
+  mobileapi-operation-id-required:
+    description: Every operation must declare an operationId.
+    given: "$.paths.*[get,post,put,patch,delete]"
+    severity: error
+    then:
+      field: operationId
+      function: truthy
+
+  # MobileAPI.dev: paths use a trailing slash (Django REST Framework convention).
+  mobileapi-path-trailing-slash:
+    description: Paths should end with a trailing slash (Django convention).
+    given: "$.paths"
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: "/$"
+      field: "@key"
+
+  # MobileAPI.dev: every operation should declare a 200/201 response.
+  mobileapi-success-response-required:
+    description: Every operation should declare a 2xx success response.
+    given: "$.paths.*[get,post,put,patch,delete].responses"
+    severity: warn
+    then:
+      function: truthy
+      field: "200"
+
+  # MobileAPI.dev: every operation should document a 401 Unauthorized response.
+  mobileapi-unauthorized-response-documented:
+    description: Authenticated operations should document a 401 response.
+    given: "$.paths[?(@property != '/api-token-auth/' && @property != '/status/' && @property != '/payment_successful' && @property != '/payment_successful/')]*[get,post,put,patch,delete].responses"
+    severity: info
+    then:
+      function: truthy
+      field: "401"
+
+  # MobileAPI.dev: rate-limited operations should document 429 responses.
+  mobileapi-rate-limit-response-documented:
+    description: Operations that consume credits should document a 429 Too Many Requests response.
+    given: "$.paths[?(@property != '/api-token-auth/' && @property != '/status/')]*[get,post,put,patch,delete].responses"
+    severity: info
+    then:
+      function: truthy
+      field: "429"
+
+  # MobileAPI.dev: schemas should include id and human-readable name where applicable.
+  mobileapi-schema-id-property:
+    description: Resource schemas should include an 'id' property as primary key.
+    given: "$.components.schemas[?(@.type == 'object')]"
+    severity: info
+    then:
+      field: properties.id
+      function: truthy
+
+  # MobileAPI.dev: prefer ApiKeyHeader (Authorization) over ApiKeyQuery for production traffic.
+  mobileapi-prefer-header-auth:
+    description: Document Authorization header as primary auth, query parameter as fallback only.
+    given: "$.components.securitySchemes"
+    severity: info
+    then:
+      field: ApiKeyHeader
+      function: truthy
+
+  # MobileAPI.dev: server URL should be HTTPS only in production.
+  mobileapi-https-server:
+    description: Production server URL must use HTTPS.
+    given: "$.servers[*].url"
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https://"

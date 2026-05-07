@@ -1,0 +1,36 @@
+{
+  "name": "MainCamera",
+  "description": "Structure of the MobileAPI MainCamera resource as returned by the device-specifications API.",
+  "type": "object",
+  "required": [],
+  "fields": [
+    {
+      "name": "id",
+      "type": "integer",
+      "description": "ID",
+      "readOnly": true,
+      "format": null
+    },
+    {
+      "name": "modules",
+      "type": "string",
+      "description": "Camera modules/sensors (Single, Dual, Triple, Quad, etc.)",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "features",
+      "type": "string",
+      "description": "Camera features (LED flash, HDR, panorama, etc.)",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "video",
+      "type": "string",
+      "description": "Video recording capabilities",
+      "readOnly": false,
+      "format": null
+    }
+  ]
+}

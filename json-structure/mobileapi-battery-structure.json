@@ -1,0 +1,29 @@
+{
+  "name": "Battery",
+  "description": "Structure of the MobileAPI Battery resource as returned by the device-specifications API.",
+  "type": "object",
+  "required": [],
+  "fields": [
+    {
+      "name": "id",
+      "type": "integer",
+      "description": "ID",
+      "readOnly": true,
+      "format": null
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "description": "Battery type and capacity (Li-Ion, Li-Po, mAh)",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "charging",
+      "type": "string",
+      "description": "Charging capabilities (wired, wireless, fast charging, etc.)",
+      "readOnly": false,
+      "format": null
+    }
+  ]
+}

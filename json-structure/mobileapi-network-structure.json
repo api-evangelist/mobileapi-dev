@@ -1,0 +1,57 @@
+{
+  "name": "Network",
+  "description": "Structure of the MobileAPI Network resource as returned by the device-specifications API.",
+  "type": "object",
+  "required": [],
+  "fields": [
+    {
+      "name": "id",
+      "type": "integer",
+      "description": "ID",
+      "readOnly": true,
+      "format": null
+    },
+    {
+      "name": "technology",
+      "type": "string",
+      "description": "Network technologies (e.g., GSM / CDMA / HSPA / LTE / 5G)",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "bands_2g",
+      "type": "string",
+      "description": "2G bands",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "bands_3g",
+      "type": "string",
+      "description": "3G bands",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "bands_4g",
+      "type": "string",
+      "description": "4G/LTE bands",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "bands_5g",
+      "type": "string",
+      "description": "5G bands",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "speed",
+      "type": "string",
+      "description": "Network speed information",
+      "readOnly": false,
+      "format": null
+    }
+  ]
+}

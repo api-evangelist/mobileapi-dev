@@ -1,0 +1,78 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "mobileapi": "https://mobileapi.dev/vocab#",
+    "id": "@id",
+    "type": "@type",
+    "Device": {
+      "@id": "schema:Product",
+      "@type": "@id"
+    },
+    "Manufacturer": {
+      "@id": "schema:Brand",
+      "@type": "@id"
+    },
+    "Image": {
+      "@id": "schema:ImageObject",
+      "@type": "@id"
+    },
+    "name": "schema:name",
+    "manufacturer_name": "schema:brand",
+    "manufacturer": {
+      "@id": "schema:manufacturer",
+      "@type": "@id"
+    },
+    "description": "schema:description",
+    "device_type": "mobileapi:deviceType",
+    "colors": "schema:color",
+    "release_date": {
+      "@id": "schema:releaseDate",
+      "@type": "schema:Date"
+    },
+    "weight": "mobileapi:weight",
+    "thickness": "mobileapi:thickness",
+    "screen_resolution": "mobileapi:screenResolution",
+    "storage": "mobileapi:storage",
+    "camera": "mobileapi:cameraSummary",
+    "battery_capacity": "mobileapi:batteryCapacity",
+    "hardware": "mobileapi:hardwareSummary",
+    "image_url": {
+      "@id": "schema:image",
+      "@type": "@id"
+    },
+    "image_b64": "mobileapi:imageBase64",
+    "logo_b64": "mobileapi:logoBase64",
+    "website_url": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "is_official": "mobileapi:isOfficial",
+    "order": "schema:position",
+    "caption": "schema:caption",
+    "battery": "mobileapi:battery",
+    "display": "mobileapi:display",
+    "platform": "mobileapi:platform",
+    "memory": "mobileapi:memory",
+    "main_camera": "mobileapi:mainCamera",
+    "selfie_camera": "mobileapi:selfieCamera",
+    "sound": "mobileapi:sound",
+    "comms": "mobileapi:comms",
+    "features": "mobileapi:features",
+    "body": "mobileapi:body",
+    "network": "mobileapi:network",
+    "misc": "mobileapi:misc",
+    "technology": "mobileapi:networkTechnology",
+    "bands_2g": "mobileapi:bands2g",
+    "bands_3g": "mobileapi:bands3g",
+    "bands_4g": "mobileapi:bands4g",
+    "bands_5g": "mobileapi:bands5g",
+    "speed": "mobileapi:networkSpeed",
+    "size": "mobileapi:displaySize",
+    "resolution": "mobileapi:displayResolution",
+    "protection": "mobileapi:displayProtection",
+    "modules": "mobileapi:cameraModules",
+    "video": "mobileapi:cameraVideo",
+    "charging": "mobileapi:batteryCharging"
+  }
+}

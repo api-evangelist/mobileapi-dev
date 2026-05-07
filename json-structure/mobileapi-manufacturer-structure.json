@@ -1,0 +1,38 @@
+{
+  "name": "Manufacturer",
+  "description": "Structure of the MobileAPI Manufacturer resource as returned by the device-specifications API.",
+  "type": "object",
+  "required": [
+    "name"
+  ],
+  "fields": [
+    {
+      "name": "id",
+      "type": "integer",
+      "description": "ID",
+      "readOnly": true,
+      "format": null
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "Name",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "logo_b64",
+      "type": "string",
+      "description": "Logo b64",
+      "readOnly": true,
+      "format": null
+    },
+    {
+      "name": "website_url",
+      "type": "string",
+      "description": "Manufacturer official website URL",
+      "readOnly": false,
+      "format": "uri"
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: MobileAPI.dev
+providerId: mobileapi-dev
+created: '2026-05-06'
+modified: '2026-05-06'
+reconciled: true
+tags:
+  - Device Specifications
+  - Mobile Devices
+  - REST API
+  - SaaS
+description: >-
+  MobileAPI.dev has three tiers - Free, Pro, and Enterprise - all gating the same
+  REST API by monthly request quota and short-window rate limit. Pro is a flat
+  $15/mo (15% annual discount). Enterprise pricing is custom (gated, not
+  publicly listed).
+sources:
+  - https://mobileapi.dev/#pricing
+  - https://mobileapi.dev/docs/
+plans:
+  - id: mobileapi-free
+    name: Free
+    type: free
+    description: Side-projects and testing tier with monthly data updates and community support.
+    price:
+      amount: 0
+      currency: USD
+      timeFrame: month
+    entries:
+      - label: Monthly request quota
+        name: monthly_requests
+        type: quota
+        metric: request
+        limit: 200
+        timeFrame: month
+        geo: global
+        unit: 1
+      - label: Per-minute rate limit
+        name: rate_per_minute
+        type: rate-limit
+        metric: request
+        limit: 5
+        timeFrame: minute
+        geo: global
+        unit: 1
+      - label: Data update cadence
+        name: data_freshness
+        type: feature
+        description: Database refreshed monthly.
+      - label: Support channel
+        name: support
+        type: feature
+        description: Community support only.
+      - label: Commercial usage
+        name: commercial_use
+        type: feature
+        description: Not licensed for commercial use.
+  - id: mobileapi-pro
+    name: Pro
+    type: subscription
+    description: Growing-business tier with weekly data, priority email support, and commercial-use rights.
+    price:
+      amount: 15
+      currency: USD
+      timeFrame: month
+    discounts:
+      - label: 15% annual discount
+        type: annual
+        percent: 15
+    entries:
+      - label: Monthly request quota
+        name: monthly_requests
+        type: quota
+        metric: request
+        limit: 10000
+        timeFrame: month
+        geo: global
+        unit: 1
+      - label: Per-second rate limit
+        name: rate_per_second
+        type: rate-limit
+        metric: request
+        limit: 10
+        timeFrame: second
+        geo: global
+        unit: 1
+      - label: Data update cadence
+        name: data_freshness
+        type: feature
+        description: Database refreshed weekly.
+      - label: Support channel
+        name: support
+        type: feature
+        description: Priority email support, 24-hour response SLA.
+      - label: Commercial usage
+        name: commercial_use
+        type: feature
+        description: Commercial usage rights included.
+      - label: AI natural-language query
+        name: ai_query
+        type: feature
+        description: Access to /devices/ai-query/ endpoint.
+      - label: Advanced analytics
+        name: analytics
+        type: feature
+        description: In-portal usage analytics dashboards.
+  - id: mobileapi-enterprise
+    name: Enterprise
+    type: custom
+    description: High-traffic and large-enterprise tier with unlimited requests, daily data, and dedicated support.
+    price:
+      amount: null
+      currency: USD
+      timeFrame: month
+      note: Contact sales for custom pricing.
+    entries:
+      - label: Monthly request quota
+        name: monthly_requests
+        type: quota
+        metric: request
+        limit: null
+        timeFrame: month
+        geo: global
+        unit: 1
+        note: Unlimited.
+      - label: Per-second rate limit
+        name: rate_per_second
+        type: rate-limit
+        metric: request
+        limit: 100
+        timeFrame: second
+        geo: global
+        unit: 1
+        note: Custom; up to 100 req/sec by default.
+      - label: Data update cadence
+        name: data_freshness
+        type: feature
+        description: Database refreshed daily.
+      - label: Support channel
+        name: support
+        type: feature
+        description: Dedicated support team and 24/7 premium support.
+      - label: SLA
+        name: sla
+        type: feature
+        description: 99.9% uptime SLA guarantee.
+      - label: Account management
+        name: account_management
+        type: feature
+        description: Named account manager.
+      - label: Custom integrations
+        name: custom_integrations
+        type: feature
+        description: Custom data fields and integrations available on request.
+common:
+  - label: Refund policy
+    type: policy
+    description: 30-day money-back guarantee on all paid plans.
+  - label: Quota exceeded behavior
+    type: policy
+    description: Email notifications at 80% and 100% usage; HTTP 429 returned after limit is reached. Upgrade to lift quota immediately.
+  - label: Currency
+    type: policy
+    description: Pricing is published in USD.

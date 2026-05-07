@@ -1,0 +1,82 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: MobileAPI.dev
+providerId: mobileapi-dev
+created: '2026-05-06'
+modified: '2026-05-06'
+reconciled: true
+tags:
+  - Rate Limiting
+  - Device Specifications
+  - REST API
+description: >-
+  MobileAPI.dev applies a short-window rate limit (per-minute on Free,
+  per-second on Pro/Enterprise) plus a monthly request quota. Limits are scoped
+  to the API key. All responses include X-RateLimit-Limit, X-RateLimit-Remaining,
+  and X-RateLimit-Reset headers; quota exceedance returns HTTP 429.
+sources:
+  - https://mobileapi.dev/#pricing
+  - https://mobileapi.dev/docs/
+headers:
+  limit: X-RateLimit-Limit
+  remaining: X-RateLimit-Remaining
+  reset: X-RateLimit-Reset
+  retryAfter: Retry-After
+responseCodes:
+  throttled: 429
+limits:
+  - name: Free Tier - Per Minute
+    scope: api-key
+    plan: Free
+    metric: requests_per_minute
+    limit: 5
+    timeFrame: minute
+    description: 5 requests per minute on the Free plan.
+  - name: Free Tier - Monthly Quota
+    scope: api-key
+    plan: Free
+    metric: requests_per_month
+    limit: 200
+    timeFrame: month
+    description: 200 total API calls per month on the Free plan.
+  - name: Pro Tier - Per Second
+    scope: api-key
+    plan: Pro
+    metric: requests_per_second
+    limit: 10
+    timeFrame: second
+    description: 10 requests per second on the Pro plan.
+  - name: Pro Tier - Monthly Quota
+    scope: api-key
+    plan: Pro
+    metric: requests_per_month
+    limit: 10000
+    timeFrame: month
+    description: 10,000 total API calls per month on the Pro plan (~333/day).
+  - name: Enterprise Tier - Per Second
+    scope: api-key
+    plan: Enterprise
+    metric: requests_per_second
+    limit: 100
+    timeFrame: second
+    description: Up to 100 requests per second on Enterprise; custom limits available.
+  - name: Enterprise Tier - Monthly Quota
+    scope: api-key
+    plan: Enterprise
+    metric: requests_per_month
+    limit: null
+    timeFrame: month
+    description: Unlimited monthly requests on Enterprise.
+behaviors:
+  - name: Soft warning at 80% usage
+    description: Email notification at 80% monthly quota consumption.
+  - name: Hard warning at 100% usage
+    description: Email notification at 100% monthly quota consumption.
+  - name: Throttle response
+    description: HTTP 429 returned for further requests after quota or rate limit exhaustion.
+  - name: Retry guidance
+    description: Clients should observe X-RateLimit-Reset (unix timestamp) before retrying.
+notes:
+  - Demo endpoints under /demo-x7k9m2p4/ require no API key but share the same per-IP throttling model.
+  - Custom Enterprise limits negotiated through sales (Stapeley House, Nantwich, UK / support@mobileapi.dev).

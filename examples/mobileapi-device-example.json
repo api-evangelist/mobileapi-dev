@@ -1,0 +1,94 @@
+{
+  "id": 12345,
+  "name": "iPhone 17 Pro",
+  "manufacturer": 1,
+  "manufacturer_name": "Apple",
+  "device_type": "smartphone",
+  "description": "Apple iPhone 17 Pro flagship with Apple A19 Pro SoC, 6.3\" 1206x2622 OLED display, 48MP triple rear camera and titanium body.",
+  "colors": "Silver, Cosmic Orange, Deep Blue",
+  "storage": "256GB, 512GB, 1TB",
+  "screen_resolution": "6.3\", 1206x2622 pixels",
+  "weight": "206g",
+  "thickness": "8.8mm",
+  "release_date": "Released 2025, September 19",
+  "camera": "48MP",
+  "battery_capacity": "3998 mAh",
+  "hardware": "12GB RAM, Apple A19 Pro",
+  "image_url": "https://api.mobileapi.dev/devices/12345/image/",
+  "image_b64": "iVBORw0KGgoAAAANSUhEUgAA...truncated",
+  "network": {
+    "id": 12345,
+    "technology": "GSM / CDMA / HSPA / EVDO / LTE / 5G",
+    "bands_2g": "GSM 850 / 900 / 1800 / 1900",
+    "bands_3g": "HSDPA 850 / 900 / 1700(AWS) / 1900 / 2100",
+    "bands_4g": "1, 2, 3, 4, 5, 7, 8, 12, 13, 14, 17, 18, 19, 20, 25, 26, 28, 29, 30, 38, 39, 40, 41, 42, 46, 48, 66, 71",
+    "bands_5g": "Sub-6 + mmWave",
+    "speed": "5G; LTE-A; HSPA"
+  },
+  "body": {
+    "id": 12345,
+    "dimensions": "149.6 x 71.6 x 8.8 mm",
+    "weight": "206 g",
+    "build": "Glass front (Ceramic Shield 2), titanium frame",
+    "sim": "Nano-SIM and eSIM or Dual eSIM"
+  },
+  "display": {
+    "id": 12345,
+    "type": "LTPO Super Retina XDR OLED, 120Hz, HDR10, Dolby Vision, 2000 nits (HBM)",
+    "size": "6.3 inches, 100.4 cm2 (~91.5% screen-to-body ratio)",
+    "resolution": "1206 x 2622 pixels (~460 ppi density)",
+    "protection": "Ceramic Shield 2 glass"
+  },
+  "platform": {
+    "id": 12345,
+    "os": "iOS 19",
+    "chipset": "Apple A19 Pro (3 nm)",
+    "cpu": "Hexa-core",
+    "gpu": "Apple GPU (6-core)"
+  },
+  "memory": {
+    "id": 12345,
+    "card_slot": "No",
+    "internal": "256GB 12GB RAM, 512GB 12GB RAM, 1TB 12GB RAM"
+  },
+  "main_camera": {
+    "id": 12345,
+    "modules": "48 MP, f/1.7, 24mm (wide); 48 MP, f/2.8, 100mm (periscope telephoto), 4x optical zoom; 48 MP, f/2.2, 13mm, 120˚ (ultrawide)",
+    "features": "Dual-LED dual-tone flash, HDR (photo/panorama)",
+    "video": "8K@24/30fps, 4K@24/30/60/100/120fps, 1080p@30/60/120/240fps, 10-bit HDR, Dolby Vision HDR (up to 60fps)"
+  },
+  "selfie_camera": {
+    "id": 12345,
+    "modules": "18 MP, f/1.9, 23mm (wide), Center Stage",
+    "features": "HDR, panorama",
+    "video": "4K@24/25/30/60fps, 1080p@30/60/120fps, gyro-EIS"
+  },
+  "sound": {
+    "id": 12345,
+    "loudspeaker": "Yes, with stereo speakers",
+    "_3_5mm_jack": "No"
+  },
+  "comms": {
+    "id": 12345,
+    "wlan": "Wi-Fi 7",
+    "bluetooth": "6.0",
+    "positioning": "GPS, GLONASS, GALILEO, BDS, QZSS, NavIC",
+    "nfc": "Yes",
+    "usb": "USB Type-C 3.2"
+  },
+  "features": {
+    "id": 12345,
+    "sensors": "Face ID, accelerometer, gyro, proximity, compass, barometer"
+  },
+  "battery": {
+    "id": 12345,
+    "type": "Li-Ion 3998 mAh, non-removable",
+    "charging": "Wired (40W), MagSafe wireless 25W, Qi2 wireless 15W"
+  },
+  "misc": {
+    "id": 12345,
+    "colors": "Silver, Cosmic Orange, Deep Blue",
+    "models": "A3520",
+    "price": "About 1199 EUR / 1199 USD"
+  }
+}

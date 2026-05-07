@@ -1,0 +1,24 @@
+{
+  "query": "phones with 8GB+ RAM under 200g released in 2024",
+  "explanation": "Filtered devices where memory.ram_gb >= 8, body.weight_g < 200, and release_date.year == 2024, ordered by descending release date.",
+  "results": [
+    {
+      "id": 11876,
+      "name": "Pixel 9",
+      "manufacturer_name": "Google",
+      "device_type": "smartphone",
+      "weight": "198g",
+      "hardware": "12GB RAM, Google Tensor G4",
+      "release_date": "Released 2024, August 22"
+    },
+    {
+      "id": 11954,
+      "name": "Xperia 1 VI",
+      "manufacturer_name": "Sony",
+      "device_type": "smartphone",
+      "weight": "192g",
+      "hardware": "12GB RAM, Snapdragon 8 Gen 3",
+      "release_date": "Released 2024, June 14"
+    }
+  ]
+}

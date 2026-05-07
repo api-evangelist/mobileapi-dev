@@ -1,0 +1,122 @@
+{
+  "name": "DeviceList",
+  "description": "Structure of the MobileAPI DeviceList resource as returned by the device-specifications API.",
+  "type": "object",
+  "required": [
+    "name"
+  ],
+  "fields": [
+    {
+      "name": "id",
+      "type": "integer",
+      "description": "Id",
+      "readOnly": true,
+      "format": null
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "Name",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "manufacturer_name",
+      "type": "string",
+      "description": "Manufacturer name",
+      "readOnly": true,
+      "format": null
+    },
+    {
+      "name": "device_type",
+      "type": "string",
+      "description": "Type of device (phone, tablet, laptop, wearable, other)",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "Description",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "colors",
+      "type": "string",
+      "description": "Available colors",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "storage",
+      "type": "string",
+      "description": "Storage options (e.g., 256GB, 512GB, 2TB)",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "screen_resolution",
+      "type": "string",
+      "description": "Screen size and resolution (e.g., 6.9\", 1320 x 2868 pixels)",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "weight",
+      "type": "string",
+      "description": "Device weight (e.g., 233g)",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "thickness",
+      "type": "string",
+      "description": "Device thickness (e.g., 8.8mm)",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "release_date",
+      "type": "string",
+      "description": "Release date",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "camera",
+      "type": "string",
+      "description": "Main camera resolution (e.g., 48MP)",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "battery_capacity",
+      "type": "string",
+      "description": "Battery capacity (e.g., 4823 mAh)",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "hardware",
+      "type": "string",
+      "description": "RAM and chipset (e.g., 12GB RAM, Apple A19 Pro)",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "image_b64",
+      "type": "string",
+      "description": "Image b64",
+      "readOnly": true,
+      "format": null
+    },
+    {
+      "name": "image_url",
+      "type": "string",
+      "description": "Image url",
+      "readOnly": true,
+      "format": null
+    }
+  ]
+}

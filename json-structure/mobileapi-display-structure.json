@@ -1,0 +1,50 @@
+{
+  "name": "Display",
+  "description": "Structure of the MobileAPI Display resource as returned by the device-specifications API.",
+  "type": "object",
+  "required": [],
+  "fields": [
+    {
+      "name": "id",
+      "type": "integer",
+      "description": "ID",
+      "readOnly": true,
+      "format": null
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "description": "Display type (OLED, LCD, etc.) and features",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "size",
+      "type": "string",
+      "description": "Screen size",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "resolution",
+      "type": "string",
+      "description": "Screen resolution",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "protection",
+      "type": "string",
+      "description": "Screen protection (Gorilla Glass, etc.)",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "other",
+      "type": "string",
+      "description": "Other display features",
+      "readOnly": false,
+      "format": null
+    }
+  ]
+}

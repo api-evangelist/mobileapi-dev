@@ -1,0 +1,29 @@
+{
+  "name": "Sound",
+  "description": "Structure of the MobileAPI Sound resource as returned by the device-specifications API.",
+  "type": "object",
+  "required": [],
+  "fields": [
+    {
+      "name": "id",
+      "type": "integer",
+      "description": "ID",
+      "readOnly": true,
+      "format": null
+    },
+    {
+      "name": "loudspeaker",
+      "type": "string",
+      "description": "Loudspeaker information",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "audio_jack",
+      "type": "string",
+      "description": "3.5mm audio jack availability",
+      "readOnly": false,
+      "format": null
+    }
+  ]
+}

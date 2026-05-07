@@ -1,0 +1,128 @@
+name: MobileAPI.dev Vocabulary
+description: >-
+  Controlled vocabulary for the MobileAPI.dev device-specifications API,
+  organized along operational, capability, resource, and commercial
+  dimensions. Used to align documentation, capabilities, examples, and rules.
+url: https://mobileapi.dev/vocab
+created: '2026-05-06'
+modified: '2026-05-06'
+dimensions:
+  - name: ResourceTypes
+    description: First-class resources exposed by the API.
+    terms:
+      - name: Device
+        description: A canonical device record (smartphone, tablet, smartwatch, laptop) with cross-category specifications.
+      - name: DeviceList
+        description: The summary projection used in paginated list responses; subset of Device fields.
+      - name: Manufacturer
+        description: Brand or OEM (Apple, Samsung, Google, Xiaomi, etc.) with logo and website URL.
+      - name: Image
+        description: A product image (full-resolution or thumbnail) associated with a device.
+
+  - name: SpecCategories
+    description: The 12 normalized specification sub-resources returned per device.
+    terms:
+      - name: Network
+        description: Network technology and 2G/3G/4G/5G band support.
+      - name: Body
+        description: Dimensions, weight, build materials, and SIM configuration.
+      - name: Display
+        description: Display type, size, resolution, and protective glass.
+      - name: Platform
+        description: Operating system, chipset, CPU, and GPU.
+      - name: Memory
+        description: Storage tiers, RAM, and card-slot support.
+      - name: MainCamera
+        description: Rear camera modules, features, and supported video formats.
+      - name: SelfieCamera
+        description: Front-facing camera modules, features, and video formats.
+      - name: Sound
+        description: Loudspeaker and 3.5mm jack details.
+      - name: Comms
+        description: Wi-Fi, Bluetooth, GPS, NFC, and USB connectivity.
+      - name: Features
+        description: On-board sensors and other miscellaneous device features.
+      - name: Battery
+        description: Battery type, capacity, and charging speeds.
+      - name: Misc
+        description: Colors, model numbers, and reference price points.
+
+  - name: OperationCategories
+    description: Logical groupings of API operations.
+    terms:
+      - name: Listing
+        description: Paginated retrieval of all devices or manufacturers.
+      - name: Search
+        description: Fuzzy keyword search across device names and model numbers.
+      - name: Autocomplete
+        description: Typeahead suggestion endpoint for search-as-you-type UIs.
+      - name: BrowseBy
+        description: Indexed retrieval by manufacturer, type, or launch year.
+      - name: Detail
+        description: Per-id retrieval of a single device or manufacturer record.
+      - name: SubResource
+        description: Per-category fetch of a single spec block (battery, display, etc.).
+      - name: ImageDelivery
+        description: Image endpoints serving full-resolution or thumbnail PNGs.
+      - name: AccountIntrospection
+        description: Authenticated /me/ endpoint returning plan and quota state.
+      - name: NaturalLanguageQuery
+        description: AI endpoint translating plain-English queries into structured results.
+      - name: SystemStatus
+        description: Public health-check endpoint returning server status.
+
+  - name: AuthenticationMethods
+    description: Mechanisms by which clients authenticate to the API.
+    terms:
+      - name: TokenHeader
+        description: Authorization header with 'Token YOUR_API_KEY' prefix.
+      - name: BearerHeader
+        description: Authorization header with 'Bearer YOUR_API_KEY' prefix (OAuth2-style).
+      - name: KeyQueryParameter
+        description: Fallback API key in 'key' query parameter (not recommended for production).
+      - name: PublicDemoEndpoints
+        description: '/demo-x7k9m2p4/...' mirror tree that requires no key (rate limited).
+
+  - name: CommercialTiers
+    description: Plan tiers offered by MobileAPI.dev.
+    terms:
+      - name: Free
+        description: $0/mo, 200 req/mo, 5 req/min, monthly data updates, community support.
+      - name: Pro
+        description: $15/mo, 10000 req/mo, 10 req/sec, weekly updates, priority email support, commercial usage rights.
+      - name: Enterprise
+        description: Custom pricing, unlimited requests, up to 100 req/sec, daily updates, dedicated support, 99.9% SLA.
+
+  - name: RateLimitDimensions
+    description: How rate limits are expressed and signaled.
+    terms:
+      - name: PerMinute
+        description: Free tier limit (5 req/min).
+      - name: PerSecond
+        description: Pro and Enterprise short-window limit (10-100 req/sec).
+      - name: MonthlyQuota
+        description: Long-window quota (200, 10000, or unlimited).
+      - name: RateLimitHeaders
+        description: X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset response headers.
+      - name: QuotaExceeded
+        description: HTTP 429 returned once monthly or short-window limits are exhausted.
+
+  - name: UseCaseDomains
+    description: Vertical applications that consume the API.
+    terms:
+      - name: DeviceCatalog
+        description: Product catalog and side-by-side comparison sites.
+      - name: TradeIn
+        description: Trade-in, buyback, and resale valuation flows.
+      - name: Repair
+        description: Repair-shop parts selection and pricing.
+      - name: Insurance
+        description: Handset insurance and warranty premium calculations.
+      - name: Ecommerce
+        description: Auto-filling product detail pages on retail and marketplace sites.
+      - name: AIAssistants
+        description: Conversational recommender bots powered by AI device queries.
+      - name: CarrierCompatibility
+        description: Bring-your-own-device band-matching against carrier coverage.
+      - name: TechEditorial
+        description: Reviews and news sites embedding structured spec sheets.

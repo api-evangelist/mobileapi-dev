@@ -1,0 +1,87 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: MobileAPI.dev
+providerId: mobileapi-dev
+created: '2026-05-06'
+modified: '2026-05-06'
+reconciled: true
+tags:
+  - FinOps
+  - FOCUS
+  - Device Specifications
+  - Mobile Devices
+description: >-
+  FOCUS-aligned FinOps view for MobileAPI.dev. Billing is a flat-rate monthly
+  subscription per API key, gated by request quota; the only public meter is
+  total successful requests against the quota. Enterprise overage and custom
+  rates are negotiated outside the public surface.
+sources:
+  - https://mobileapi.dev/#pricing
+  - https://mobileapi.dev/docs/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: MobileAPI.dev
+serviceCategory: Data API - Device Specifications
+billingModel:
+  pricingCategory: Tiered Subscription with Monthly Request Quota
+  billingFrequency: Monthly
+  billingCurrency: USD
+  paymentProcessor: Stripe
+  refundPolicy: 30-day money-back guarantee on paid plans
+focusColumns:
+  ServiceName: MobileAPI
+  ServiceCategory: Data API
+  ProviderName: MobileAPI.dev
+  PublisherName: MobileAPI.dev
+  BillingCurrency: USD
+  ChargeCategory: Usage
+  ChargeFrequency: Recurring
+  PricingCategory: Standard
+  CommitmentDiscountCategory: Spend
+meters:
+  - name: api_requests
+    unit: request
+    aggregation: sum
+    description: Total successful API requests counted against the monthly quota; visible via X-RateLimit-Remaining header.
+  - name: ai_query_requests
+    unit: request
+    aggregation: sum
+    description: Subset of api_requests routed to /devices/ai-query/; only available on Pro/Enterprise.
+  - name: rate_limit_violations
+    unit: event
+    aggregation: sum
+    description: HTTP 429 responses; not directly billed but indicate quota saturation.
+costAllocationDimensions:
+  - name: APIKey
+    description: Each issued API key is the natural cost-allocation unit.
+  - name: Plan
+    description: Free / Pro / Enterprise determines the unit cost.
+  - name: Environment
+    description: Customers commonly issue separate keys per dev/stage/prod for chargeback.
+principles:
+  - name: Visibility
+    description: >-
+      Track monthly request totals and remaining quota via X-RateLimit-Remaining /
+      X-RateLimit-Reset headers and the /me/ endpoint.
+  - name: Allocation
+    description: >-
+      Issue per-team or per-environment API keys so request volumes can be tagged
+      back to a specific cost center without provider-side support.
+  - name: Optimization
+    description: >-
+      Cache device records aggressively; the data refreshes weekly on Pro and
+      daily on Enterprise, so most reads are safely cached. Use autocomplete
+      ahead of search to reduce wasted lookups.
+  - name: Accountability
+    description: >-
+      Set spend alerts at 80% and 100% of monthly quota (the provider also
+      emails at these thresholds). Promote keys from Free to Pro before quota
+      exhaustion to avoid 429s in production.
+notes:
+  - Enterprise rates are not publicly listed; negotiate overage and per-call rates with sales.
+  - Stripe webhook /payment_successful is the only documented billing-event integration surface.

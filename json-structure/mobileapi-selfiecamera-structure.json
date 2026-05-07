@@ -1,0 +1,36 @@
+{
+  "name": "SelfieCamera",
+  "description": "Structure of the MobileAPI SelfieCamera resource as returned by the device-specifications API.",
+  "type": "object",
+  "required": [],
+  "fields": [
+    {
+      "name": "id",
+      "type": "integer",
+      "description": "ID",
+      "readOnly": true,
+      "format": null
+    },
+    {
+      "name": "modules",
+      "type": "string",
+      "description": "Front camera modules/sensors (Single, Dual, etc.)",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "features",
+      "type": "string",
+      "description": "Front camera features (HDR, face unlock, etc.)",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "video",
+      "type": "string",
+      "description": "Front camera video recording capabilities",
+      "readOnly": false,
+      "format": null
+    }
+  ]
+}

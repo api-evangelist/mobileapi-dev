@@ -1,0 +1,43 @@
+{
+  "count": 31563,
+  "next": "https://api.mobileapi.dev/devices/?page=2",
+  "previous": null,
+  "results": [
+    {
+      "id": 12345,
+      "name": "iPhone 17 Pro",
+      "manufacturer_name": "Apple",
+      "device_type": "smartphone",
+      "description": "Apple iPhone 17 Pro flagship with Apple A19 Pro SoC.",
+      "colors": "Silver, Cosmic Orange, Deep Blue",
+      "storage": "256GB, 512GB, 1TB",
+      "screen_resolution": "6.3\", 1206x2622 pixels",
+      "weight": "206g",
+      "thickness": "8.8mm",
+      "release_date": "Released 2025, September 19",
+      "camera": "48MP",
+      "battery_capacity": "3998 mAh",
+      "hardware": "12GB RAM, Apple A19 Pro",
+      "image_b64": "iVBORw0KGgoAAAANS...truncated",
+      "image_url": "https://api.mobileapi.dev/devices/12345/image/"
+    },
+    {
+      "id": 12346,
+      "name": "Galaxy S25 Ultra",
+      "manufacturer_name": "Samsung",
+      "device_type": "smartphone",
+      "description": "Samsung Galaxy S25 Ultra with Snapdragon 8 Elite for Galaxy.",
+      "colors": "Titanium Black, Titanium Gray, Titanium Silver, Titanium Whitesilver",
+      "storage": "256GB, 512GB, 1TB",
+      "screen_resolution": "6.9\", 1440x3120 pixels",
+      "weight": "218g",
+      "thickness": "8.2mm",
+      "release_date": "Released 2025, February 7",
+      "camera": "200MP",
+      "battery_capacity": "5000 mAh",
+      "hardware": "12GB RAM, Snapdragon 8 Elite",
+      "image_b64": "iVBORw0KGgoAAAANS...truncated",
+      "image_url": "https://api.mobileapi.dev/devices/12346/image/"
+    }
+  ]
+}

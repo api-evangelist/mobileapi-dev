@@ -1,0 +1,36 @@
+{
+  "name": "Memory",
+  "description": "Structure of the MobileAPI Memory resource as returned by the device-specifications API.",
+  "type": "object",
+  "required": [],
+  "fields": [
+    {
+      "name": "id",
+      "type": "integer",
+      "description": "ID",
+      "readOnly": true,
+      "format": null
+    },
+    {
+      "name": "card_slot",
+      "type": "string",
+      "description": "Memory card slot information",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "internal",
+      "type": "string",
+      "description": "Internal storage and RAM options",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "other",
+      "type": "string",
+      "description": "Other memory specifications (NVMe, UFS, etc.)",
+      "readOnly": false,
+      "format": null
+    }
+  ]
+}

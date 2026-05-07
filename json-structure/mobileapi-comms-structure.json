@@ -1,0 +1,57 @@
+{
+  "name": "Comms",
+  "description": "Structure of the MobileAPI Comms resource as returned by the device-specifications API.",
+  "type": "object",
+  "required": [],
+  "fields": [
+    {
+      "name": "id",
+      "type": "integer",
+      "description": "ID",
+      "readOnly": true,
+      "format": null
+    },
+    {
+      "name": "wlan",
+      "type": "string",
+      "description": "Wi-Fi specifications",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "bluetooth",
+      "type": "string",
+      "description": "Bluetooth version and features",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "positioning",
+      "type": "string",
+      "description": "GPS and positioning systems",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "nfc",
+      "type": "string",
+      "description": "NFC availability",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "radio",
+      "type": "string",
+      "description": "FM radio availability",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "usb",
+      "type": "string",
+      "description": "USB specifications",
+      "readOnly": false,
+      "format": null
+    }
+  ]
+}

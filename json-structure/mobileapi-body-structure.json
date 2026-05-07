@@ -1,0 +1,50 @@
+{
+  "name": "Body",
+  "description": "Structure of the MobileAPI Body resource as returned by the device-specifications API.",
+  "type": "object",
+  "required": [],
+  "fields": [
+    {
+      "name": "id",
+      "type": "integer",
+      "description": "ID",
+      "readOnly": true,
+      "format": null
+    },
+    {
+      "name": "dimensions",
+      "type": "string",
+      "description": "Device dimensions",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "weight",
+      "type": "string",
+      "description": "Device weight",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "build",
+      "type": "string",
+      "description": "Build materials and construction",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "sim",
+      "type": "string",
+      "description": "SIM card information",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "other",
+      "type": "string",
+      "description": "Other body specifications (IP rating, features, etc.)",
+      "readOnly": false,
+      "format": null
+    }
+  ]
+}

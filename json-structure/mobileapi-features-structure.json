@@ -1,0 +1,29 @@
+{
+  "name": "Features",
+  "description": "Structure of the MobileAPI Features resource as returned by the device-specifications API.",
+  "type": "object",
+  "required": [],
+  "fields": [
+    {
+      "name": "id",
+      "type": "integer",
+      "description": "ID",
+      "readOnly": true,
+      "format": null
+    },
+    {
+      "name": "sensors",
+      "type": "string",
+      "description": "Device sensors (accelerometer, gyro, fingerprint, etc.)",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "other",
+      "type": "string",
+      "description": "Other features (UWB, emergency SOS, satellite, etc.)",
+      "readOnly": false,
+      "format": null
+    }
+  ]
+}

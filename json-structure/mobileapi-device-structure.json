@@ -1,0 +1,213 @@
+{
+  "name": "Device",
+  "description": "Structure of the MobileAPI Device resource as returned by the device-specifications API.",
+  "type": "object",
+  "required": [
+    "name"
+  ],
+  "fields": [
+    {
+      "name": "id",
+      "type": "integer",
+      "description": "Id",
+      "readOnly": true,
+      "format": null
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "Name",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "manufacturer",
+      "type": "reference\u2192Manufacturer",
+      "description": "",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "manufacturer_name",
+      "type": "string",
+      "description": "Manufacturer name",
+      "readOnly": true,
+      "format": null
+    },
+    {
+      "name": "device_type",
+      "type": "string",
+      "description": "Type of device (phone, tablet, laptop, wearable, other)",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "Description",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "colors",
+      "type": "string",
+      "description": "Available colors",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "storage",
+      "type": "string",
+      "description": "Storage options (e.g., 256GB, 512GB, 2TB)",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "screen_resolution",
+      "type": "string",
+      "description": "Screen size and resolution (e.g., 6.9\", 1320 x 2868 pixels)",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "weight",
+      "type": "string",
+      "description": "Device weight (e.g., 233g)",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "thickness",
+      "type": "string",
+      "description": "Device thickness (e.g., 8.8mm)",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "release_date",
+      "type": "string",
+      "description": "Release date",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "camera",
+      "type": "string",
+      "description": "Main camera resolution (e.g., 48MP)",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "battery_capacity",
+      "type": "string",
+      "description": "Battery capacity (e.g., 4823 mAh)",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "hardware",
+      "type": "string",
+      "description": "RAM and chipset (e.g., 12GB RAM, Apple A19 Pro)",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "image_b64",
+      "type": "string",
+      "description": "Image b64",
+      "readOnly": true,
+      "format": null
+    },
+    {
+      "name": "image_url",
+      "type": "string",
+      "description": "Image url",
+      "readOnly": true,
+      "format": null
+    },
+    {
+      "name": "network",
+      "type": "reference\u2192Network",
+      "description": "",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "body",
+      "type": "reference\u2192Body",
+      "description": "",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "display",
+      "type": "reference\u2192Display",
+      "description": "",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "platform",
+      "type": "reference\u2192Platform",
+      "description": "",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "memory",
+      "type": "reference\u2192Memory",
+      "description": "",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "main_camera",
+      "type": "reference\u2192MainCamera",
+      "description": "",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "selfie_camera",
+      "type": "reference\u2192SelfieCamera",
+      "description": "",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "sound",
+      "type": "reference\u2192Sound",
+      "description": "",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "comms",
+      "type": "reference\u2192Comms",
+      "description": "",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "features",
+      "type": "reference\u2192Features",
+      "description": "",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "battery",
+      "type": "reference\u2192Battery",
+      "description": "",
+      "readOnly": false,
+      "format": null
+    },
+    {
+      "name": "misc",
+      "type": "reference\u2192Misc",
+      "description": "",
+      "readOnly": false,
+      "format": null
+    }
+  ]
+}

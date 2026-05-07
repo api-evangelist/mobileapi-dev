@@ -1,0 +1,66 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Device Lookup Workflow
+  description: >-
+    End-to-end workflow that takes a partial device name from a user, resolves
+    it via autocomplete, fetches the matching device record with full
+    specifications and images, and optionally pulls the per-category spec
+    payloads (battery, display, platform, memory, cameras) for downstream
+    insurance, trade-in, and e-commerce flows.
+  tags:
+    - Device Lookup
+    - Mobile Devices
+    - MobileAPI
+    - Search
+    - Workflow
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  imports:
+    - shared/mobileapi-capability.yaml
+  workflow:
+    name: device-lookup
+    steps:
+      - name: autocomplete-device
+        description: Resolve a partial device name to a list of canonical suggestions.
+        consume:
+          namespace: mobileapi
+          operation: devices-autocomplete
+          inputs:
+            q: '{{ user_query }}'
+            limit: 10
+      - name: search-device
+        description: Search for the user's chosen device by name or model number.
+        consume:
+          namespace: mobileapi
+          operation: devices-search
+          inputs:
+            name: '{{ chosen_device_name }}'
+      - name: get-device
+        description: Retrieve the complete device record by id.
+        consume:
+          namespace: mobileapi
+          operation: devices-read
+          inputs:
+            id: '{{ device_id }}'
+      - name: get-device-images
+        description: Fetch high-resolution gallery images for the device.
+        consume:
+          namespace: mobileapi
+          operation: devices-images
+          inputs:
+            id: '{{ device_id }}'
+      - name: get-device-battery
+        description: Fetch the battery sub-resource for trade-in or repair scoring.
+        consume:
+          namespace: mobileapi
+          operation: devices-battery
+          inputs:
+            id: '{{ device_id }}'
+      - name: get-device-display
+        description: Fetch the display sub-resource for parts selection.
+        consume:
+          namespace: mobileapi
+          operation: devices-display
+          inputs:
+            id: '{{ device_id }}'
