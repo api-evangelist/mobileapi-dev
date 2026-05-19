@@ -139,6 +139,8 @@ apis:
     email: support@mobileapi.dev
     url: https://mobileapi.dev
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/mobileapidev
 - type: Portal
   url: https://mobileapi.dev/
 - type: Documentation

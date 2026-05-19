@@ -1,0 +1,72 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: MobileAPI — status
+  description: 'MobileAPI — status. 1 operations. Lead operation: status. Self-contained Naftiko capability covering one Mobileapi
+    Dev business surface.'
+  tags:
+  - Mobileapi Dev
+  - status
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MOBILEAPI_DEV_API_KEY: MOBILEAPI_DEV_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: mobileapi-status
+    baseUri: https://api.mobileapi.dev
+    description: MobileAPI — status business capability. Self-contained, no shared references.
+    resources:
+    - name: status
+      path: /status/
+      operations:
+      - name: statuslist
+        method: GET
+        description: Retrieve the server status
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.MOBILEAPI_DEV_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: mobileapi-status-rest
+    port: 8080
+    description: REST adapter for MobileAPI — status. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/status
+      name: status
+      description: REST surface for status.
+      operations:
+      - method: GET
+        name: statuslist
+        description: Retrieve the server status
+        call: mobileapi-status.statuslist
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: mobileapi-status-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for MobileAPI — status. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: retrieve-server-status
+      description: Retrieve the server status
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mobileapi-status.statuslist
+      outputParameters:
+      - type: object
+        mapping: $.

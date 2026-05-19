@@ -1,0 +1,82 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: MobileAPI — api-token-auth
+  description: 'MobileAPI — api-token-auth. 1 operations. Lead operation: api-token-auth. Self-contained Naftiko capability
+    covering one Mobileapi Dev business surface.'
+  tags:
+  - Mobileapi Dev
+  - api-token-auth
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MOBILEAPI_DEV_API_KEY: MOBILEAPI_DEV_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: mobileapi-api-token-auth
+    baseUri: https://api.mobileapi.dev
+    description: MobileAPI — api-token-auth business capability. Self-contained, no shared references.
+    resources:
+    - name: api-token-auth
+      path: /api-token-auth/
+      operations:
+      - name: apitokenauthcreate
+        method: POST
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.MOBILEAPI_DEV_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: mobileapi-api-token-auth-rest
+    port: 8080
+    description: REST adapter for MobileAPI — api-token-auth. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/api-token-auth
+      name: api-token-auth
+      description: REST surface for api-token-auth.
+      operations:
+      - method: POST
+        name: apitokenauthcreate
+        description: apitokenauthcreate
+        call: mobileapi-api-token-auth.apitokenauthcreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: mobileapi-api-token-auth-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for MobileAPI — api-token-auth. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: apitokenauthcreate
+      description: apitokenauthcreate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: mobileapi-api-token-auth.apitokenauthcreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

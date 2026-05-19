@@ -1,0 +1,103 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: MobileAPI — api
+  description: 'MobileAPI — api. 2 operations. Lead operation: A Viewset for Viewing Firewall Log Entries.. Self-contained
+    Naftiko capability covering one Mobileapi Dev business surface.'
+  tags:
+  - Mobileapi Dev
+  - api
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MOBILEAPI_DEV_API_KEY: MOBILEAPI_DEV_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: mobileapi-api
+    baseUri: https://api.mobileapi.dev
+    description: MobileAPI — api business capability. Self-contained, no shared references.
+    resources:
+    - name: api-firewall
+      path: /api/firewall/
+      operations:
+      - name: apifirewalllist
+        method: GET
+        description: A Viewset for Viewing Firewall Log Entries.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-firewall-id
+      path: /api/firewall/{id}/
+      operations:
+      - name: apifirewallread
+        method: GET
+        description: A Viewset for Viewing Firewall Log Entries.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.MOBILEAPI_DEV_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: mobileapi-api-rest
+    port: 8080
+    description: REST adapter for MobileAPI — api. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/api/firewall
+      name: api-firewall
+      description: REST surface for api-firewall.
+      operations:
+      - method: GET
+        name: apifirewalllist
+        description: A Viewset for Viewing Firewall Log Entries.
+        call: mobileapi-api.apifirewalllist
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/firewall/{id}
+      name: api-firewall-id
+      description: REST surface for api-firewall-id.
+      operations:
+      - method: GET
+        name: apifirewallread
+        description: A Viewset for Viewing Firewall Log Entries.
+        call: mobileapi-api.apifirewallread
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: mobileapi-api-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for MobileAPI — api. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: viewset-viewing-firewall-log-entries
+      description: A Viewset for Viewing Firewall Log Entries.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mobileapi-api.apifirewalllist
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: viewset-viewing-firewall-log-entries-2
+      description: A Viewset for Viewing Firewall Log Entries.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mobileapi-api.apifirewallread
+      outputParameters:
+      - type: object
+        mapping: $.

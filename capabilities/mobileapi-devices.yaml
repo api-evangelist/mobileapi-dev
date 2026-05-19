@@ -1,0 +1,1085 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: MobileAPI — devices
+  description: 'MobileAPI — devices. 24 operations. Lead operation: List All Devices. Self-contained Naftiko capability covering
+    one Mobileapi Dev business surface.'
+  tags:
+  - Mobileapi Dev
+  - devices
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MOBILEAPI_DEV_API_KEY: MOBILEAPI_DEV_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: mobileapi-devices
+    baseUri: https://api.mobileapi.dev
+    description: MobileAPI — devices business capability. Self-contained, no shared references.
+    resources:
+    - name: devices
+      path: /devices/
+      operations:
+      - name: deviceslist
+        method: GET
+        description: List All Devices
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: 'Recommended: ''Token YOUR_API_KEY'' or ''Bearer YOUR_API_KEY'''
+        - name: key
+          in: query
+          type: string
+          description: 'Fallback: API key as query parameter (optional for demo)'
+        - name: page
+          in: query
+          type: integer
+          description: 'Page number (default: 1). Each page contains 50 devices.'
+    - name: devices-ai-query
+      path: /devices/ai-query/
+      operations:
+      - name: devicesaiquery
+        method: GET
+        description: Natural Language Device Query (AI-Powered) - Paid Users Only
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: query
+          in: query
+          type: string
+          description: Natural language query (e.g., 'top 5 devices with most RAM', 'phones with best battery')
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'Recommended: ''Token YOUR_API_KEY'' or ''Bearer YOUR_API_KEY'' (requires paid plan)'
+        - name: key
+          in: query
+          type: string
+          description: 'Fallback: API key as query parameter (requires paid plan)'
+    - name: devices-autocomplete
+      path: /devices/autocomplete/
+      operations:
+      - name: devicesautocomplete
+        method: GET
+        description: Autocomplete Device Names
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: 'Recommended: ''Token YOUR_API_KEY'' or ''Bearer YOUR_API_KEY'''
+        - name: key
+          in: query
+          type: string
+          description: 'Fallback: API key as query parameter (optional for demo)'
+        - name: q
+          in: query
+          type: string
+          description: Query string (minimum 5 characters)
+          required: true
+        - name: limit
+          in: query
+          type: integer
+          description: 'Maximum number of suggestions to return (default: 10, max: 30).'
+    - name: devices-by-brand
+      path: /devices/by-brand/
+      operations:
+      - name: devicesbybrand
+        method: GET
+        description: '[Deprecated] List Devices by Brand - Use /by-Manufacturer/ Instead'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: brand
+          in: query
+          type: string
+          description: 'Brand/Manufacturer name to filter devices (e.g., ''Apple'', ''Samsung''). DEPRECATED: Use ''manufacturer''
+            parameter with /by-manufacturer/ endpoint instead.'
+          required: true
+        - name: limit
+          in: query
+          type: integer
+          description: 'Maximum number of results to return (default: 10, max: 30).'
+        - name: Authorization
+          in: header
+          type: string
+          description: 'Recommended: ''Token YOUR_API_KEY'' or ''Bearer YOUR_API_KEY'''
+        - name: key
+          in: query
+          type: string
+          description: 'Fallback: API key as query parameter (less secure)'
+    - name: devices-by-manufacturer
+      path: /devices/by-manufacturer/
+      operations:
+      - name: devicesbymanufacturer
+        method: GET
+        description: List Devices by Manufacturer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: manufacturer
+          in: query
+          type: string
+          description: Manufacturer name to filter devices (e.g., 'Apple', 'Samsung').
+          required: true
+        - name: page
+          in: query
+          type: integer
+          description: 'Page number (default: 1). Each page contains 50 devices.'
+        - name: Authorization
+          in: header
+          type: string
+          description: 'Recommended: ''Token YOUR_API_KEY'' or ''Bearer YOUR_API_KEY'''
+        - name: key
+          in: query
+          type: string
+          description: 'Fallback: API key as query parameter (less secure)'
+    - name: devices-by-type
+      path: /devices/by-type/
+      operations:
+      - name: devicesbytype
+        method: GET
+        description: List Devices by Type
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: type
+          in: query
+          type: string
+          description: 'Device type: phone, tablet, laptop, wearable, or other'
+          required: true
+        - name: page
+          in: query
+          type: integer
+          description: 'Page number (default: 1). Each page contains 50 devices.'
+        - name: Authorization
+          in: header
+          type: string
+          description: 'Recommended: ''Token YOUR_API_KEY'' or ''Bearer YOUR_API_KEY'''
+        - name: key
+          in: query
+          type: string
+          description: 'Fallback: API key as query parameter (less secure)'
+    - name: devices-by-year
+      path: /devices/by-year/
+      operations:
+      - name: devicesbyyear
+        method: GET
+        description: List Devices by Launch Year
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: year
+          in: query
+          type: integer
+          description: Launch year (4-digit format, e.g., 2023)
+          required: true
+        - name: page
+          in: query
+          type: integer
+          description: 'Page number (default: 1). Each page contains 50 items.'
+        - name: Authorization
+          in: header
+          type: string
+          description: 'Recommended: ''Token YOUR_API_KEY'' or ''Bearer YOUR_API_KEY'''
+        - name: key
+          in: query
+          type: string
+          description: 'Fallback: API key as query parameter (less secure)'
+    - name: devices-search
+      path: /devices/search/
+      operations:
+      - name: devicessearch
+        method: GET
+        description: Search Device by Name or Model Number
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: 'Recommended: ''Token YOUR_API_KEY'' or ''Bearer YOUR_API_KEY'''
+        - name: key
+          in: query
+          type: string
+          description: 'Fallback: API key as query parameter (optional for demo)'
+        - name: name
+          in: query
+          type: string
+          description: Name of the device to search for (e.g., 'iPhone 15 Pro'). Mutually exclusive with 'model_number'.
+        - name: model_number
+          in: query
+          type: string
+          description: Model number of the device to search for (e.g., 'A3520'). Mutually exclusive with 'name'.
+        - name: manufacturer
+          in: query
+          type: string
+          description: Optional. Filter search results to devices from this manufacturer only. If no devices match the manufacturer,
+            returns empty results.
+        - name: limit
+          in: query
+          type: integer
+          description: 'Optional. Number of results to return per page (default: 10, max: 30). Use this to control how many
+            devices are returned in the response. For example, limit=1 r'
+        - name: page
+          in: query
+          type: integer
+          description: 'Page number (default: 1). Each page contains 50 devices.'
+        - name: exact
+          in: query
+          type: boolean
+          description: 'Set to true for exact matching (default: false). When true, only returns devices with 100% match certainty
+            (exact name or exact model number match).'
+    - name: devices-id
+      path: /devices/{id}/
+      operations:
+      - name: devicesread
+        method: GET
+        description: Get Device by ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: 'Recommended: ''Token YOUR_API_KEY'' or ''Bearer YOUR_API_KEY'''
+        - name: key
+          in: query
+          type: string
+          description: 'Fallback: API key as query parameter (optional for demo)'
+    - name: devices-id-battery
+      path: /devices/{id}/battery/
+      operations:
+      - name: devicesbattery
+        method: GET
+        description: Get Device Battery Specifications
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: devices-id-body
+      path: /devices/{id}/body/
+      operations:
+      - name: devicesbody
+        method: GET
+        description: Get Device Body Specifications
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: devices-id-comms
+      path: /devices/{id}/comms/
+      operations:
+      - name: devicescomms
+        method: GET
+        description: Get Device Communications Specifications
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: devices-id-display
+      path: /devices/{id}/display/
+      operations:
+      - name: devicesdisplay
+        method: GET
+        description: Get Device Display Specifications
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: devices-id-features
+      path: /devices/{id}/features/
+      operations:
+      - name: devicesfeatures
+        method: GET
+        description: Get Device Features Specifications
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: devices-id-image
+      path: /devices/{id}/image/
+      operations:
+      - name: devicesimagelist
+        method: GET
+        description: Serve Full-Resolution Device Main Image
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: 'Recommended: ''Token YOUR_API_KEY'' or ''Bearer YOUR_API_KEY'''
+        - name: key
+          in: query
+          type: string
+          description: 'Fallback: API key as query parameter (less secure, visible in logs)'
+    - name: devices-id-images
+      path: /devices/{id}/images/
+      operations:
+      - name: devicesimages
+        method: GET
+        description: Get Device Images
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: 'Maximum number of images to return (default: 10, max: 30).'
+    - name: devices-id-main-camera
+      path: /devices/{id}/main-camera/
+      operations:
+      - name: devicesmaincamera
+        method: GET
+        description: Get Device Main Camera Specifications
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: devices-id-memory
+      path: /devices/{id}/memory/
+      operations:
+      - name: devicesmemory
+        method: GET
+        description: Get Device Memory Specifications
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: devices-id-misc
+      path: /devices/{id}/misc/
+      operations:
+      - name: devicesmisc
+        method: GET
+        description: Get Device Miscellaneous Specifications
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: devices-id-network
+      path: /devices/{id}/network/
+      operations:
+      - name: devicesnetwork
+        method: GET
+        description: Get Device Network Specifications
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: devices-id-platform
+      path: /devices/{id}/platform/
+      operations:
+      - name: devicesplatform
+        method: GET
+        description: Get Device Platform Specifications
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: devices-id-selfie-camera
+      path: /devices/{id}/selfie-camera/
+      operations:
+      - name: devicesselfiecamera
+        method: GET
+        description: Get Device Selfie Camera Specifications
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: devices-id-sound
+      path: /devices/{id}/sound/
+      operations:
+      - name: devicessound
+        method: GET
+        description: Get Device Sound Specifications
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: devices-id-thumb.png
+      path: /devices/{id}/thumb.png/
+      operations:
+      - name: devicesthumbpnglist
+        method: GET
+        description: Serve Device Thumbnail Image (100x100)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.MOBILEAPI_DEV_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: mobileapi-devices-rest
+    port: 8080
+    description: REST adapter for MobileAPI — devices. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/devices
+      name: devices
+      description: REST surface for devices.
+      operations:
+      - method: GET
+        name: deviceslist
+        description: List All Devices
+        call: mobileapi-devices.deviceslist
+        with:
+          Authorization: rest.Authorization
+          key: rest.key
+          page: rest.page
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/devices/ai-query
+      name: devices-ai-query
+      description: REST surface for devices-ai-query.
+      operations:
+      - method: GET
+        name: devicesaiquery
+        description: Natural Language Device Query (AI-Powered) - Paid Users Only
+        call: mobileapi-devices.devicesaiquery
+        with:
+          query: rest.query
+          Authorization: rest.Authorization
+          key: rest.key
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/devices/autocomplete
+      name: devices-autocomplete
+      description: REST surface for devices-autocomplete.
+      operations:
+      - method: GET
+        name: devicesautocomplete
+        description: Autocomplete Device Names
+        call: mobileapi-devices.devicesautocomplete
+        with:
+          Authorization: rest.Authorization
+          key: rest.key
+          q: rest.q
+          limit: rest.limit
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/devices/by-brand
+      name: devices-by-brand
+      description: REST surface for devices-by-brand.
+      operations:
+      - method: GET
+        name: devicesbybrand
+        description: '[Deprecated] List Devices by Brand - Use /by-Manufacturer/ Instead'
+        call: mobileapi-devices.devicesbybrand
+        with:
+          brand: rest.brand
+          limit: rest.limit
+          Authorization: rest.Authorization
+          key: rest.key
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/devices/by-manufacturer
+      name: devices-by-manufacturer
+      description: REST surface for devices-by-manufacturer.
+      operations:
+      - method: GET
+        name: devicesbymanufacturer
+        description: List Devices by Manufacturer
+        call: mobileapi-devices.devicesbymanufacturer
+        with:
+          manufacturer: rest.manufacturer
+          page: rest.page
+          Authorization: rest.Authorization
+          key: rest.key
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/devices/by-type
+      name: devices-by-type
+      description: REST surface for devices-by-type.
+      operations:
+      - method: GET
+        name: devicesbytype
+        description: List Devices by Type
+        call: mobileapi-devices.devicesbytype
+        with:
+          type: rest.type
+          page: rest.page
+          Authorization: rest.Authorization
+          key: rest.key
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/devices/by-year
+      name: devices-by-year
+      description: REST surface for devices-by-year.
+      operations:
+      - method: GET
+        name: devicesbyyear
+        description: List Devices by Launch Year
+        call: mobileapi-devices.devicesbyyear
+        with:
+          year: rest.year
+          page: rest.page
+          Authorization: rest.Authorization
+          key: rest.key
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/devices/search
+      name: devices-search
+      description: REST surface for devices-search.
+      operations:
+      - method: GET
+        name: devicessearch
+        description: Search Device by Name or Model Number
+        call: mobileapi-devices.devicessearch
+        with:
+          Authorization: rest.Authorization
+          key: rest.key
+          name: rest.name
+          model_number: rest.model_number
+          manufacturer: rest.manufacturer
+          limit: rest.limit
+          page: rest.page
+          exact: rest.exact
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/devices/{id}
+      name: devices-id
+      description: REST surface for devices-id.
+      operations:
+      - method: GET
+        name: devicesread
+        description: Get Device by ID
+        call: mobileapi-devices.devicesread
+        with:
+          Authorization: rest.Authorization
+          key: rest.key
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/devices/{id}/battery
+      name: devices-id-battery
+      description: REST surface for devices-id-battery.
+      operations:
+      - method: GET
+        name: devicesbattery
+        description: Get Device Battery Specifications
+        call: mobileapi-devices.devicesbattery
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/devices/{id}/body
+      name: devices-id-body
+      description: REST surface for devices-id-body.
+      operations:
+      - method: GET
+        name: devicesbody
+        description: Get Device Body Specifications
+        call: mobileapi-devices.devicesbody
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/devices/{id}/comms
+      name: devices-id-comms
+      description: REST surface for devices-id-comms.
+      operations:
+      - method: GET
+        name: devicescomms
+        description: Get Device Communications Specifications
+        call: mobileapi-devices.devicescomms
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/devices/{id}/display
+      name: devices-id-display
+      description: REST surface for devices-id-display.
+      operations:
+      - method: GET
+        name: devicesdisplay
+        description: Get Device Display Specifications
+        call: mobileapi-devices.devicesdisplay
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/devices/{id}/features
+      name: devices-id-features
+      description: REST surface for devices-id-features.
+      operations:
+      - method: GET
+        name: devicesfeatures
+        description: Get Device Features Specifications
+        call: mobileapi-devices.devicesfeatures
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/devices/{id}/image
+      name: devices-id-image
+      description: REST surface for devices-id-image.
+      operations:
+      - method: GET
+        name: devicesimagelist
+        description: Serve Full-Resolution Device Main Image
+        call: mobileapi-devices.devicesimagelist
+        with:
+          Authorization: rest.Authorization
+          key: rest.key
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/devices/{id}/images
+      name: devices-id-images
+      description: REST surface for devices-id-images.
+      operations:
+      - method: GET
+        name: devicesimages
+        description: Get Device Images
+        call: mobileapi-devices.devicesimages
+        with:
+          limit: rest.limit
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/devices/{id}/main-camera
+      name: devices-id-main-camera
+      description: REST surface for devices-id-main-camera.
+      operations:
+      - method: GET
+        name: devicesmaincamera
+        description: Get Device Main Camera Specifications
+        call: mobileapi-devices.devicesmaincamera
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/devices/{id}/memory
+      name: devices-id-memory
+      description: REST surface for devices-id-memory.
+      operations:
+      - method: GET
+        name: devicesmemory
+        description: Get Device Memory Specifications
+        call: mobileapi-devices.devicesmemory
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/devices/{id}/misc
+      name: devices-id-misc
+      description: REST surface for devices-id-misc.
+      operations:
+      - method: GET
+        name: devicesmisc
+        description: Get Device Miscellaneous Specifications
+        call: mobileapi-devices.devicesmisc
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/devices/{id}/network
+      name: devices-id-network
+      description: REST surface for devices-id-network.
+      operations:
+      - method: GET
+        name: devicesnetwork
+        description: Get Device Network Specifications
+        call: mobileapi-devices.devicesnetwork
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/devices/{id}/platform
+      name: devices-id-platform
+      description: REST surface for devices-id-platform.
+      operations:
+      - method: GET
+        name: devicesplatform
+        description: Get Device Platform Specifications
+        call: mobileapi-devices.devicesplatform
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/devices/{id}/selfie-camera
+      name: devices-id-selfie-camera
+      description: REST surface for devices-id-selfie-camera.
+      operations:
+      - method: GET
+        name: devicesselfiecamera
+        description: Get Device Selfie Camera Specifications
+        call: mobileapi-devices.devicesselfiecamera
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/devices/{id}/sound
+      name: devices-id-sound
+      description: REST surface for devices-id-sound.
+      operations:
+      - method: GET
+        name: devicessound
+        description: Get Device Sound Specifications
+        call: mobileapi-devices.devicessound
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/devices/{id}/thumb-png
+      name: devices-id-thumb-png
+      description: REST surface for devices-id-thumb.png.
+      operations:
+      - method: GET
+        name: devicesthumbpnglist
+        description: Serve Device Thumbnail Image (100x100)
+        call: mobileapi-devices.devicesthumbpnglist
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: mobileapi-devices-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for MobileAPI — devices. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: list-all-devices
+      description: List All Devices
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mobileapi-devices.deviceslist
+      with:
+        Authorization: tools.Authorization
+        key: tools.key
+        page: tools.page
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: natural-language-device-query-ai
+      description: Natural Language Device Query (AI-Powered) - Paid Users Only
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mobileapi-devices.devicesaiquery
+      with:
+        query: tools.query
+        Authorization: tools.Authorization
+        key: tools.key
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: autocomplete-device-names
+      description: Autocomplete Device Names
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mobileapi-devices.devicesautocomplete
+      with:
+        Authorization: tools.Authorization
+        key: tools.key
+        q: tools.q
+        limit: tools.limit
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deprecated-list-devices-brand-use
+      description: '[Deprecated] List Devices by Brand - Use /by-Manufacturer/ Instead'
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mobileapi-devices.devicesbybrand
+      with:
+        brand: tools.brand
+        limit: tools.limit
+        Authorization: tools.Authorization
+        key: tools.key
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-devices-manufacturer
+      description: List Devices by Manufacturer
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mobileapi-devices.devicesbymanufacturer
+      with:
+        manufacturer: tools.manufacturer
+        page: tools.page
+        Authorization: tools.Authorization
+        key: tools.key
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-devices-type
+      description: List Devices by Type
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mobileapi-devices.devicesbytype
+      with:
+        type: tools.type
+        page: tools.page
+        Authorization: tools.Authorization
+        key: tools.key
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-devices-launch-year
+      description: List Devices by Launch Year
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mobileapi-devices.devicesbyyear
+      with:
+        year: tools.year
+        page: tools.page
+        Authorization: tools.Authorization
+        key: tools.key
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: search-device-name-model-number
+      description: Search Device by Name or Model Number
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mobileapi-devices.devicessearch
+      with:
+        Authorization: tools.Authorization
+        key: tools.key
+        name: tools.name
+        model_number: tools.model_number
+        manufacturer: tools.manufacturer
+        limit: tools.limit
+        page: tools.page
+        exact: tools.exact
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-device-id
+      description: Get Device by ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mobileapi-devices.devicesread
+      with:
+        Authorization: tools.Authorization
+        key: tools.key
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-device-battery-specifications
+      description: Get Device Battery Specifications
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mobileapi-devices.devicesbattery
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-device-body-specifications
+      description: Get Device Body Specifications
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mobileapi-devices.devicesbody
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-device-communications-specifications
+      description: Get Device Communications Specifications
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mobileapi-devices.devicescomms
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-device-display-specifications
+      description: Get Device Display Specifications
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mobileapi-devices.devicesdisplay
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-device-features-specifications
+      description: Get Device Features Specifications
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mobileapi-devices.devicesfeatures
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: serve-full-resolution-device-main
+      description: Serve Full-Resolution Device Main Image
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mobileapi-devices.devicesimagelist
+      with:
+        Authorization: tools.Authorization
+        key: tools.key
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-device-images
+      description: Get Device Images
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mobileapi-devices.devicesimages
+      with:
+        limit: tools.limit
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-device-main-camera-specifications
+      description: Get Device Main Camera Specifications
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mobileapi-devices.devicesmaincamera
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-device-memory-specifications
+      description: Get Device Memory Specifications
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mobileapi-devices.devicesmemory
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-device-miscellaneous-specifications
+      description: Get Device Miscellaneous Specifications
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mobileapi-devices.devicesmisc
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-device-network-specifications
+      description: Get Device Network Specifications
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mobileapi-devices.devicesnetwork
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-device-platform-specifications
+      description: Get Device Platform Specifications
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mobileapi-devices.devicesplatform
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-device-selfie-camera-specifications
+      description: Get Device Selfie Camera Specifications
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mobileapi-devices.devicesselfiecamera
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-device-sound-specifications
+      description: Get Device Sound Specifications
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mobileapi-devices.devicessound
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: serve-device-thumbnail-image-100x100
+      description: Serve Device Thumbnail Image (100x100)
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: mobileapi-devices.devicesthumbpnglist
+      outputParameters:
+      - type: object
+        mapping: $.
