@@ -306,6 +306,8 @@ common:
     url: capabilities/manufacturer-catalog.yaml
   - type: NaftikoCapability
     url: capabilities/shared/mobileapi-capability.yaml
+  - type: LLMsTxt
+    url: https://mobileapi.dev/llms.txt
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
