@@ -2,12 +2,20 @@
   "repo": "mobileapi-dev",
   "feeds": [
     {
-      "source": "https://mobileapi.dev/blog/",
+      "source": "https://mobileapi.dev/blog/feed/",
       "feed_url": "https://mobileapi.dev/blog/feed/",
-      "title": "MobileAPI",
-      "saved": 0
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://mobileapi.dev/signin/",
+      "feed_url": "https://mobileapi.dev/signin/",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
-  "fetched": "2026-05-17T20:20:35Z",
+  "fetched": "2026-06-01T23:35:02Z",
   "post_count": 20
 }
