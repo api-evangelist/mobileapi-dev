@@ -139,6 +139,27 @@ apis:
       email: support@mobileapi.dev
       url: https://mobileapi.dev
 common:
+  - type: ArazzoWorkflows
+    url: arazzo/
+    workflows:
+    - url: arazzo/mobileapi-dev-ai-query-with-account-check-workflow.yml
+      name: MobileAPI AI Query with Account Check
+      summary: Confirm the account, run a natural-language device query, and load the top result's detail.
+    - url: arazzo/mobileapi-dev-assemble-spec-sheet-workflow.yml
+      name: MobileAPI Assemble Device Spec Sheet
+      summary: Resolve a device by name and gather its display, main camera, and battery specifications.
+    - url: arazzo/mobileapi-dev-autocomplete-resolve-device-workflow.yml
+      name: MobileAPI Autocomplete and Resolve Device
+      summary: Turn a partial typeahead string into a confirmed device record.
+    - url: arazzo/mobileapi-dev-browse-manufacturer-catalog-workflow.yml
+      name: MobileAPI Browse a Manufacturer Catalog
+      summary: Look up a manufacturer in the directory, read its profile, then list its devices.
+    - url: arazzo/mobileapi-dev-browse-type-year-workflow.yml
+      name: MobileAPI Browse Devices by Type and Year
+      summary: List devices of a given type, then narrow to a launch year, branching when a slice is empty.
+    - url: arazzo/mobileapi-dev-search-device-detail-workflow.yml
+      name: MobileAPI Search Device and Load Full Detail
+      summary: Search the catalog by device name, then load the full record and gallery images for the best match.
   - type: LinkedIn
     url: https://www.linkedin.com/company/mobileapidev
   - type: Portal

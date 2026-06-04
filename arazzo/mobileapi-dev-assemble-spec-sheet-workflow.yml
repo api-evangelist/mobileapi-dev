@@ -1,0 +1,108 @@
+arazzo: 1.0.1
+info:
+  title: MobileAPI Assemble Device Spec Sheet
+  summary: Resolve a device by name and gather its display, main camera, and battery specifications.
+  description: >-
+    Builds a focused comparison spec sheet for a single device. The workflow
+    searches the catalog by name to resolve a device id, then fetches three of
+    the per-category specification endpoints (display, main camera, and
+    battery) for that device. Every step spells out its request inline so the
+    flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: mobileApi
+  url: ../openapi/mobileapi-openapi.yml
+  type: openapi
+workflows:
+- workflowId: assemble-device-spec-sheet
+  summary: Resolve a device by name and gather its display, camera, and battery specs.
+  description: >-
+    Searches the catalog for the supplied device name returning the best match,
+    then reads the display, main camera, and battery specification categories
+    for the resolved device id.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - name
+    properties:
+      apiKey:
+        type: string
+        description: MobileAPI key, sent in the Authorization header as 'Token <apiKey>'.
+      name:
+        type: string
+        description: Device name to search for (e.g. 'Galaxy S24 Ultra').
+  steps:
+  - stepId: findDevice
+    description: >-
+      Search the catalog by device name, returning the single best match to
+      resolve a concrete device id.
+    operationId: devices_search
+    parameters:
+    - name: Authorization
+      in: header
+      value: "Token $inputs.apiKey"
+    - name: name
+      in: query
+      value: $inputs.name
+    - name: limit
+      in: query
+      value: 1
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      deviceId: $response.body#/id
+      deviceName: $response.body#/name
+  - stepId: getDisplay
+    description: >-
+      Read the display specifications (screen size, resolution, technology)
+      for the resolved device.
+    operationId: devices_display
+    parameters:
+    - name: id
+      in: path
+      value: $steps.findDevice.outputs.deviceId
+    - name: Authorization
+      in: header
+      value: "Token $inputs.apiKey"
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      display: $response.body
+  - stepId: getMainCamera
+    description: >-
+      Read the main camera specifications for the resolved device.
+    operationId: devices_main_camera
+    parameters:
+    - name: id
+      in: path
+      value: $steps.findDevice.outputs.deviceId
+    - name: Authorization
+      in: header
+      value: "Token $inputs.apiKey"
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      mainCamera: $response.body
+  - stepId: getBattery
+    description: >-
+      Read the battery specifications for the resolved device.
+    operationId: devices_battery
+    parameters:
+    - name: id
+      in: path
+      value: $steps.findDevice.outputs.deviceId
+    - name: Authorization
+      in: header
+      value: "Token $inputs.apiKey"
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      battery: $response.body
+  outputs:
+    deviceId: $steps.findDevice.outputs.deviceId
+    deviceName: $steps.findDevice.outputs.deviceName
+    display: $steps.getDisplay.outputs.display
+    mainCamera: $steps.getMainCamera.outputs.mainCamera
+    battery: $steps.getBattery.outputs.battery

@@ -1,0 +1,100 @@
+arazzo: 1.0.1
+info:
+  title: MobileAPI Browse a Manufacturer Catalog
+  summary: Look up a manufacturer in the directory, read its profile, then list its devices.
+  description: >-
+    Drives the manufacturer-centric browse experience. The workflow lists the
+    manufacturer directory, reads a chosen manufacturer's profile by id to
+    confirm its canonical name and website, and then lists the first page of
+    devices made by that manufacturer. Every step spells out its request inline
+    so the flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: mobileApi
+  url: ../openapi/mobileapi-openapi.yml
+  type: openapi
+workflows:
+- workflowId: browse-manufacturer-catalog
+  summary: Read a manufacturer profile, then list its devices.
+  description: >-
+    Lists the manufacturer directory, reads the selected manufacturer's profile
+    by id to obtain its canonical name, and lists the first page of devices for
+    that manufacturer name.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - manufacturerId
+    properties:
+      apiKey:
+        type: string
+        description: MobileAPI key, sent in the Authorization header as 'Token <apiKey>'.
+      manufacturerId:
+        type: integer
+        description: The id of the manufacturer to profile and browse.
+      directoryPage:
+        type: integer
+        description: Page of the manufacturer directory to list (default 1, 50 per page).
+      devicePage:
+        type: integer
+        description: Page of the manufacturer's device list to list (default 1, 50 per page).
+  steps:
+  - stepId: listManufacturers
+    description: >-
+      List the manufacturer directory page so a manufacturer can be selected by
+      id.
+    operationId: manufacturers_list
+    parameters:
+    - name: Authorization
+      in: header
+      value: "Token $inputs.apiKey"
+    - name: page
+      in: query
+      value: $inputs.directoryPage
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      firstManufacturerName: $response.body#/0/name
+  - stepId: readManufacturer
+    description: >-
+      Read the selected manufacturer's profile by id to obtain its canonical
+      name and website URL.
+    operationId: manufacturers_read
+    parameters:
+    - name: id
+      in: path
+      value: $inputs.manufacturerId
+    - name: Authorization
+      in: header
+      value: "Token $inputs.apiKey"
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      manufacturerName: $response.body#/name
+      websiteUrl: $response.body#/website_url
+  - stepId: listDevices
+    description: >-
+      List the first page of devices made by the manufacturer, keyed on the
+      canonical manufacturer name resolved from the profile.
+    operationId: devices_by_manufacturer
+    parameters:
+    - name: manufacturer
+      in: query
+      value: $steps.readManufacturer.outputs.manufacturerName
+    - name: page
+      in: query
+      value: $inputs.devicePage
+    - name: Authorization
+      in: header
+      value: "Token $inputs.apiKey"
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      firstDeviceId: $response.body#/0/id
+      firstDeviceName: $response.body#/0/name
+  outputs:
+    manufacturerName: $steps.readManufacturer.outputs.manufacturerName
+    websiteUrl: $steps.readManufacturer.outputs.websiteUrl
+    firstDeviceId: $steps.listDevices.outputs.firstDeviceId
+    firstDeviceName: $steps.listDevices.outputs.firstDeviceName

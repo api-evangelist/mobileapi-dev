@@ -1,0 +1,99 @@
+arazzo: 1.0.1
+info:
+  title: MobileAPI Autocomplete and Resolve Device
+  summary: Turn a partial typeahead string into a confirmed device record.
+  description: >-
+    Models the typeahead-to-detail journey. The workflow asks the autocomplete
+    endpoint for suggestions matching a partial query string, then takes the
+    top suggestion name, searches for it to resolve a concrete device id, and
+    reads the full device record. Every step spells out its request inline so
+    the flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: mobileApi
+  url: ../openapi/mobileapi-openapi.yml
+  type: openapi
+workflows:
+- workflowId: autocomplete-and-resolve-device
+  summary: Autocomplete a partial query, then search and read the resolved device.
+  description: >-
+    Requests autocomplete suggestions for a partial query string, uses the top
+    suggestion's name to search the catalog for the best match, and reads the
+    full device record for that match.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - q
+    properties:
+      apiKey:
+        type: string
+        description: MobileAPI key, sent in the Authorization header as 'Token <apiKey>'.
+      q:
+        type: string
+        description: Partial query string for autocomplete (minimum 5 characters).
+      suggestionLimit:
+        type: integer
+        description: Maximum number of autocomplete suggestions to return (default 10, max 30).
+  steps:
+  - stepId: autocomplete
+    description: >-
+      Request typeahead suggestions for the partial query string, returning a
+      simplified list of candidate device names.
+    operationId: devices_autocomplete
+    parameters:
+    - name: Authorization
+      in: header
+      value: "Token $inputs.apiKey"
+    - name: q
+      in: query
+      value: $inputs.q
+    - name: limit
+      in: query
+      value: $inputs.suggestionLimit
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      topSuggestionName: $response.body#/0/name
+  - stepId: findDevice
+    description: >-
+      Search the catalog for the top autocomplete suggestion, limiting to the
+      single best match to resolve a concrete device id.
+    operationId: devices_search
+    parameters:
+    - name: Authorization
+      in: header
+      value: "Token $inputs.apiKey"
+    - name: name
+      in: query
+      value: $steps.autocomplete.outputs.topSuggestionName
+    - name: limit
+      in: query
+      value: 1
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      deviceId: $response.body#/id
+      deviceName: $response.body#/name
+  - stepId: readDevice
+    description: >-
+      Read the full device record for the resolved id, returning the complete
+      specification block.
+    operationId: devices_read
+    parameters:
+    - name: id
+      in: path
+      value: $steps.findDevice.outputs.deviceId
+    - name: Authorization
+      in: header
+      value: "Token $inputs.apiKey"
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      manufacturerName: $response.body#/manufacturer_name
+      deviceType: $response.body#/device_type
+  outputs:
+    deviceId: $steps.findDevice.outputs.deviceId
+    deviceName: $steps.findDevice.outputs.deviceName
+    manufacturerName: $steps.readDevice.outputs.manufacturerName

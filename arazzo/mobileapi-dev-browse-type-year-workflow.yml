@@ -1,0 +1,120 @@
+arazzo: 1.0.1
+info:
+  title: MobileAPI Browse Devices by Type and Year
+  summary: List devices of a given type, then narrow to a launch year, branching when a slice is empty.
+  description: >-
+    Supports faceted browsing of the catalog. The workflow lists devices of a
+    requested type (phone, tablet, laptop, wearable, or other), then narrows to
+    a specific launch year. Both endpoints return 204 when a facet has no
+    matches, so the flow branches explicitly: an empty year slice ends the
+    workflow gracefully rather than treating the empty response as a match.
+    Every step spells out its request inline so the flow can be read and
+    executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: mobileApi
+  url: ../openapi/mobileapi-openapi.yml
+  type: openapi
+workflows:
+- workflowId: browse-by-type-and-year
+  summary: List devices by type, then by launch year, branching on empty 204 slices.
+  description: >-
+    Lists devices of the requested type, then lists devices for the requested
+    launch year. When the year slice returns 204 (no matches) the workflow ends
+    on the empty branch; otherwise it surfaces the first matching device.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - type
+    - year
+    properties:
+      apiKey:
+        type: string
+        description: MobileAPI key, sent in the Authorization header as 'Token <apiKey>'.
+      type:
+        type: string
+        description: Device type facet to browse.
+        enum:
+        - phone
+        - tablet
+        - laptop
+        - wearable
+        - other
+      year:
+        type: integer
+        description: Four-digit launch year to narrow to (e.g. 2023).
+      page:
+        type: integer
+        description: Page number for both listings (default 1, 50 per page).
+  steps:
+  - stepId: listByType
+    description: >-
+      List the first page of devices of the requested type. A 204 here would
+      mean no devices exist for the type; a 200 returns the paginated slice.
+    operationId: devices_by_type
+    parameters:
+    - name: type
+      in: query
+      value: $inputs.type
+    - name: page
+      in: query
+      value: $inputs.page
+    - name: Authorization
+      in: header
+      value: "Token $inputs.apiKey"
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      firstTypeDeviceId: $response.body#/0/id
+  - stepId: listByYear
+    description: >-
+      List devices launched in the requested year. The endpoint returns 200
+      with a slice when matches exist and 204 when the year has no devices.
+    operationId: devices_by_year
+    parameters:
+    - name: year
+      in: query
+      value: $inputs.year
+    - name: page
+      in: query
+      value: $inputs.page
+    - name: Authorization
+      in: header
+      value: "Token $inputs.apiKey"
+    successCriteria:
+    - condition: $statusCode == 200 || $statusCode == 204
+    onSuccess:
+    - name: yearHasDevices
+      type: goto
+      stepId: surfaceMatch
+      criteria:
+      - condition: $statusCode == 200
+    - name: yearIsEmpty
+      type: end
+      criteria:
+      - condition: $statusCode == 204
+  - stepId: surfaceMatch
+    description: >-
+      Re-read the first page of the year slice to surface the first matching
+      device for the requested type and year combination.
+    operationId: devices_by_year
+    parameters:
+    - name: year
+      in: query
+      value: $inputs.year
+    - name: page
+      in: query
+      value: $inputs.page
+    - name: Authorization
+      in: header
+      value: "Token $inputs.apiKey"
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      firstYearDeviceId: $response.body#/0/id
+      firstYearDeviceName: $response.body#/0/name
+  outputs:
+    firstTypeDeviceId: $steps.listByType.outputs.firstTypeDeviceId
+    firstYearDeviceId: $steps.surfaceMatch.outputs.firstYearDeviceId
+    firstYearDeviceName: $steps.surfaceMatch.outputs.firstYearDeviceName

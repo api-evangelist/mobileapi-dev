@@ -1,0 +1,108 @@
+arazzo: 1.0.1
+info:
+  title: MobileAPI Search Device and Load Full Detail
+  summary: Search the catalog by device name, then load the full record and gallery images for the best match.
+  description: >-
+    Resolves a human-supplied device name into a concrete catalog record. The
+    workflow searches MobileAPI by name (limiting to the single best match),
+    reads the full device record by its id, and then pulls the device's
+    full-resolution gallery images. Every step spells out its request inline so
+    the flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: mobileApi
+  url: ../openapi/mobileapi-openapi.yml
+  type: openapi
+workflows:
+- workflowId: search-device-and-load-detail
+  summary: Search by device name and load the full record plus gallery images for the top match.
+  description: >-
+    Searches the catalog for the supplied device name returning the single best
+    match, reads the full device record by id, and retrieves the device's
+    full-resolution image gallery.
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - name
+    properties:
+      apiKey:
+        type: string
+        description: MobileAPI key, sent in the Authorization header as 'Token <apiKey>'.
+      name:
+        type: string
+        description: Device name to search for (e.g. 'iPhone 15 Pro').
+      manufacturer:
+        type: string
+        description: Optional manufacturer to constrain the search (e.g. 'Apple').
+      imageLimit:
+        type: integer
+        description: Maximum number of gallery images to return (default 10, max 30).
+  steps:
+  - stepId: findDevice
+    description: >-
+      Search the catalog by device name, returning only the single best match
+      so the workflow can resolve a concrete device id.
+    operationId: devices_search
+    parameters:
+    - name: Authorization
+      in: header
+      value: "Token $inputs.apiKey"
+    - name: name
+      in: query
+      value: $inputs.name
+    - name: manufacturer
+      in: query
+      value: $inputs.manufacturer
+    - name: limit
+      in: query
+      value: 1
+    - name: exact
+      in: query
+      value: false
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      deviceId: $response.body#/id
+      deviceName: $response.body#/name
+      manufacturerName: $response.body#/manufacturer_name
+  - stepId: readDevice
+    description: >-
+      Read the full device record by the id resolved from the search,
+      returning the complete specification block for the device.
+    operationId: devices_read
+    parameters:
+    - name: id
+      in: path
+      value: $steps.findDevice.outputs.deviceId
+    - name: Authorization
+      in: header
+      value: "Token $inputs.apiKey"
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      deviceType: $response.body#/device_type
+      hardware: $response.body#/hardware
+      releaseDate: $response.body#/release_date
+  - stepId: loadImages
+    description: >-
+      Retrieve the device's full-resolution gallery images. Accessing image
+      URLs consumes credits; the first entry is the main device image.
+    operationId: devices_images
+    parameters:
+    - name: id
+      in: path
+      value: $steps.findDevice.outputs.deviceId
+    - name: limit
+      in: query
+      value: $inputs.imageLimit
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      primaryImageUrl: $response.body#/0/image_url
+  outputs:
+    deviceId: $steps.findDevice.outputs.deviceId
+    deviceName: $steps.findDevice.outputs.deviceName
+    deviceType: $steps.readDevice.outputs.deviceType
+    primaryImageUrl: $steps.loadImages.outputs.primaryImageUrl

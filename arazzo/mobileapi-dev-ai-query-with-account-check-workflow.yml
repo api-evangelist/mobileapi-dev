@@ -1,0 +1,100 @@
+arazzo: 1.0.1
+info:
+  title: MobileAPI AI Query with Account Check
+  summary: Confirm the account, run a natural-language device query, and load the top result's detail.
+  description: >-
+    Wraps the AI-powered natural-language query endpoint, which is restricted to
+    paid plans. The workflow first introspects the caller's account via /me/,
+    then submits a natural-language query. Because the AI endpoint returns 403
+    when the plan is not paid, the flow branches: a successful 200 continues on
+    to read the top matching device, while a 403 ends the workflow on the
+    plan-required branch. Every step spells out its request inline so the flow
+    can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: mobileApi
+  url: ../openapi/mobileapi-openapi.yml
+  type: openapi
+workflows:
+- workflowId: ai-query-with-account-check
+  summary: Check the account, run an AI natural-language query, and read the top match.
+  description: >-
+    Introspects the caller's account, submits a natural-language device query
+    to the AI endpoint, and reads the full record for the top result. Branches
+    to an end state when the AI endpoint reports the plan is not paid (403).
+  inputs:
+    type: object
+    required:
+    - apiKey
+    - query
+    properties:
+      apiKey:
+        type: string
+        description: MobileAPI key, sent in the Authorization header as 'Token <apiKey>'.
+      query:
+        type: string
+        description: Natural-language query (e.g. 'top 5 devices with most RAM').
+  steps:
+  - stepId: whoAmI
+    description: >-
+      Introspect the caller's account before spending an AI query, confirming
+      the supplied API key authenticates successfully.
+    operationId: me_list
+    parameters:
+    - name: Authorization
+      in: header
+      value: "Token $inputs.apiKey"
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      account: $response.body
+  - stepId: runAiQuery
+    description: >-
+      Submit the natural-language query to the AI-powered endpoint. Returns 200
+      with results on a paid plan, or 403 when a paid plan is required.
+    operationId: devices_ai_query
+    parameters:
+    - name: query
+      in: query
+      value: $inputs.query
+    - name: Authorization
+      in: header
+      value: "Token $inputs.apiKey"
+    successCriteria:
+    - condition: $statusCode == 200 || $statusCode == 403
+    outputs:
+      topResultId: $response.body#/0/id
+      topResultName: $response.body#/0/name
+    onSuccess:
+    - name: planAllowed
+      type: goto
+      stepId: readTopResult
+      criteria:
+      - condition: $statusCode == 200
+    - name: planRequired
+      type: end
+      criteria:
+      - condition: $statusCode == 403
+  - stepId: readTopResult
+    description: >-
+      Read the full device record for the top AI-query result so the caller
+      gets the complete specification block for the best match.
+    operationId: devices_read
+    parameters:
+    - name: id
+      in: path
+      value: $steps.runAiQuery.outputs.topResultId
+    - name: Authorization
+      in: header
+      value: "Token $inputs.apiKey"
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      manufacturerName: $response.body#/manufacturer_name
+      hardware: $response.body#/hardware
+  outputs:
+    topResultId: $steps.runAiQuery.outputs.topResultId
+    topResultName: $steps.runAiQuery.outputs.topResultName
+    manufacturerName: $steps.readTopResult.outputs.manufacturerName
+    hardware: $steps.readTopResult.outputs.hardware
