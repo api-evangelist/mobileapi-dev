@@ -1,10 +1,12 @@
 aid: mobileapi-dev
 name: MobileAPI.dev
-description: MobileAPI.dev is a commercial REST API that provides structured device specifications, product images, and metadata
-  for over 31,500 smartphones, tablets, smartwatches, and laptops from more than 200 brands. The API exposes 12 normalized
-  spec categories per device (Network, Body, Display, Platform, Memory, Main Camera, Selfie Camera, Sound, Comms, Features,
-  Battery, Misc), fuzzy search, autocomplete, manufacturer indices, and a natural-language AI query endpoint, replacing in-house
-  scraping of GSMArena-style sources for device-catalog, comparison, e-commerce, trade-in, repair, and insurance applications.
+description: >-
+  MobileAPI.dev is a commercial REST API that provides structured device specifications, product images, and metadata
+  for over 31,500 smartphones, tablets, smartwatches, and laptops from more than 200 brands. The API exposes 12
+  normalized spec categories per device (Network, Body, Display, Platform, Memory, Main Camera, Selfie Camera, Sound,
+  Comms, Features, Battery, Misc), fuzzy search, autocomplete, manufacturer indices, and a natural-language AI query
+  endpoint, replacing in-house scraping of GSMArena-style sources for device-catalog, comparison, e-commerce, trade-in,
+  repair, and insurance applications.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
@@ -22,144 +24,147 @@ specificationVersion: '0.19'
 apis:
   - aid: mobileapi-dev:mobileapi
     name: MobileAPI
-    description: REST API providing device specifications, base64-encoded product images, and pricing metadata for 31,500+ smartphones,
-      tablets, smartwatches, and laptops across 200+ manufacturers. Endpoints support paginated device listing, fuzzy search
-      by name or model number, autocomplete, browsing by manufacturer/year/type, per-category specification retrieval (battery,
-      display, platform, memory, cameras, network, sound, comms, features, body, misc), high-resolution images, manufacturer
-      directory, account introspection (/me/), and an AI natural-language query endpoint that translates plain-English questions
-      into structured device results.
+    description: >-
+      REST API providing device specifications, base64-encoded product images, and pricing metadata for 31,500+
+      smartphones, tablets, smartwatches, and laptops across 200+ manufacturers. Endpoints support paginated device
+      listing, fuzzy search by name or model number, autocomplete, browsing by manufacturer/year/type, per-category
+      specification retrieval (battery, display, platform, memory, cameras, network, sound, comms, features, body,
+      misc), high-resolution images, manufacturer directory, account introspection (/me/), and an AI natural-language
+      query endpoint that translates plain-English questions into structured device results.
     humanURL: https://mobileapi.dev/
     baseURL: https://api.mobileapi.dev/
     tags:
-    - Autocomplete
-    - Device Catalog
-    - Device Specifications
-    - Fuzzy Search
-    - Manufacturers
-    - Mobile Devices
-    - Natural Language Query
-    - Product Images
-    - REST API
-    - Smartphones
-    - Smartwatches
-    - Tablets
+      - Autocomplete
+      - Device Catalog
+      - Device Specifications
+      - Fuzzy Search
+      - Manufacturers
+      - Mobile Devices
+      - Natural Language Query
+      - Product Images
+      - REST API
+      - Smartphones
+      - Smartwatches
+      - Tablets
     properties:
-    - type: Documentation
-      url: https://mobileapi.dev/docs/
-    - type: APIReference
-      url: https://mobileapi.dev/docs/
-    - type: OpenAPI
-      url: openapi/mobileapi-openapi.yml
-    - type: GettingStarted
-      url: https://mobileapi.dev/docs/
-    - type: Authentication
-      url: https://mobileapi.dev/docs/
-    - type: RateLimits
-      url: https://mobileapi.dev/docs/
-    - type: CodeExamples
-      url: https://mobileapi.dev/docs/
-    - type: JSONSchema
-      url: json-schema/mobileapi-battery-schema.json
-    - type: JSONSchema
-      url: json-schema/mobileapi-body-schema.json
-    - type: JSONSchema
-      url: json-schema/mobileapi-comms-schema.json
-    - type: JSONSchema
-      url: json-schema/mobileapi-device-schema.json
-    - type: JSONSchema
-      url: json-schema/mobileapi-devicelist-schema.json
-    - type: JSONSchema
-      url: json-schema/mobileapi-display-schema.json
-    - type: JSONSchema
-      url: json-schema/mobileapi-features-schema.json
-    - type: JSONSchema
-      url: json-schema/mobileapi-image-schema.json
-    - type: JSONSchema
-      url: json-schema/mobileapi-maincamera-schema.json
-    - type: JSONSchema
-      url: json-schema/mobileapi-manufacturer-schema.json
-    - type: JSONSchema
-      url: json-schema/mobileapi-memory-schema.json
-    - type: JSONSchema
-      url: json-schema/mobileapi-misc-schema.json
-    - type: JSONSchema
-      url: json-schema/mobileapi-network-schema.json
-    - type: JSONSchema
-      url: json-schema/mobileapi-platform-schema.json
-    - type: JSONSchema
-      url: json-schema/mobileapi-selfiecamera-schema.json
-    - type: JSONSchema
-      url: json-schema/mobileapi-sound-schema.json
-    - type: JSONStructure
-      url: json-structure/mobileapi-battery-structure.json
-    - type: JSONStructure
-      url: json-structure/mobileapi-body-structure.json
-    - type: JSONStructure
-      url: json-structure/mobileapi-comms-structure.json
-    - type: JSONStructure
-      url: json-structure/mobileapi-device-structure.json
-    - type: JSONStructure
-      url: json-structure/mobileapi-devicelist-structure.json
-    - type: JSONStructure
-      url: json-structure/mobileapi-display-structure.json
-    - type: JSONStructure
-      url: json-structure/mobileapi-features-structure.json
-    - type: JSONStructure
-      url: json-structure/mobileapi-image-structure.json
-    - type: JSONStructure
-      url: json-structure/mobileapi-maincamera-structure.json
-    - type: JSONStructure
-      url: json-structure/mobileapi-manufacturer-structure.json
-    - type: JSONStructure
-      url: json-structure/mobileapi-memory-structure.json
-    - type: JSONStructure
-      url: json-structure/mobileapi-misc-structure.json
-    - type: JSONStructure
-      url: json-structure/mobileapi-network-structure.json
-    - type: JSONStructure
-      url: json-structure/mobileapi-platform-structure.json
-    - type: JSONStructure
-      url: json-structure/mobileapi-selfiecamera-structure.json
-    - type: JSONStructure
-      url: json-structure/mobileapi-sound-structure.json
-    - type: Example
-      url: examples/mobileapi-ai-query-example.json
-    - type: Example
-      url: examples/mobileapi-autocomplete-example.json
-    - type: Example
-      url: examples/mobileapi-device-example.json
-    - type: Example
-      url: examples/mobileapi-devicelist-example.json
-    - type: Example
-      url: examples/mobileapi-manufacturer-example.json
-    - type: JSONLD
-      url: json-ld/mobileapi-dev-context.jsonld
+      - type: Documentation
+        url: https://mobileapi.dev/docs/
+      - type: APIReference
+        url: https://mobileapi.dev/docs/
+      - type: OpenAPI
+        url: openapi/mobileapi-openapi.yml
+      - type: GettingStarted
+        url: https://mobileapi.dev/docs/
+      - type: Authentication
+        url: https://mobileapi.dev/docs/
+      - type: RateLimits
+        url: https://mobileapi.dev/docs/
+      - type: CodeExamples
+        url: https://mobileapi.dev/docs/
+      - type: JSONSchema
+        url: json-schema/mobileapi-battery-schema.json
+      - type: JSONSchema
+        url: json-schema/mobileapi-body-schema.json
+      - type: JSONSchema
+        url: json-schema/mobileapi-comms-schema.json
+      - type: JSONSchema
+        url: json-schema/mobileapi-device-schema.json
+      - type: JSONSchema
+        url: json-schema/mobileapi-devicelist-schema.json
+      - type: JSONSchema
+        url: json-schema/mobileapi-display-schema.json
+      - type: JSONSchema
+        url: json-schema/mobileapi-features-schema.json
+      - type: JSONSchema
+        url: json-schema/mobileapi-image-schema.json
+      - type: JSONSchema
+        url: json-schema/mobileapi-maincamera-schema.json
+      - type: JSONSchema
+        url: json-schema/mobileapi-manufacturer-schema.json
+      - type: JSONSchema
+        url: json-schema/mobileapi-memory-schema.json
+      - type: JSONSchema
+        url: json-schema/mobileapi-misc-schema.json
+      - type: JSONSchema
+        url: json-schema/mobileapi-network-schema.json
+      - type: JSONSchema
+        url: json-schema/mobileapi-platform-schema.json
+      - type: JSONSchema
+        url: json-schema/mobileapi-selfiecamera-schema.json
+      - type: JSONSchema
+        url: json-schema/mobileapi-sound-schema.json
+      - type: JSONStructure
+        url: json-structure/mobileapi-battery-structure.json
+      - type: JSONStructure
+        url: json-structure/mobileapi-body-structure.json
+      - type: JSONStructure
+        url: json-structure/mobileapi-comms-structure.json
+      - type: JSONStructure
+        url: json-structure/mobileapi-device-structure.json
+      - type: JSONStructure
+        url: json-structure/mobileapi-devicelist-structure.json
+      - type: JSONStructure
+        url: json-structure/mobileapi-display-structure.json
+      - type: JSONStructure
+        url: json-structure/mobileapi-features-structure.json
+      - type: JSONStructure
+        url: json-structure/mobileapi-image-structure.json
+      - type: JSONStructure
+        url: json-structure/mobileapi-maincamera-structure.json
+      - type: JSONStructure
+        url: json-structure/mobileapi-manufacturer-structure.json
+      - type: JSONStructure
+        url: json-structure/mobileapi-memory-structure.json
+      - type: JSONStructure
+        url: json-structure/mobileapi-misc-structure.json
+      - type: JSONStructure
+        url: json-structure/mobileapi-network-structure.json
+      - type: JSONStructure
+        url: json-structure/mobileapi-platform-structure.json
+      - type: JSONStructure
+        url: json-structure/mobileapi-selfiecamera-structure.json
+      - type: JSONStructure
+        url: json-structure/mobileapi-sound-structure.json
+      - type: Example
+        url: examples/mobileapi-ai-query-example.json
+      - type: Example
+        url: examples/mobileapi-autocomplete-example.json
+      - type: Example
+        url: examples/mobileapi-device-example.json
+      - type: Example
+        url: examples/mobileapi-devicelist-example.json
+      - type: Example
+        url: examples/mobileapi-manufacturer-example.json
+      - type: JSONLD
+        url: json-ld/mobileapi-dev-context.jsonld
     contact:
-    - FN: MobileAPI.dev Support
-      email: support@mobileapi.dev
-      url: https://mobileapi.dev
+      - FN: MobileAPI.dev Support
+        email: support@mobileapi.dev
+        url: https://mobileapi.dev
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/mobileapidev/overview
   - type: ArazzoWorkflows
     url: arazzo/
     workflows:
-    - url: arazzo/mobileapi-dev-ai-query-with-account-check-workflow.yml
-      name: MobileAPI AI Query with Account Check
-      summary: Confirm the account, run a natural-language device query, and load the top result's detail.
-    - url: arazzo/mobileapi-dev-assemble-spec-sheet-workflow.yml
-      name: MobileAPI Assemble Device Spec Sheet
-      summary: Resolve a device by name and gather its display, main camera, and battery specifications.
-    - url: arazzo/mobileapi-dev-autocomplete-resolve-device-workflow.yml
-      name: MobileAPI Autocomplete and Resolve Device
-      summary: Turn a partial typeahead string into a confirmed device record.
-    - url: arazzo/mobileapi-dev-browse-manufacturer-catalog-workflow.yml
-      name: MobileAPI Browse a Manufacturer Catalog
-      summary: Look up a manufacturer in the directory, read its profile, then list its devices.
-    - url: arazzo/mobileapi-dev-browse-type-year-workflow.yml
-      name: MobileAPI Browse Devices by Type and Year
-      summary: List devices of a given type, then narrow to a launch year, branching when a slice is empty.
-    - url: arazzo/mobileapi-dev-search-device-detail-workflow.yml
-      name: MobileAPI Search Device and Load Full Detail
-      summary: Search the catalog by device name, then load the full record and gallery images for the best match.
+      - url: arazzo/mobileapi-dev-ai-query-with-account-check-workflow.yml
+        name: MobileAPI AI Query with Account Check
+        summary: Confirm the account, run a natural-language device query, and load the top result's detail.
+      - url: arazzo/mobileapi-dev-assemble-spec-sheet-workflow.yml
+        name: MobileAPI Assemble Device Spec Sheet
+        summary: Resolve a device by name and gather its display, main camera, and battery specifications.
+      - url: arazzo/mobileapi-dev-autocomplete-resolve-device-workflow.yml
+        name: MobileAPI Autocomplete and Resolve Device
+        summary: Turn a partial typeahead string into a confirmed device record.
+      - url: arazzo/mobileapi-dev-browse-manufacturer-catalog-workflow.yml
+        name: MobileAPI Browse a Manufacturer Catalog
+        summary: Look up a manufacturer in the directory, read its profile, then list its devices.
+      - url: arazzo/mobileapi-dev-browse-type-year-workflow.yml
+        name: MobileAPI Browse Devices by Type and Year
+        summary: List devices of a given type, then narrow to a launch year, branching when a slice is empty.
+      - url: arazzo/mobileapi-dev-search-device-detail-workflow.yml
+        name: MobileAPI Search Device and Load Full Detail
+        summary: Search the catalog by device name, then load the full record and gallery images for the best match.
   - type: LinkedIn
     url: https://www.linkedin.com/company/mobileapidev
   - type: Portal
@@ -194,120 +199,143 @@ common:
     url: https://app.getterms.io/view/AG2Np/privacy/en-us
   - type: Features
     data:
-    - name: Comprehensive Device Database
-      description: 31,500+ smartphones, tablets, smartwatches, and laptops across 200+ brands including Apple, Samsung, Google,
-        OnePlus, Xiaomi, Huawei, Realme, and Infinix.
-    - name: Twelve Normalized Spec Categories
-      description: Each device returns structured data across Network, Body, Display, Platform, Memory, Main Camera, Selfie
-        Camera, Sound, Comms, Features, Battery, and Misc with dedicated per-category endpoints.
-    - name: Embedded Product Images
-      description: Multiple official product images per device, returned as base64-encoded payloads plus 100x100 thumbnails,
-        eliminating the need to host an image CDN.
-    - name: Fuzzy Search and Autocomplete
-      description: Manufacturer-aware search tolerates typos, partial names, and model number variations; a separate autocomplete
-        endpoint powers search-as-you-type UIs.
-    - name: AI Natural-Language Query
-      description: A /devices/ai-query/ endpoint translates plain-English questions like 'phones with 8GB+ RAM under 200g' or
-        'best camera phones from 2024' into structured device results (paid plans only).
-    - name: Browse-By Indices
-      description: Dedicated endpoints to list devices by manufacturer, launch year, or device type for building brand pages,
-        new releases feeds, or category navigation.
-    - name: Token or Bearer Authentication
-      description: API keys can be supplied via Authorization Token, Authorization Bearer, or a key= query parameter fallback;
-        both header formats are equivalent.
-    - name: Rate-Limit Headers
-      description: Every response includes X-RateLimit-Limit, X-RateLimit-Remaining, and X-RateLimit-Reset so clients can self-throttle;
-        quota exceedance returns HTTP 429.
-    - name: Demo Endpoints (No Key Required)
-      description: A /demo-x7k9m2p4/devices/ mirror of the authenticated tree allows zero-key evaluation of every endpoint shape
-        before signing up.
-    - name: Account Introspection
-      description: GET /me/ returns plan, quota, and usage metadata for the authenticated key.
-    - name: Status Page and Uptime
-      description: Real-time Cronitor-hosted status page with 99.9% uptime guarantee on Business and Enterprise tiers.
+      - name: Comprehensive Device Database
+        description: >-
+          31,500+ smartphones, tablets, smartwatches, and laptops across 200+ brands including Apple, Samsung, Google,
+          OnePlus, Xiaomi, Huawei, Realme, and Infinix.
+      - name: Twelve Normalized Spec Categories
+        description: >-
+          Each device returns structured data across Network, Body, Display, Platform, Memory, Main Camera, Selfie
+          Camera, Sound, Comms, Features, Battery, and Misc with dedicated per-category endpoints.
+      - name: Embedded Product Images
+        description: >-
+          Multiple official product images per device, returned as base64-encoded payloads plus 100x100 thumbnails,
+          eliminating the need to host an image CDN.
+      - name: Fuzzy Search and Autocomplete
+        description: >-
+          Manufacturer-aware search tolerates typos, partial names, and model number variations; a separate autocomplete
+          endpoint powers search-as-you-type UIs.
+      - name: AI Natural-Language Query
+        description: >-
+          A /devices/ai-query/ endpoint translates plain-English questions like 'phones with 8GB+ RAM under 200g' or
+          'best camera phones from 2024' into structured device results (paid plans only).
+      - name: Browse-By Indices
+        description: >-
+          Dedicated endpoints to list devices by manufacturer, launch year, or device type for building brand pages, new
+          releases feeds, or category navigation.
+      - name: Token or Bearer Authentication
+        description: >-
+          API keys can be supplied via Authorization Token, Authorization Bearer, or a key= query parameter fallback;
+          both header formats are equivalent.
+      - name: Rate-Limit Headers
+        description: >-
+          Every response includes X-RateLimit-Limit, X-RateLimit-Remaining, and X-RateLimit-Reset so clients can
+          self-throttle; quota exceedance returns HTTP 429.
+      - name: Demo Endpoints (No Key Required)
+        description: >-
+          A /demo-x7k9m2p4/devices/ mirror of the authenticated tree allows zero-key evaluation of every endpoint shape
+          before signing up.
+      - name: Account Introspection
+        description: GET /me/ returns plan, quota, and usage metadata for the authenticated key.
+      - name: Status Page and Uptime
+        description: Real-time Cronitor-hosted status page with 99.9% uptime guarantee on Business and Enterprise tiers.
     sources:
-    - https://mobileapi.dev/
-    - https://mobileapi.dev/docs/
+      - https://mobileapi.dev/
+      - https://mobileapi.dev/docs/
     updated: '2026-05-06'
   - type: UseCases
     data:
-    - name: Device Catalog and Comparison Sites
-      description: Power product catalog and side-by-side spec comparison pages with up-to-date specs and images for current
-        and historical devices.
-    - name: Trade-In and Buyback Platforms
-      description: Identify a device by name, model number, or autocomplete suggestion and pull structured specs for valuation
-        and resale workflows.
-    - name: Repair and Service Workflows
-      description: Look up displays, batteries, cameras, and connectivity details to drive parts selection and pricing in repair-shop
-        applications.
-    - name: Insurance and Warranty Quoting
-      description: Resolve user-supplied device names to canonical models and risk-tier specs for handset insurance and warranty
-        premium calculations.
-    - name: E-commerce Product Pages
-      description: Auto-fill product detail pages with normalized specs and base64 images for marketplace listings, retail sites,
-        and affiliate stores.
-    - name: AI Assistants and Recommender Bots
-      description: Use the AI natural-language query endpoint to power conversational device recommendations grounded in real
-        specifications.
-    - name: Carrier and MVNO Compatibility Tools
-      description: Match the network bands (2G/3G/4G/5G) of a customer's device against carrier coverage to drive bring-your-own-device
-        flows.
-    - name: Reviews and Tech Editorial Sites
-      description: Embed structured spec sheets in reviews and news posts without scraping or maintaining an in-house spec database.
+      - name: Device Catalog and Comparison Sites
+        description: >-
+          Power product catalog and side-by-side spec comparison pages with up-to-date specs and images for current and
+          historical devices.
+      - name: Trade-In and Buyback Platforms
+        description: >-
+          Identify a device by name, model number, or autocomplete suggestion and pull structured specs for valuation
+          and resale workflows.
+      - name: Repair and Service Workflows
+        description: >-
+          Look up displays, batteries, cameras, and connectivity details to drive parts selection and pricing in
+          repair-shop applications.
+      - name: Insurance and Warranty Quoting
+        description: >-
+          Resolve user-supplied device names to canonical models and risk-tier specs for handset insurance and warranty
+          premium calculations.
+      - name: E-commerce Product Pages
+        description: >-
+          Auto-fill product detail pages with normalized specs and base64 images for marketplace listings, retail sites,
+          and affiliate stores.
+      - name: AI Assistants and Recommender Bots
+        description: >-
+          Use the AI natural-language query endpoint to power conversational device recommendations grounded in real
+          specifications.
+      - name: Carrier and MVNO Compatibility Tools
+        description: >-
+          Match the network bands (2G/3G/4G/5G) of a customer's device against carrier coverage to drive
+          bring-your-own-device flows.
+      - name: Reviews and Tech Editorial Sites
+        description: >-
+          Embed structured spec sheets in reviews and news posts without scraping or maintaining an in-house spec
+          database.
     sources:
-    - https://mobileapi.dev/
+      - https://mobileapi.dev/
     updated: '2026-05-06'
   - type: Integrations
     data:
-    - name: cURL
-      description: Documented cURL recipes for /devices/search/ and other endpoints with Content-Type application/json and query-parameter
-        API keys.
-    - name: JavaScript / Fetch
-      description: Documented fetch-based examples for browser and Node.js integrations.
-    - name: Python / Requests
-      description: Documented Python requests snippets for device search and retrieval.
-    - name: PHP
-      description: Documented PHP file_get_contents plus http_build_query examples.
-    - name: Stripe
-      description: Stripe-hosted checkout flow handles plan upgrades and recurring billing (referenced in CSP allowlist and
-        /payment_successful callback).
-    - name: Help Scout Beacon
-      description: In-app support widget powered by Help Scout for paid-plan ticketing.
-    - name: Cronitor Status Page
-      description: Public uptime and incident history hosted on Cronitor at mobileapi.cronitorstatus.com.
-    - name: GetTerms.io
-      description: Terms of Service and Privacy Policy hosted on GetTerms.io.
+      - name: cURL
+        description: >-
+          Documented cURL recipes for /devices/search/ and other endpoints with Content-Type application/json and
+          query-parameter API keys.
+      - name: JavaScript / Fetch
+        description: Documented fetch-based examples for browser and Node.js integrations.
+      - name: Python / Requests
+        description: Documented Python requests snippets for device search and retrieval.
+      - name: PHP
+        description: Documented PHP file_get_contents plus http_build_query examples.
+      - name: Stripe
+        description: >-
+          Stripe-hosted checkout flow handles plan upgrades and recurring billing (referenced in CSP allowlist and
+          /payment_successful callback).
+      - name: Help Scout Beacon
+        description: In-app support widget powered by Help Scout for paid-plan ticketing.
+      - name: Cronitor Status Page
+        description: Public uptime and incident history hosted on Cronitor at mobileapi.cronitorstatus.com.
+      - name: GetTerms.io
+        description: Terms of Service and Privacy Policy hosted on GetTerms.io.
     sources:
-    - https://mobileapi.dev/docs/
-    - https://mobileapi.dev/
+      - https://mobileapi.dev/docs/
+      - https://mobileapi.dev/
     updated: '2026-05-06'
   - type: Plans
     data:
-    - name: Free
-      description: $0/mo. 200 requests/month, 5 requests/minute, full database access, monthly data updates, community support.
-    - name: Pro
-      description: $15/mo (15% annual discount). 10,000 requests/month (~333/day), 10 requests/second, weekly data updates,
-        priority email support, advanced analytics, commercial usage rights.
-    - name: Enterprise
-      description: Custom pricing. Unlimited requests, custom rate limits up to 100 req/sec, daily data updates, dedicated support,
-        99.9% SLA, account manager, custom integrations.
+      - name: Free
+        description: $0/mo. 200 requests/month, 5 requests/minute, full database access, monthly data updates, community support.
+      - name: Pro
+        description: >-
+          $15/mo (15% annual discount). 10,000 requests/month (~333/day), 10 requests/second, weekly data updates,
+          priority email support, advanced analytics, commercial usage rights.
+      - name: Enterprise
+        description: >-
+          Custom pricing. Unlimited requests, custom rate limits up to 100 req/sec, daily data updates, dedicated
+          support, 99.9% SLA, account manager, custom integrations.
     sources:
-    - https://mobileapi.dev/#pricing
-    - https://mobileapi.dev/docs/
+      - https://mobileapi.dev/#pricing
+      - https://mobileapi.dev/docs/
     updated: '2026-05-06'
   - type: RateLimits
     data:
-    - name: Free Tier Rate Limit
-      description: 5 requests/minute, 200 requests/month quota.
-    - name: Pro Tier Rate Limit
-      description: 10 requests/second, 10,000 requests/month quota.
-    - name: Enterprise Tier Rate Limit
-      description: Custom, up to 100 requests/second, unlimited monthly requests.
-    - name: Rate-Limit Headers
-      description: All responses include X-RateLimit-Limit, X-RateLimit-Remaining, and X-RateLimit-Reset; quota exceedance returns
-        HTTP 429.
+      - name: Free Tier Rate Limit
+        description: 5 requests/minute, 200 requests/month quota.
+      - name: Pro Tier Rate Limit
+        description: 10 requests/second, 10,000 requests/month quota.
+      - name: Enterprise Tier Rate Limit
+        description: Custom, up to 100 requests/second, unlimited monthly requests.
+      - name: Rate-Limit Headers
+        description: >-
+          All responses include X-RateLimit-Limit, X-RateLimit-Remaining, and X-RateLimit-Reset; quota exceedance
+          returns HTTP 429.
     sources:
-    - https://mobileapi.dev/docs/
+      - https://mobileapi.dev/docs/
     updated: '2026-05-06'
   - type: SpectralRules
     url: rules/mobileapi-rules.yml
@@ -319,14 +347,6 @@ common:
     url: rate-limits/mobileapi-dev-rate-limits.yml
   - type: FinOps
     url: finops/mobileapi-dev-finops.yml
-  - type: NaftikoCapability
-    url: capabilities/ai-device-recommendation.yaml
-  - type: NaftikoCapability
-    url: capabilities/device-lookup.yaml
-  - type: NaftikoCapability
-    url: capabilities/manufacturer-catalog.yaml
-  - type: NaftikoCapability
-    url: capabilities/shared/mobileapi-capability.yaml
   - type: LLMsTxt
     url: https://mobileapi.dev/llms.txt
 maintainers:
