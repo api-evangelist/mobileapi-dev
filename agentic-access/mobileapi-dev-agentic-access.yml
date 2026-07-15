@@ -1,0 +1,592 @@
+generated: '2026-07-15'
+method: generated
+source: openapi/mobileapi-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 57
+  by_action_class:
+    acting: 1
+    connected: 56
+  by_consequence:
+    write: 1
+    read: 56
+  human_in_the_loop_required: 0
+operations:
+- path: /api-token-auth/
+  method: post
+  operationId: api-token-auth_create
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/firewall/
+  method: get
+  operationId: api_firewall_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/firewall/{id}/
+  method: get
+  operationId: api_firewall_read
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /demo-x7k9m2p4/devices/
+  method: get
+  operationId: demo-x7k9m2p4_devices_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /demo-x7k9m2p4/devices/ai-query/
+  method: get
+  operationId: demo-x7k9m2p4_devices_ai_query
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /demo-x7k9m2p4/devices/autocomplete/
+  method: get
+  operationId: demo-x7k9m2p4_devices_autocomplete
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /demo-x7k9m2p4/devices/by-brand/
+  method: get
+  operationId: demo-x7k9m2p4_devices_by_brand
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /demo-x7k9m2p4/devices/by-manufacturer/
+  method: get
+  operationId: demo-x7k9m2p4_devices_by_manufacturer
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /demo-x7k9m2p4/devices/by-type/
+  method: get
+  operationId: demo-x7k9m2p4_devices_by_type
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /demo-x7k9m2p4/devices/by-year/
+  method: get
+  operationId: demo-x7k9m2p4_devices_by_year
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /demo-x7k9m2p4/devices/search/
+  method: get
+  operationId: demo-x7k9m2p4_devices_search
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /demo-x7k9m2p4/devices/{id}/
+  method: get
+  operationId: demo-x7k9m2p4_devices_read
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /demo-x7k9m2p4/devices/{id}/battery/
+  method: get
+  operationId: demo-x7k9m2p4_devices_battery
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /demo-x7k9m2p4/devices/{id}/body/
+  method: get
+  operationId: demo-x7k9m2p4_devices_body
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /demo-x7k9m2p4/devices/{id}/comms/
+  method: get
+  operationId: demo-x7k9m2p4_devices_comms
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /demo-x7k9m2p4/devices/{id}/display/
+  method: get
+  operationId: demo-x7k9m2p4_devices_display
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /demo-x7k9m2p4/devices/{id}/features/
+  method: get
+  operationId: demo-x7k9m2p4_devices_features
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /demo-x7k9m2p4/devices/{id}/image/
+  method: get
+  operationId: demo-x7k9m2p4_devices_image_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /demo-x7k9m2p4/devices/{id}/images/
+  method: get
+  operationId: demo-x7k9m2p4_devices_images
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /demo-x7k9m2p4/devices/{id}/main-camera/
+  method: get
+  operationId: demo-x7k9m2p4_devices_main_camera
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /demo-x7k9m2p4/devices/{id}/memory/
+  method: get
+  operationId: demo-x7k9m2p4_devices_memory
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /demo-x7k9m2p4/devices/{id}/misc/
+  method: get
+  operationId: demo-x7k9m2p4_devices_misc
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /demo-x7k9m2p4/devices/{id}/network/
+  method: get
+  operationId: demo-x7k9m2p4_devices_network
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /demo-x7k9m2p4/devices/{id}/platform/
+  method: get
+  operationId: demo-x7k9m2p4_devices_platform
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /demo-x7k9m2p4/devices/{id}/selfie-camera/
+  method: get
+  operationId: demo-x7k9m2p4_devices_selfie_camera
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /demo-x7k9m2p4/devices/{id}/sound/
+  method: get
+  operationId: demo-x7k9m2p4_devices_sound
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /devices/
+  method: get
+  operationId: devices_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /devices/ai-query/
+  method: get
+  operationId: devices_ai_query
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /devices/autocomplete/
+  method: get
+  operationId: devices_autocomplete
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /devices/by-brand/
+  method: get
+  operationId: devices_by_brand
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /devices/by-manufacturer/
+  method: get
+  operationId: devices_by_manufacturer
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /devices/by-type/
+  method: get
+  operationId: devices_by_type
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /devices/by-year/
+  method: get
+  operationId: devices_by_year
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /devices/search/
+  method: get
+  operationId: devices_search
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /devices/{id}/
+  method: get
+  operationId: devices_read
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /devices/{id}/battery/
+  method: get
+  operationId: devices_battery
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /devices/{id}/body/
+  method: get
+  operationId: devices_body
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /devices/{id}/comms/
+  method: get
+  operationId: devices_comms
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /devices/{id}/display/
+  method: get
+  operationId: devices_display
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /devices/{id}/features/
+  method: get
+  operationId: devices_features
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /devices/{id}/image/
+  method: get
+  operationId: devices_image_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /devices/{id}/images/
+  method: get
+  operationId: devices_images
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /devices/{id}/main-camera/
+  method: get
+  operationId: devices_main_camera
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /devices/{id}/memory/
+  method: get
+  operationId: devices_memory
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /devices/{id}/misc/
+  method: get
+  operationId: devices_misc
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /devices/{id}/network/
+  method: get
+  operationId: devices_network
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /devices/{id}/platform/
+  method: get
+  operationId: devices_platform
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /devices/{id}/selfie-camera/
+  method: get
+  operationId: devices_selfie_camera
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /devices/{id}/sound/
+  method: get
+  operationId: devices_sound
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /devices/{id}/thumb.png/
+  method: get
+  operationId: devices_thumb.png_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /images/{id}/
+  method: get
+  operationId: images_read
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /manufacturers/
+  method: get
+  operationId: manufacturers_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /manufacturers/{id}/
+  method: get
+  operationId: manufacturers_read
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /me/
+  method: get
+  operationId: me_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /payment_successful
+  method: get
+  operationId: payment_successful_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /payment_successful/
+  method: get
+  operationId: payment_successful_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /status/
+  method: get
+  operationId: status_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none

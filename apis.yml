@@ -142,6 +142,8 @@ apis:
         email: support@mobileapi.dev
         url: https://mobileapi.dev
 common:
+  - type: AgenticAccess
+    url: agentic-access/mobileapi-dev-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/mobileapi-dev-vulnerability-disclosure.yml
   - type: DomainSecurity
