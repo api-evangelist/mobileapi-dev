@@ -13,7 +13,7 @@ schemes:
   in: header
   parameter: Authorization
   description: Provide your API key in the Authorization header using either 'Token YOUR_API_KEY'
-    or 'Bearer YOUR_API_KEY'. Both formats are equivalent.
+    or 'Bearer [example key]'. Both formats are equivalent.
   sources:
   - openapi/mobileapi-openapi.yml
 - name: ApiKeyQuery
