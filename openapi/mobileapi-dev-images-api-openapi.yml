@@ -1,0 +1,71 @@
+openapi: 3.0.0
+info:
+  title: Mobile api images API
+  description: REST API providing structured device specifications, base64-encoded product images, and pricing metadata for 31,500+ smartphones, tablets, smartwatches, and laptops across 200+ manufacturers. Endpoints support paginated listing, fuzzy search by name or model number, autocomplete, browsing by manufacturer/year/type, per-category specifications (battery, display, platform, memory, cameras, network, sound, comms, features, body, misc), high-resolution images, manufacturer directory, account introspection (/me/), and an AI natural-language query endpoint.
+  termsOfService: https://app.getterms.io/view/AG2Np/terms-of-service/en-us
+  contact:
+    name: MobileAPI.dev Support
+    email: support@mobileapi.dev
+    url: https://mobileapi.dev/
+  version: v1
+servers:
+- url: https://api.mobileapi.dev
+  description: MobileAPI.dev production server
+security:
+- ApiKeyHeader: []
+- ApiKeyQuery: []
+tags:
+- name: images
+paths:
+  /images/{id}/:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: images_read
+      summary: Serve Full-Resolution Gallery Image
+      description: Returns the full-resolution image as binary data. Consumes 1 API credit per request. Requires authentication via API key (header recommended, query param for backwards compatibility).
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'Recommended: ''Token YOUR_API_KEY'' or ''Bearer YOUR_API_KEY'''
+        required: false
+        schema:
+          type: string
+      - name: key
+        in: query
+        description: 'Fallback: API key as query parameter (less secure, visible in logs)'
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Binary image data
+          content:
+            application/json:
+              schema:
+                type: string
+                format: binary
+        '401':
+          description: Unauthorized - API key required
+        '404':
+          description: Image not found
+        '429':
+          description: Rate limit exceeded - monthly credits exhausted
+      tags:
+      - images
+components:
+  securitySchemes:
+    ApiKeyHeader:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Provide your API key in the Authorization header using either 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY'. Both formats are equivalent.
+    ApiKeyQuery:
+      type: apiKey
+      in: query
+      name: key
+      description: Fallback - supply your API key as the 'key' query parameter.

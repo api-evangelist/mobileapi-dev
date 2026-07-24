@@ -1,0 +1,1372 @@
+openapi: 3.0.0
+info:
+  title: Mobile api devices API
+  description: REST API providing structured device specifications, base64-encoded product images, and pricing metadata for 31,500+ smartphones, tablets, smartwatches, and laptops across 200+ manufacturers. Endpoints support paginated listing, fuzzy search by name or model number, autocomplete, browsing by manufacturer/year/type, per-category specifications (battery, display, platform, memory, cameras, network, sound, comms, features, body, misc), high-resolution images, manufacturer directory, account introspection (/me/), and an AI natural-language query endpoint.
+  termsOfService: https://app.getterms.io/view/AG2Np/terms-of-service/en-us
+  contact:
+    name: MobileAPI.dev Support
+    email: support@mobileapi.dev
+    url: https://mobileapi.dev/
+  version: v1
+servers:
+- url: https://api.mobileapi.dev
+  description: MobileAPI.dev production server
+security:
+- ApiKeyHeader: []
+- ApiKeyQuery: []
+tags:
+- name: devices
+paths:
+  /devices/:
+    parameters: []
+    get:
+      operationId: devices_list
+      summary: List All Devices
+      description: 'Retrieve a list of all devices. Results are paginated. **Note**: `image_b64` returns a 100x100 thumbnail. For full-resolution images, use the `/devices/{id}/images` endpoint.'
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'Recommended: ''Token YOUR_API_KEY'' or ''Bearer YOUR_API_KEY'''
+        required: false
+        schema:
+          type: string
+      - name: key
+        in: query
+        description: 'Fallback: API key as query parameter (optional for demo)'
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: 'Page number (default: 1). Each page contains 50 devices.'
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Paginated list of devices with metadata
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DeviceList'
+        '400':
+          description: Bad request, invalid page parameter
+        '401':
+          description: Unauthorized - Authentication required
+      tags:
+      - devices
+  /devices/ai-query/:
+    parameters: []
+    get:
+      operationId: devices_ai_query
+      summary: Natural Language Device Query (AI-Powered) - Paid Users Only
+      description: 'Query devices using natural language. Examples: ''Get top 5 devices with the most RAM'', ''Show me phones with best camera'', ''Find cheapest 5G phones''. Powered by AI to understand and execute your query. **Note: This endpoint requires a paid subscription plan (Pro or Enterprise).**'
+      parameters:
+      - name: query
+        in: query
+        description: Natural language query (e.g., 'top 5 devices with most RAM', 'phones with best battery')
+        required: true
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'Recommended: ''Token YOUR_API_KEY'' or ''Bearer YOUR_API_KEY'' (requires paid plan)'
+        required: false
+        schema:
+          type: string
+      - name: key
+        in: query
+        description: 'Fallback: API key as query parameter (requires paid plan)'
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Query results with explanation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DeviceList'
+        '400':
+          description: Bad request - missing query parameter or invalid query
+        '401':
+          description: Unauthorized - invalid API key
+        '403':
+          description: Forbidden - paid plan required
+        '429':
+          description: Rate limit exceeded
+        '503':
+          description: LLM service unavailable (OpenAI API key not configured)
+      tags:
+      - devices
+  /devices/autocomplete/:
+    parameters: []
+    get:
+      operationId: devices_autocomplete
+      summary: Autocomplete Device Names
+      description: Get autocomplete suggestions for device names. Returns simplified device data for typeahead/autocomplete features. Requires authentication.
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'Recommended: ''Token YOUR_API_KEY'' or ''Bearer YOUR_API_KEY'''
+        required: false
+        schema:
+          type: string
+      - name: key
+        in: query
+        description: 'Fallback: API key as query parameter (optional for demo)'
+        required: false
+        schema:
+          type: string
+      - name: q
+        in: query
+        description: Query string (minimum 5 characters)
+        required: true
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: 'Maximum number of suggestions to return (default: 10, max: 30).'
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Array of autocomplete suggestions
+        '400':
+          description: Bad request, invalid limit parameter
+        '401':
+          description: Unauthorized - Invalid API key
+      tags:
+      - devices
+  /devices/by-brand/:
+    parameters: []
+    get:
+      operationId: devices_by_brand
+      summary: '[Deprecated] List Devices by Brand - Use /by-Manufacturer/ Instead'
+      description: 'DEPRECATED: This endpoint is deprecated. Please use /devices/by-manufacturer/ instead. Retrieve all devices from a specific brand/manufacturer. Requires authentication.'
+      parameters:
+      - name: brand
+        in: query
+        description: 'Brand/Manufacturer name to filter devices (e.g., ''Apple'', ''Samsung''). DEPRECATED: Use ''manufacturer'' parameter with /by-manufacturer/ endpoint instead.'
+        required: true
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: 'Maximum number of results to return (default: 10, max: 30).'
+        required: false
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'Recommended: ''Token YOUR_API_KEY'' or ''Bearer YOUR_API_KEY'''
+        required: false
+        schema:
+          type: string
+      - name: key
+        in: query
+        description: 'Fallback: API key as query parameter (less secure)'
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: List of devices
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Device'
+        '400':
+          description: Bad request, missing parameter 'brand' or invalid limit
+        '401':
+          description: Unauthorized - Invalid API key
+        '404':
+          description: Brand not found
+      tags:
+      - devices
+      deprecated: true
+  /devices/by-manufacturer/:
+    parameters: []
+    get:
+      operationId: devices_by_manufacturer
+      summary: List Devices by Manufacturer
+      description: 'Retrieve all devices from a specific manufacturer. Results are paginated with 50 devices per page. **Note**: `image_b64` returns a 100x100 thumbnail.'
+      parameters:
+      - name: manufacturer
+        in: query
+        description: Manufacturer name to filter devices (e.g., 'Apple', 'Samsung').
+        required: true
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: 'Page number (default: 1). Each page contains 50 devices.'
+        required: false
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'Recommended: ''Token YOUR_API_KEY'' or ''Bearer YOUR_API_KEY'''
+        required: false
+        schema:
+          type: string
+      - name: key
+        in: query
+        description: 'Fallback: API key as query parameter (less secure)'
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Paginated list of devices with metadata
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Device'
+        '400':
+          description: Bad request, missing parameter 'manufacturer' or invalid page
+        '401':
+          description: Unauthorized - Invalid API key
+        '404':
+          description: Manufacturer not found
+      tags:
+      - devices
+  /devices/by-type/:
+    parameters: []
+    get:
+      operationId: devices_by_type
+      summary: List Devices by Type
+      description: 'Get all devices of a specific type (phone, tablet, laptop, wearable, or other). Results are paginated with 50 devices per page. **Note**: `image_b64` returns a 100x100 thumbnail.'
+      parameters:
+      - name: type
+        in: query
+        description: 'Device type: phone, tablet, laptop, wearable, or other'
+        required: true
+        schema:
+          type: string
+          enum:
+          - phone
+          - tablet
+          - laptop
+          - wearable
+          - other
+      - name: page
+        in: query
+        description: 'Page number (default: 1). Each page contains 50 devices.'
+        required: false
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'Recommended: ''Token YOUR_API_KEY'' or ''Bearer YOUR_API_KEY'''
+        required: false
+        schema:
+          type: string
+      - name: key
+        in: query
+        description: 'Fallback: API key as query parameter (less secure)'
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Paginated list of devices for the specified type with metadata
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DeviceList'
+        '204':
+          description: No devices found for the specified type
+        '400':
+          description: Bad request, missing or invalid type/page parameter
+        '401':
+          description: Unauthorized - Invalid API key
+      tags:
+      - devices
+  /devices/by-year/:
+    parameters: []
+    get:
+      operationId: devices_by_year
+      summary: List Devices by Launch Year
+      description: 'Get all devices released in a specific year. The year parameter should be a 4-digit year (e.g., 2023). Results are paginated with 50 items per page. **Note**: `image_b64` returns a 100x100 thumbnail.'
+      parameters:
+      - name: year
+        in: query
+        description: Launch year (4-digit format, e.g., 2023)
+        required: true
+        schema:
+          type: integer
+      - name: page
+        in: query
+        description: 'Page number (default: 1). Each page contains 50 items.'
+        required: false
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'Recommended: ''Token YOUR_API_KEY'' or ''Bearer YOUR_API_KEY'''
+        required: false
+        schema:
+          type: string
+      - name: key
+        in: query
+        description: 'Fallback: API key as query parameter (less secure)'
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Paginated list of devices for the specified year with metadata
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Device'
+        '204':
+          description: No devices found for the specified year
+        '400':
+          description: Bad request, missing or invalid year/page parameter
+        '401':
+          description: Unauthorized - Invalid API key
+      tags:
+      - devices
+  /devices/search/:
+    parameters: []
+    get:
+      operationId: devices_search
+      summary: Search Device by Name or Model Number
+      description: 'Retrieve device details by providing either a device name (e.g., ''iPhone 15 Pro'') or a model number (e.g., ''A3520''), but not both. At least one parameter is required. Results are paginated (default: 10 per page, customizable via ''limit'' parameter). Optionally filter by manufacturer. Exact model number matches are prioritized over name matches. **Note**: `image_b64` returns a 100x100 thumbnail.'
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'Recommended: ''Token YOUR_API_KEY'' or ''Bearer YOUR_API_KEY'''
+        required: false
+        schema:
+          type: string
+      - name: key
+        in: query
+        description: 'Fallback: API key as query parameter (optional for demo)'
+        required: false
+        schema:
+          type: string
+      - name: name
+        in: query
+        description: Name of the device to search for (e.g., 'iPhone 15 Pro'). Mutually exclusive with 'model_number'.
+        required: false
+        schema:
+          type: string
+      - name: model_number
+        in: query
+        description: Model number of the device to search for (e.g., 'A3520'). Mutually exclusive with 'name'.
+        required: false
+        schema:
+          type: string
+      - name: manufacturer
+        in: query
+        description: Optional. Filter search results to devices from this manufacturer only. If no devices match the manufacturer, returns empty results.
+        required: false
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: 'Optional. Number of results to return per page (default: 10, max: 30). Use this to control how many devices are returned in the response. For example, limit=1 returns only the best match.'
+        required: false
+        schema:
+          type: integer
+      - name: page
+        in: query
+        description: 'Page number (default: 1). Each page contains 50 devices.'
+        required: false
+        schema:
+          type: integer
+      - name: exact
+        in: query
+        description: 'Set to true for exact matching (default: false). When true, only returns devices with 100% match certainty (exact name or exact model number match).'
+        required: false
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Paginated list of matching devices with metadata. Each device includes a 'match_type' field indicating whether it matched by 'name', 'exact_model', or 'partial_model'.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Device'
+        '400':
+          description: 'Bad request: must provide either ''name'' or ''model_number'' (but not both), or invalid page'
+        '404':
+          description: Device not found
+      tags:
+      - devices
+  /devices/{id}/:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this device.
+      required: true
+      schema:
+        type: integer
+    get:
+      operationId: devices_read
+      summary: Get Device by ID
+      description: 'Retrieve detailed device information by providing its ID. **Note**: `image_b64` returns a 100x100 thumbnail. For full-resolution images, use `/devices/{id}/images` endpoint.'
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'Recommended: ''Token YOUR_API_KEY'' or ''Bearer YOUR_API_KEY'''
+        required: false
+        schema:
+          type: string
+      - name: key
+        in: query
+        description: 'Fallback: API key as query parameter (optional for demo)'
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Device'
+        '400':
+          description: Bad Request - Insufficient credits
+        '401':
+          description: Unauthorized - Authentication required
+        '404':
+          description: Not Found - Device with given ID does not exist
+      tags:
+      - devices
+  /devices/{id}/battery/:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this device.
+      required: true
+      schema:
+        type: integer
+    get:
+      operationId: devices_battery
+      summary: Get Device Battery Specifications
+      description: Get battery specifications for a specific device.
+      responses:
+        '200':
+          description: Battery specifications
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Battery'
+        '404':
+          description: Device or battery specifications not found
+      tags:
+      - devices
+  /devices/{id}/body/:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this device.
+      required: true
+      schema:
+        type: integer
+    get:
+      operationId: devices_body
+      summary: Get Device Body Specifications
+      description: Get body specifications for a specific device.
+      responses:
+        '200':
+          description: Body specifications
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Body'
+        '404':
+          description: Device or body specifications not found
+      tags:
+      - devices
+  /devices/{id}/comms/:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this device.
+      required: true
+      schema:
+        type: integer
+    get:
+      operationId: devices_comms
+      summary: Get Device Communications Specifications
+      description: Get communications specifications for a specific device.
+      responses:
+        '200':
+          description: Communications specifications
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comms'
+        '404':
+          description: Device or communications specifications not found
+      tags:
+      - devices
+  /devices/{id}/display/:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this device.
+      required: true
+      schema:
+        type: integer
+    get:
+      operationId: devices_display
+      summary: Get Device Display Specifications
+      description: Get display specifications for a specific device.
+      responses:
+        '200':
+          description: Display specifications
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Display'
+        '404':
+          description: Device or display specifications not found
+      tags:
+      - devices
+  /devices/{id}/features/:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this device.
+      required: true
+      schema:
+        type: integer
+    get:
+      operationId: devices_features
+      summary: Get Device Features Specifications
+      description: Get features specifications for a specific device.
+      responses:
+        '200':
+          description: Features specifications
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Features'
+        '404':
+          description: Device or features specifications not found
+      tags:
+      - devices
+  /devices/{id}/image/:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: devices_image_list
+      summary: Serve Full-Resolution Device Main Image
+      description: Returns the full-resolution main image of a device as binary data. Consumes 1 API credit per request. Requires authentication via API key (header recommended, query param for backwards compatibility).
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'Recommended: ''Token YOUR_API_KEY'' or ''Bearer YOUR_API_KEY'''
+        required: false
+        schema:
+          type: string
+      - name: key
+        in: query
+        description: 'Fallback: API key as query parameter (less secure, visible in logs)'
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Binary image data
+          content:
+            application/json:
+              schema:
+                type: string
+                format: binary
+        '401':
+          description: Unauthorized - API key required
+        '404':
+          description: Device or image not found
+        '429':
+          description: Rate limit exceeded - monthly credits exhausted
+      tags:
+      - devices
+  /devices/{id}/images/:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this device.
+      required: true
+      schema:
+        type: integer
+    get:
+      operationId: devices_images
+      summary: Get Device Images
+      description: Get all images for a specific device. Returns image URLs for full-resolution access (accessing image URLs consumes 1 credit per request). Main device image is included as the first entry with URL /devices/{id}/image/.
+      parameters:
+      - name: limit
+        in: query
+        description: 'Maximum number of images to return (default: 10, max: 30).'
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Device images with URLs
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Image'
+        '400':
+          description: Bad request, invalid limit parameter
+        '404':
+          description: Device not found
+      tags:
+      - devices
+  /devices/{id}/main-camera/:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this device.
+      required: true
+      schema:
+        type: integer
+    get:
+      operationId: devices_main_camera
+      summary: Get Device Main Camera Specifications
+      description: Get main camera specifications for a specific device.
+      responses:
+        '200':
+          description: Main camera specifications
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MainCamera'
+        '404':
+          description: Device or main camera specifications not found
+      tags:
+      - devices
+  /devices/{id}/memory/:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this device.
+      required: true
+      schema:
+        type: integer
+    get:
+      operationId: devices_memory
+      summary: Get Device Memory Specifications
+      description: Get memory specifications for a specific device.
+      responses:
+        '200':
+          description: Memory specifications
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Memory'
+        '404':
+          description: Device or memory specifications not found
+      tags:
+      - devices
+  /devices/{id}/misc/:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this device.
+      required: true
+      schema:
+        type: integer
+    get:
+      operationId: devices_misc
+      summary: Get Device Miscellaneous Specifications
+      description: Get miscellaneous specifications for a specific device.
+      responses:
+        '200':
+          description: Miscellaneous specifications
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Misc'
+        '404':
+          description: Device or miscellaneous specifications not found
+      tags:
+      - devices
+  /devices/{id}/network/:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this device.
+      required: true
+      schema:
+        type: integer
+    get:
+      operationId: devices_network
+      summary: Get Device Network Specifications
+      description: Get network specifications for a specific device.
+      responses:
+        '200':
+          description: Network specifications
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Network'
+        '404':
+          description: Device or network specifications not found
+      tags:
+      - devices
+  /devices/{id}/platform/:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this device.
+      required: true
+      schema:
+        type: integer
+    get:
+      operationId: devices_platform
+      summary: Get Device Platform Specifications
+      description: Get platform specifications for a specific device.
+      responses:
+        '200':
+          description: Platform specifications
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Platform'
+        '404':
+          description: Device or platform specifications not found
+      tags:
+      - devices
+  /devices/{id}/selfie-camera/:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this device.
+      required: true
+      schema:
+        type: integer
+    get:
+      operationId: devices_selfie_camera
+      summary: Get Device Selfie Camera Specifications
+      description: Get selfie camera specifications for a specific device.
+      responses:
+        '200':
+          description: Selfie camera specifications
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SelfieCamera'
+        '404':
+          description: Device or selfie camera specifications not found
+      tags:
+      - devices
+  /devices/{id}/sound/:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this device.
+      required: true
+      schema:
+        type: integer
+    get:
+      operationId: devices_sound
+      summary: Get Device Sound Specifications
+      description: Get sound specifications for a specific device.
+      responses:
+        '200':
+          description: Sound specifications
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sound'
+        '404':
+          description: Device or sound specifications not found
+      tags:
+      - devices
+  /devices/{id}/thumb.png/:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: devices_thumb.png_list
+      summary: Serve Device Thumbnail Image (100x100)
+      description: Returns the 100x100 thumbnail image as PNG binary data. **Does NOT consume credits** - free to access.
+      responses:
+        '200':
+          description: Binary PNG image data
+          content:
+            application/json:
+              schema:
+                type: string
+                format: binary
+        '404':
+          description: Device or thumbnail not found
+      tags:
+      - devices
+components:
+  schemas:
+    Manufacturer:
+      required:
+      - name
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 255
+          minLength: 1
+        logo_b64:
+          title: Logo b64
+          type: string
+          readOnly: true
+        website_url:
+          title: Website url
+          description: Manufacturer official website URL
+          type: string
+          format: uri
+          maxLength: 500
+          nullable: true
+    Network:
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        technology:
+          title: Technology
+          description: Network technologies (e.g., GSM / CDMA / HSPA / LTE / 5G)
+          type: string
+        bands_2g:
+          title: Bands 2g
+          description: 2G bands
+          type: string
+        bands_3g:
+          title: Bands 3g
+          description: 3G bands
+          type: string
+        bands_4g:
+          title: Bands 4g
+          description: 4G/LTE bands
+          type: string
+        bands_5g:
+          title: Bands 5g
+          description: 5G bands
+          type: string
+        speed:
+          title: Speed
+          description: Network speed information
+          type: string
+    Comms:
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        wlan:
+          title: Wlan
+          description: Wi-Fi specifications
+          type: string
+          maxLength: 255
+        bluetooth:
+          title: Bluetooth
+          description: Bluetooth version and features
+          type: string
+          maxLength: 255
+        positioning:
+          title: Positioning
+          description: GPS and positioning systems
+          type: string
+          maxLength: 255
+        nfc:
+          title: Nfc
+          description: NFC availability
+          type: string
+          maxLength: 100
+        radio:
+          title: Radio
+          description: FM radio availability
+          type: string
+          maxLength: 100
+        usb:
+          title: Usb
+          description: USB specifications
+          type: string
+          maxLength: 255
+    MainCamera:
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        modules:
+          title: Modules
+          description: Camera modules/sensors (Single, Dual, Triple, Quad, etc.)
+          type: string
+        features:
+          title: Features
+          description: Camera features (LED flash, HDR, panorama, etc.)
+          type: string
+        video:
+          title: Video
+          description: Video recording capabilities
+          type: string
+    Image:
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        image_url:
+          title: Image url
+          type: string
+          readOnly: true
+        caption:
+          title: Caption
+          description: Image caption/description
+          type: string
+          maxLength: 255
+        is_official:
+          title: Is official
+          description: Is this an official product image?
+          type: boolean
+        order:
+          title: Order
+          description: Display order
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+    Device:
+      required:
+      - name
+      type: object
+      properties:
+        id:
+          title: Id
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 255
+          minLength: 1
+        manufacturer:
+          $ref: '#/components/schemas/Manufacturer'
+        manufacturer_name:
+          title: Manufacturer name
+          type: string
+          readOnly: true
+          minLength: 1
+        device_type:
+          title: Device type
+          description: Type of device (phone, tablet, laptop, wearable, other)
+          type: string
+          enum:
+          - phone
+          - tablet
+          - laptop
+          - wearable
+          - other
+        description:
+          title: Description
+          type: string
+        colors:
+          title: Colors
+          description: Available colors
+          type: string
+          maxLength: 255
+        storage:
+          title: Storage
+          description: Storage options (e.g., 256GB, 512GB, 2TB)
+          type: string
+          maxLength: 255
+        screen_resolution:
+          title: Screen resolution
+          description: Screen size and resolution (e.g., 6.9", 1320 x 2868 pixels)
+          type: string
+          maxLength: 255
+        weight:
+          title: Weight
+          description: Device weight (e.g., 233g)
+          type: string
+          maxLength: 50
+        thickness:
+          title: Thickness
+          description: Device thickness (e.g., 8.8mm)
+          type: string
+          maxLength: 50
+        release_date:
+          title: Release date
+          description: Release date
+          type: string
+          maxLength: 100
+        camera:
+          title: Camera
+          description: Main camera resolution (e.g., 48MP)
+          type: string
+          maxLength: 50
+        battery_capacity:
+          title: Battery capacity
+          description: Battery capacity (e.g., 4823 mAh)
+          type: string
+          maxLength: 50
+        hardware:
+          title: Hardware
+          description: RAM and chipset (e.g., 12GB RAM, Apple A19 Pro)
+          type: string
+          maxLength: 255
+        image_b64:
+          title: Image b64
+          type: string
+          readOnly: true
+        image_url:
+          title: Image url
+          type: string
+          readOnly: true
+        network:
+          $ref: '#/components/schemas/Network'
+        body:
+          $ref: '#/components/schemas/Body'
+        display:
+          $ref: '#/components/schemas/Display'
+        platform:
+          $ref: '#/components/schemas/Platform'
+        memory:
+          $ref: '#/components/schemas/Memory'
+        main_camera:
+          $ref: '#/components/schemas/MainCamera'
+        selfie_camera:
+          $ref: '#/components/schemas/SelfieCamera'
+        sound:
+          $ref: '#/components/schemas/Sound'
+        comms:
+          $ref: '#/components/schemas/Comms'
+        features:
+          $ref: '#/components/schemas/Features'
+        battery:
+          $ref: '#/components/schemas/Battery'
+        misc:
+          $ref: '#/components/schemas/Misc'
+    Battery:
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        type:
+          title: Type
+          description: Battery type and capacity (Li-Ion, Li-Po, mAh)
+          type: string
+          maxLength: 255
+        charging:
+          title: Charging
+          description: Charging capabilities (wired, wireless, fast charging, etc.)
+          type: string
+    SelfieCamera:
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        modules:
+          title: Modules
+          description: Front camera modules/sensors (Single, Dual, etc.)
+          type: string
+        features:
+          title: Features
+          description: Front camera features (HDR, face unlock, etc.)
+          type: string
+        video:
+          title: Video
+          description: Front camera video recording capabilities
+          type: string
+    Platform:
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        os:
+          title: Os
+          description: Operating system
+          type: string
+          maxLength: 255
+        chipset:
+          title: Chipset
+          description: Chipset/SoC
+          type: string
+          maxLength: 255
+        cpu:
+          title: Cpu
+          description: CPU specifications
+          type: string
+          maxLength: 255
+        gpu:
+          title: Gpu
+          description: GPU specifications
+          type: string
+          maxLength: 255
+    Features:
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        sensors:
+          title: Sensors
+          description: Device sensors (accelerometer, gyro, fingerprint, etc.)
+          type: string
+        other:
+          title: Other
+          description: Other features (UWB, emergency SOS, satellite, etc.)
+          type: string
+    Misc:
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        model_numbers:
+          title: Model numbers
+          description: Model numbers/variants
+          type: string
+          maxLength: 255
+        sar_us:
+          title: Sar us
+          description: SAR value (US)
+          type: string
+          maxLength: 255
+        sar_eu:
+          title: Sar eu
+          description: SAR value (EU)
+          type: string
+          maxLength: 255
+        price:
+          title: Price
+          description: Price information
+          type: string
+          maxLength: 255
+    Body:
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        dimensions:
+          title: Dimensions
+          description: Device dimensions
+          type: string
+          maxLength: 255
+        weight:
+          title: Weight
+          description: Device weight
+          type: string
+          maxLength: 100
+        build:
+          title: Build
+          description: Build materials and construction
+          type: string
+        sim:
+          title: Sim
+          description: SIM card information
+          type: string
+        other:
+          title: Other
+          description: Other body specifications (IP rating, features, etc.)
+          type: string
+    Sound:
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        loudspeaker:
+          title: Loudspeaker
+          description: Loudspeaker information
+          type: string
+          maxLength: 255
+        audio_jack:
+          title: Audio jack
+          description: 3.5mm audio jack availability
+          type: string
+          maxLength: 100
+    Display:
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        type:
+          title: Type
+          description: Display type (OLED, LCD, etc.) and features
+          type: string
+        size:
+          title: Size
+          description: Screen size
+          type: string
+          maxLength: 255
+        resolution:
+          title: Resolution
+          description: Screen resolution
+          type: string
+          maxLength: 255
+        protection:
+          title: Protection
+          description: Screen protection (Gorilla Glass, etc.)
+          type: string
+          maxLength: 255
+        other:
+          title: Other
+          description: Other display features
+          type: string
+    Memory:
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        card_slot:
+          title: Card slot
+          description: Memory card slot information
+          type: string
+          maxLength: 255
+        internal:
+          title: Internal
+          description: Internal storage and RAM options
+          type: string
+        other:
+          title: Other
+          description: Other memory specifications (NVMe, UFS, etc.)
+          type: string
+    DeviceList:
+      required:
+      - name
+      type: object
+      properties:
+        id:
+          title: Id
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 255
+          minLength: 1
+        manufacturer_name:
+          title: Manufacturer name
+          type: string
+          readOnly: true
+          minLength: 1
+        device_type:
+          title: Device type
+          description: Type of device (phone, tablet, laptop, wearable, other)
+          type: string
+          enum:
+          - phone
+          - tablet
+          - laptop
+          - wearable
+          - other
+        description:
+          title: Description
+          type: string
+        colors:
+          title: Colors
+          description: Available colors
+          type: string
+          maxLength: 255
+        storage:
+          title: Storage
+          description: Storage options (e.g., 256GB, 512GB, 2TB)
+          type: string
+          maxLength: 255
+        screen_resolution:
+          title: Screen resolution
+          description: Screen size and resolution (e.g., 6.9", 1320 x 2868 pixels)
+          type: string
+          maxLength: 255
+        weight:
+          title: Weight
+          description: Device weight (e.g., 233g)
+          type: string
+          maxLength: 50
+        thickness:
+          title: Thickness
+          description: Device thickness (e.g., 8.8mm)
+          type: string
+          maxLength: 50
+        release_date:
+          title: Release date
+          description: Release date
+          type: string
+          maxLength: 100
+        camera:
+          title: Camera
+          description: Main camera resolution (e.g., 48MP)
+          type: string
+          maxLength: 50
+        battery_capacity:
+          title: Battery capacity
+          description: Battery capacity (e.g., 4823 mAh)
+          type: string
+          maxLength: 50
+        hardware:
+          title: Hardware
+          description: RAM and chipset (e.g., 12GB RAM, Apple A19 Pro)
+          type: string
+          maxLength: 255
+        image_b64:
+          title: Image b64
+          type: string
+          readOnly: true
+        image_url:
+          title: Image url
+          type: string
+          readOnly: true
+  securitySchemes:
+    ApiKeyHeader:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Provide your API key in the Authorization header using either 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY'. Both formats are equivalent.
+    ApiKeyQuery:
+      type: apiKey
+      in: query
+      name: key
+      description: Fallback - supply your API key as the 'key' query parameter.
