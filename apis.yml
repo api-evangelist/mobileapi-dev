@@ -8,7 +8,20 @@ description: >-
   endpoint, replacing in-house scraping of GSMArena-style sources for device-catalog, comparison, e-commerce, trade-in,
   repair, and insurance applications.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/mobileapi-dev.png
 tags:
   - Data API
   - Developer Tools
@@ -22,125 +35,888 @@ created: '2026-05-06'
 modified: '2026-05-06'
 specificationVersion: '0.19'
 apis:
-  - aid: mobileapi-dev:mobileapi
-    name: MobileAPI
-    description: >-
-      REST API providing device specifications, base64-encoded product images, and pricing metadata for 31,500+
-      smartphones, tablets, smartwatches, and laptops across 200+ manufacturers. Endpoints support paginated device
-      listing, fuzzy search by name or model number, autocomplete, browsing by manufacturer/year/type, per-category
-      specification retrieval (battery, display, platform, memory, cameras, network, sound, comms, features, body,
-      misc), high-resolution images, manufacturer directory, account introspection (/me/), and an AI natural-language
-      query endpoint that translates plain-English questions into structured device results.
-    humanURL: https://mobileapi.dev/
-    baseURL: https://api.mobileapi.dev/
-    tags:
-      - Autocomplete
-      - Device Catalog
-      - Device Specifications
-      - Fuzzy Search
-      - Manufacturers
-      - Mobile Devices
-      - Natural Language Query
-      - Product Images
-      - REST API
-      - Smartphones
-      - Smartwatches
-      - Tablets
-    properties:
-      - type: Documentation
-        url: https://mobileapi.dev/docs/
-      - type: APIReference
-        url: https://mobileapi.dev/docs/
-      - type: OpenAPI
-        url: openapi/mobileapi-openapi.yml
-      - type: GettingStarted
-        url: https://mobileapi.dev/docs/
-      - type: Authentication
-        url: https://mobileapi.dev/docs/
-      - type: RateLimits
-        url: https://mobileapi.dev/docs/
-      - type: CodeExamples
-        url: https://mobileapi.dev/docs/
-      - type: JSONSchema
-        url: json-schema/mobileapi-battery-schema.json
-      - type: JSONSchema
-        url: json-schema/mobileapi-body-schema.json
-      - type: JSONSchema
-        url: json-schema/mobileapi-comms-schema.json
-      - type: JSONSchema
-        url: json-schema/mobileapi-device-schema.json
-      - type: JSONSchema
-        url: json-schema/mobileapi-devicelist-schema.json
-      - type: JSONSchema
-        url: json-schema/mobileapi-display-schema.json
-      - type: JSONSchema
-        url: json-schema/mobileapi-features-schema.json
-      - type: JSONSchema
-        url: json-schema/mobileapi-image-schema.json
-      - type: JSONSchema
-        url: json-schema/mobileapi-maincamera-schema.json
-      - type: JSONSchema
-        url: json-schema/mobileapi-manufacturer-schema.json
-      - type: JSONSchema
-        url: json-schema/mobileapi-memory-schema.json
-      - type: JSONSchema
-        url: json-schema/mobileapi-misc-schema.json
-      - type: JSONSchema
-        url: json-schema/mobileapi-network-schema.json
-      - type: JSONSchema
-        url: json-schema/mobileapi-platform-schema.json
-      - type: JSONSchema
-        url: json-schema/mobileapi-selfiecamera-schema.json
-      - type: JSONSchema
-        url: json-schema/mobileapi-sound-schema.json
-      - type: JSONStructure
-        url: json-structure/mobileapi-battery-structure.json
-      - type: JSONStructure
-        url: json-structure/mobileapi-body-structure.json
-      - type: JSONStructure
-        url: json-structure/mobileapi-comms-structure.json
-      - type: JSONStructure
-        url: json-structure/mobileapi-device-structure.json
-      - type: JSONStructure
-        url: json-structure/mobileapi-devicelist-structure.json
-      - type: JSONStructure
-        url: json-structure/mobileapi-display-structure.json
-      - type: JSONStructure
-        url: json-structure/mobileapi-features-structure.json
-      - type: JSONStructure
-        url: json-structure/mobileapi-image-structure.json
-      - type: JSONStructure
-        url: json-structure/mobileapi-maincamera-structure.json
-      - type: JSONStructure
-        url: json-structure/mobileapi-manufacturer-structure.json
-      - type: JSONStructure
-        url: json-structure/mobileapi-memory-structure.json
-      - type: JSONStructure
-        url: json-structure/mobileapi-misc-structure.json
-      - type: JSONStructure
-        url: json-structure/mobileapi-network-structure.json
-      - type: JSONStructure
-        url: json-structure/mobileapi-platform-structure.json
-      - type: JSONStructure
-        url: json-structure/mobileapi-selfiecamera-structure.json
-      - type: JSONStructure
-        url: json-structure/mobileapi-sound-structure.json
-      - type: Examples
-        url: examples/mobileapi-ai-query-example.json
-      - type: Examples
-        url: examples/mobileapi-autocomplete-example.json
-      - type: Examples
-        url: examples/mobileapi-device-example.json
-      - type: Examples
-        url: examples/mobileapi-devicelist-example.json
-      - type: Examples
-        url: examples/mobileapi-manufacturer-example.json
-      - type: JSONLD
-        url: json-ld/mobileapi-dev-context.jsonld
-    contact:
-      - FN: MobileAPI.dev Support
-        email: support@mobileapi.dev
-        url: https://mobileapi.dev
+- aid: mobileapi-dev:mobileapi-dev-api-api
+  name: MobileAPI.dev api API
+  description: The api API from MobileAPI.dev — 2 operation(s) for api.
+  humanURL: https://mobileapi.dev/
+  baseURL: https://api.mobileapi.dev/
+  tags:
+  - api
+  properties:
+  - type: OpenAPI
+    url: openapi/mobileapi-dev-api-api-openapi.yml
+  - type: Documentation
+    url: https://mobileapi.dev/docs/
+  - type: APIReference
+    url: https://mobileapi.dev/docs/
+  - type: GettingStarted
+    url: https://mobileapi.dev/docs/
+  - type: Authentication
+    url: https://mobileapi.dev/docs/
+  - type: RateLimits
+    url: https://mobileapi.dev/docs/
+  - type: CodeExamples
+    url: https://mobileapi.dev/docs/
+  - type: JSONSchema
+    url: json-schema/mobileapi-battery-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-body-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-comms-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-device-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-devicelist-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-display-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-features-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-image-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-maincamera-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-manufacturer-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-memory-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-misc-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-network-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-platform-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-selfiecamera-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-sound-schema.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-battery-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-body-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-comms-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-device-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-devicelist-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-display-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-features-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-image-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-maincamera-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-manufacturer-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-memory-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-misc-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-network-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-platform-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-selfiecamera-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-sound-structure.json
+  - type: Examples
+    url: examples/mobileapi-ai-query-example.json
+  - type: Examples
+    url: examples/mobileapi-autocomplete-example.json
+  - type: Examples
+    url: examples/mobileapi-device-example.json
+  - type: Examples
+    url: examples/mobileapi-devicelist-example.json
+  - type: Examples
+    url: examples/mobileapi-manufacturer-example.json
+  - type: JSONLD
+    url: json-ld/mobileapi-dev-context.jsonld
+- aid: mobileapi-dev:mobileapi-dev-api-token-auth-api
+  name: MobileAPI.dev api-token-auth API
+  description: The api-token-auth API from MobileAPI.dev — 1 operation(s) for api-token-auth.
+  humanURL: https://mobileapi.dev/
+  baseURL: https://api.mobileapi.dev/
+  tags:
+  - api-token-auth
+  properties:
+  - type: OpenAPI
+    url: openapi/mobileapi-dev-api-token-auth-api-openapi.yml
+  - type: Documentation
+    url: https://mobileapi.dev/docs/
+  - type: APIReference
+    url: https://mobileapi.dev/docs/
+  - type: GettingStarted
+    url: https://mobileapi.dev/docs/
+  - type: Authentication
+    url: https://mobileapi.dev/docs/
+  - type: RateLimits
+    url: https://mobileapi.dev/docs/
+  - type: CodeExamples
+    url: https://mobileapi.dev/docs/
+  - type: JSONSchema
+    url: json-schema/mobileapi-battery-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-body-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-comms-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-device-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-devicelist-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-display-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-features-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-image-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-maincamera-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-manufacturer-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-memory-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-misc-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-network-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-platform-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-selfiecamera-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-sound-schema.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-battery-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-body-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-comms-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-device-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-devicelist-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-display-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-features-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-image-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-maincamera-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-manufacturer-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-memory-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-misc-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-network-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-platform-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-selfiecamera-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-sound-structure.json
+  - type: Examples
+    url: examples/mobileapi-ai-query-example.json
+  - type: Examples
+    url: examples/mobileapi-autocomplete-example.json
+  - type: Examples
+    url: examples/mobileapi-device-example.json
+  - type: Examples
+    url: examples/mobileapi-devicelist-example.json
+  - type: Examples
+    url: examples/mobileapi-manufacturer-example.json
+  - type: JSONLD
+    url: json-ld/mobileapi-dev-context.jsonld
+- aid: mobileapi-dev:mobileapi-dev-demo-x7k9m2p4-api
+  name: MobileAPI.dev demo-x7k9m2p4 API
+  description: The demo-x7k9m2p4 API from MobileAPI.dev — 23 operation(s) for demo-x7k9m2p4.
+  humanURL: https://mobileapi.dev/
+  baseURL: https://api.mobileapi.dev/
+  tags:
+  - demo-x7k9m2p4
+  properties:
+  - type: OpenAPI
+    url: openapi/mobileapi-dev-demo-x7k9m2p4-api-openapi.yml
+  - type: Documentation
+    url: https://mobileapi.dev/docs/
+  - type: APIReference
+    url: https://mobileapi.dev/docs/
+  - type: GettingStarted
+    url: https://mobileapi.dev/docs/
+  - type: Authentication
+    url: https://mobileapi.dev/docs/
+  - type: RateLimits
+    url: https://mobileapi.dev/docs/
+  - type: CodeExamples
+    url: https://mobileapi.dev/docs/
+  - type: JSONSchema
+    url: json-schema/mobileapi-battery-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-body-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-comms-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-device-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-devicelist-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-display-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-features-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-image-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-maincamera-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-manufacturer-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-memory-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-misc-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-network-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-platform-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-selfiecamera-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-sound-schema.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-battery-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-body-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-comms-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-device-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-devicelist-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-display-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-features-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-image-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-maincamera-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-manufacturer-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-memory-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-misc-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-network-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-platform-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-selfiecamera-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-sound-structure.json
+  - type: Examples
+    url: examples/mobileapi-ai-query-example.json
+  - type: Examples
+    url: examples/mobileapi-autocomplete-example.json
+  - type: Examples
+    url: examples/mobileapi-device-example.json
+  - type: Examples
+    url: examples/mobileapi-devicelist-example.json
+  - type: Examples
+    url: examples/mobileapi-manufacturer-example.json
+  - type: JSONLD
+    url: json-ld/mobileapi-dev-context.jsonld
+- aid: mobileapi-dev:mobileapi-dev-devices-api
+  name: MobileAPI.dev devices API
+  description: The devices API from MobileAPI.dev — 24 operation(s) for devices.
+  humanURL: https://mobileapi.dev/
+  baseURL: https://api.mobileapi.dev/
+  tags:
+  - devices
+  properties:
+  - type: OpenAPI
+    url: openapi/mobileapi-dev-devices-api-openapi.yml
+  - type: Documentation
+    url: https://mobileapi.dev/docs/
+  - type: APIReference
+    url: https://mobileapi.dev/docs/
+  - type: GettingStarted
+    url: https://mobileapi.dev/docs/
+  - type: Authentication
+    url: https://mobileapi.dev/docs/
+  - type: RateLimits
+    url: https://mobileapi.dev/docs/
+  - type: CodeExamples
+    url: https://mobileapi.dev/docs/
+  - type: JSONSchema
+    url: json-schema/mobileapi-battery-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-body-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-comms-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-device-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-devicelist-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-display-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-features-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-image-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-maincamera-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-manufacturer-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-memory-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-misc-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-network-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-platform-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-selfiecamera-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-sound-schema.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-battery-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-body-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-comms-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-device-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-devicelist-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-display-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-features-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-image-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-maincamera-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-manufacturer-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-memory-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-misc-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-network-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-platform-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-selfiecamera-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-sound-structure.json
+  - type: Examples
+    url: examples/mobileapi-ai-query-example.json
+  - type: Examples
+    url: examples/mobileapi-autocomplete-example.json
+  - type: Examples
+    url: examples/mobileapi-device-example.json
+  - type: Examples
+    url: examples/mobileapi-devicelist-example.json
+  - type: Examples
+    url: examples/mobileapi-manufacturer-example.json
+  - type: JSONLD
+    url: json-ld/mobileapi-dev-context.jsonld
+- aid: mobileapi-dev:mobileapi-dev-images-api
+  name: MobileAPI.dev images API
+  description: The images API from MobileAPI.dev — 1 operation(s) for images.
+  humanURL: https://mobileapi.dev/
+  baseURL: https://api.mobileapi.dev/
+  tags:
+  - images
+  properties:
+  - type: OpenAPI
+    url: openapi/mobileapi-dev-images-api-openapi.yml
+  - type: Documentation
+    url: https://mobileapi.dev/docs/
+  - type: APIReference
+    url: https://mobileapi.dev/docs/
+  - type: GettingStarted
+    url: https://mobileapi.dev/docs/
+  - type: Authentication
+    url: https://mobileapi.dev/docs/
+  - type: RateLimits
+    url: https://mobileapi.dev/docs/
+  - type: CodeExamples
+    url: https://mobileapi.dev/docs/
+  - type: JSONSchema
+    url: json-schema/mobileapi-battery-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-body-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-comms-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-device-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-devicelist-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-display-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-features-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-image-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-maincamera-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-manufacturer-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-memory-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-misc-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-network-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-platform-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-selfiecamera-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-sound-schema.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-battery-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-body-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-comms-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-device-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-devicelist-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-display-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-features-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-image-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-maincamera-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-manufacturer-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-memory-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-misc-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-network-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-platform-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-selfiecamera-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-sound-structure.json
+  - type: Examples
+    url: examples/mobileapi-ai-query-example.json
+  - type: Examples
+    url: examples/mobileapi-autocomplete-example.json
+  - type: Examples
+    url: examples/mobileapi-device-example.json
+  - type: Examples
+    url: examples/mobileapi-devicelist-example.json
+  - type: Examples
+    url: examples/mobileapi-manufacturer-example.json
+  - type: JSONLD
+    url: json-ld/mobileapi-dev-context.jsonld
+- aid: mobileapi-dev:mobileapi-dev-manufacturers-api
+  name: MobileAPI.dev manufacturers API
+  description: The manufacturers API from MobileAPI.dev — 2 operation(s) for manufacturers.
+  humanURL: https://mobileapi.dev/
+  baseURL: https://api.mobileapi.dev/
+  tags:
+  - manufacturers
+  properties:
+  - type: OpenAPI
+    url: openapi/mobileapi-dev-manufacturers-api-openapi.yml
+  - type: Documentation
+    url: https://mobileapi.dev/docs/
+  - type: APIReference
+    url: https://mobileapi.dev/docs/
+  - type: GettingStarted
+    url: https://mobileapi.dev/docs/
+  - type: Authentication
+    url: https://mobileapi.dev/docs/
+  - type: RateLimits
+    url: https://mobileapi.dev/docs/
+  - type: CodeExamples
+    url: https://mobileapi.dev/docs/
+  - type: JSONSchema
+    url: json-schema/mobileapi-battery-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-body-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-comms-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-device-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-devicelist-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-display-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-features-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-image-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-maincamera-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-manufacturer-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-memory-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-misc-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-network-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-platform-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-selfiecamera-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-sound-schema.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-battery-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-body-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-comms-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-device-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-devicelist-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-display-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-features-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-image-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-maincamera-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-manufacturer-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-memory-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-misc-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-network-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-platform-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-selfiecamera-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-sound-structure.json
+  - type: Examples
+    url: examples/mobileapi-ai-query-example.json
+  - type: Examples
+    url: examples/mobileapi-autocomplete-example.json
+  - type: Examples
+    url: examples/mobileapi-device-example.json
+  - type: Examples
+    url: examples/mobileapi-devicelist-example.json
+  - type: Examples
+    url: examples/mobileapi-manufacturer-example.json
+  - type: JSONLD
+    url: json-ld/mobileapi-dev-context.jsonld
+- aid: mobileapi-dev:mobileapi-dev-me-api
+  name: MobileAPI.dev me API
+  description: The me API from MobileAPI.dev — 1 operation(s) for me.
+  humanURL: https://mobileapi.dev/
+  baseURL: https://api.mobileapi.dev/
+  tags:
+  - me
+  properties:
+  - type: OpenAPI
+    url: openapi/mobileapi-dev-me-api-openapi.yml
+  - type: Documentation
+    url: https://mobileapi.dev/docs/
+  - type: APIReference
+    url: https://mobileapi.dev/docs/
+  - type: GettingStarted
+    url: https://mobileapi.dev/docs/
+  - type: Authentication
+    url: https://mobileapi.dev/docs/
+  - type: RateLimits
+    url: https://mobileapi.dev/docs/
+  - type: CodeExamples
+    url: https://mobileapi.dev/docs/
+  - type: JSONSchema
+    url: json-schema/mobileapi-battery-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-body-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-comms-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-device-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-devicelist-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-display-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-features-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-image-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-maincamera-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-manufacturer-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-memory-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-misc-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-network-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-platform-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-selfiecamera-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-sound-schema.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-battery-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-body-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-comms-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-device-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-devicelist-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-display-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-features-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-image-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-maincamera-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-manufacturer-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-memory-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-misc-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-network-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-platform-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-selfiecamera-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-sound-structure.json
+  - type: Examples
+    url: examples/mobileapi-ai-query-example.json
+  - type: Examples
+    url: examples/mobileapi-autocomplete-example.json
+  - type: Examples
+    url: examples/mobileapi-device-example.json
+  - type: Examples
+    url: examples/mobileapi-devicelist-example.json
+  - type: Examples
+    url: examples/mobileapi-manufacturer-example.json
+  - type: JSONLD
+    url: json-ld/mobileapi-dev-context.jsonld
+- aid: mobileapi-dev:mobileapi-dev-payment-successful-api
+  name: MobileAPI.dev payment_successful API
+  description: The payment_successful API from MobileAPI.dev — 2 operation(s) for payment_successful.
+  humanURL: https://mobileapi.dev/
+  baseURL: https://api.mobileapi.dev/
+  tags:
+  - payment_successful
+  properties:
+  - type: OpenAPI
+    url: openapi/mobileapi-dev-payment-successful-api-openapi.yml
+  - type: Documentation
+    url: https://mobileapi.dev/docs/
+  - type: APIReference
+    url: https://mobileapi.dev/docs/
+  - type: GettingStarted
+    url: https://mobileapi.dev/docs/
+  - type: Authentication
+    url: https://mobileapi.dev/docs/
+  - type: RateLimits
+    url: https://mobileapi.dev/docs/
+  - type: CodeExamples
+    url: https://mobileapi.dev/docs/
+  - type: JSONSchema
+    url: json-schema/mobileapi-battery-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-body-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-comms-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-device-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-devicelist-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-display-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-features-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-image-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-maincamera-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-manufacturer-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-memory-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-misc-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-network-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-platform-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-selfiecamera-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-sound-schema.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-battery-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-body-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-comms-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-device-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-devicelist-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-display-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-features-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-image-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-maincamera-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-manufacturer-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-memory-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-misc-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-network-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-platform-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-selfiecamera-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-sound-structure.json
+  - type: Examples
+    url: examples/mobileapi-ai-query-example.json
+  - type: Examples
+    url: examples/mobileapi-autocomplete-example.json
+  - type: Examples
+    url: examples/mobileapi-device-example.json
+  - type: Examples
+    url: examples/mobileapi-devicelist-example.json
+  - type: Examples
+    url: examples/mobileapi-manufacturer-example.json
+  - type: JSONLD
+    url: json-ld/mobileapi-dev-context.jsonld
+- aid: mobileapi-dev:mobileapi-dev-status-api
+  name: MobileAPI.dev status API
+  description: The status API from MobileAPI.dev — 1 operation(s) for status.
+  humanURL: https://mobileapi.dev/
+  baseURL: https://api.mobileapi.dev/
+  tags:
+  - status
+  properties:
+  - type: OpenAPI
+    url: openapi/mobileapi-dev-status-api-openapi.yml
+  - type: Documentation
+    url: https://mobileapi.dev/docs/
+  - type: APIReference
+    url: https://mobileapi.dev/docs/
+  - type: GettingStarted
+    url: https://mobileapi.dev/docs/
+  - type: Authentication
+    url: https://mobileapi.dev/docs/
+  - type: RateLimits
+    url: https://mobileapi.dev/docs/
+  - type: CodeExamples
+    url: https://mobileapi.dev/docs/
+  - type: JSONSchema
+    url: json-schema/mobileapi-battery-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-body-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-comms-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-device-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-devicelist-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-display-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-features-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-image-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-maincamera-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-manufacturer-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-memory-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-misc-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-network-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-platform-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-selfiecamera-schema.json
+  - type: JSONSchema
+    url: json-schema/mobileapi-sound-schema.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-battery-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-body-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-comms-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-device-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-devicelist-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-display-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-features-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-image-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-maincamera-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-manufacturer-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-memory-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-misc-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-network-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-platform-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-selfiecamera-structure.json
+  - type: JSONStructure
+    url: json-structure/mobileapi-sound-structure.json
+  - type: Examples
+    url: examples/mobileapi-ai-query-example.json
+  - type: Examples
+    url: examples/mobileapi-autocomplete-example.json
+  - type: Examples
+    url: examples/mobileapi-device-example.json
+  - type: Examples
+    url: examples/mobileapi-devicelist-example.json
+  - type: Examples
+    url: examples/mobileapi-manufacturer-example.json
+  - type: JSONLD
+    url: json-ld/mobileapi-dev-context.jsonld
 common:
   - type: AgenticAccess
     url: agentic-access/mobileapi-dev-agentic-access.yml
