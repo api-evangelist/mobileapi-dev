@@ -1,0 +1,30 @@
+{
+  "provider": "mobileapi-dev",
+  "sources": [
+    "mobileapi-dev-api-api-openapi.yml",
+    "mobileapi-dev-api-token-auth-api-openapi.yml",
+    "mobileapi-dev-demo-x7k9m2p4-api-openapi.yml",
+    "mobileapi-dev-devices-api-openapi.yml",
+    "mobileapi-dev-images-api-openapi.yml",
+    "mobileapi-dev-manufacturers-api-openapi.yml",
+    "mobileapi-dev-me-api-openapi.yml",
+    "mobileapi-dev-payment-successful-api-openapi.yml",
+    "mobileapi-dev-status-api-openapi.yml"
+  ],
+  "outputs": [
+    "mobileapi-dev-api-api-openapi.yml",
+    "mobileapi-dev-api-token-auth-api-openapi.yml",
+    "mobileapi-dev-demo-x7k9m2p4-api-openapi.yml",
+    "mobileapi-dev-devices-api-openapi.yml",
+    "mobileapi-dev-images-api-openapi.yml",
+    "mobileapi-dev-manufacturers-api-openapi.yml",
+    "mobileapi-dev-me-api-openapi.yml",
+    "mobileapi-dev-payment-successful-api-openapi.yml",
+    "mobileapi-dev-status-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
