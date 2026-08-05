@@ -1120,8 +1120,6 @@ common:
     updated: '2026-05-06'
   - type: SpectralRules
     url: rules/mobileapi-rules.yml
-  - type: Vocabulary
-    url: vocabulary/mobileapi-dev-vocabulary.yml
   - type: Plans
     url: plans/mobileapi-dev-plans-pricing.yml
   - type: RateLimits
