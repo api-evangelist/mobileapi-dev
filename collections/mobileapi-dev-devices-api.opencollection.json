@@ -1,0 +1,666 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mobile api devices API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "devices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Devices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mobileapi.dev/devices/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "Fallback: API key as query parameter (optional for demo)"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (default: 1). Each page contains 50 devices."
+              }
+            ]
+          },
+          "docs": "Retrieve a list of all devices. Results are paginated. **Note**: `image_b64` returns a 100x100 thumbnail. For full-resolution images, use the `/devices/{id}/images` endpoint."
+        },
+        {
+          "info": {
+            "name": "Natural Language Device Query (AI-Powered) - Paid Users Only",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mobileapi.dev/devices/ai-query/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Natural language query (e.g., 'top 5 devices with most RAM', 'phones with best battery')"
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "Fallback: API key as query parameter (requires paid plan)"
+              }
+            ]
+          },
+          "docs": "Query devices using natural language. Examples: 'Get top 5 devices with the most RAM', 'Show me phones with best camera', 'Find cheapest 5G phones'. Powered by AI to understand and execute your query. **Note: This endpoint requires a paid subscription plan (Pro or Enterprise).**"
+        },
+        {
+          "info": {
+            "name": "Autocomplete Device Names",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mobileapi.dev/devices/autocomplete/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "Fallback: API key as query parameter (optional for demo)"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query string (minimum 5 characters)"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of suggestions to return (default: 10, max: 30)."
+              }
+            ]
+          },
+          "docs": "Get autocomplete suggestions for device names. Returns simplified device data for typeahead/autocomplete features. Requires authentication."
+        },
+        {
+          "info": {
+            "name": "[Deprecated] List Devices by Brand - Use /by-Manufacturer/ Instead",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mobileapi.dev/devices/by-brand/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "brand",
+                "value": "",
+                "type": "query",
+                "description": "Brand/Manufacturer name to filter devices (e.g., 'Apple', 'Samsung'). DEPRECATED: Use 'manufacturer' parameter with /by-manufacturer/ endpoint instead."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return (default: 10, max: 30)."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "Fallback: API key as query parameter (less secure)"
+              }
+            ]
+          },
+          "docs": "DEPRECATED: This endpoint is deprecated. Please use /devices/by-manufacturer/ instead. Retrieve all devices from a specific brand/manufacturer. Requires authentication."
+        },
+        {
+          "info": {
+            "name": "List Devices by Manufacturer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mobileapi.dev/devices/by-manufacturer/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "manufacturer",
+                "value": "",
+                "type": "query",
+                "description": "Manufacturer name to filter devices (e.g., 'Apple', 'Samsung')."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (default: 1). Each page contains 50 devices."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "Fallback: API key as query parameter (less secure)"
+              }
+            ]
+          },
+          "docs": "Retrieve all devices from a specific manufacturer. Results are paginated with 50 devices per page. **Note**: `image_b64` returns a 100x100 thumbnail."
+        },
+        {
+          "info": {
+            "name": "List Devices by Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mobileapi.dev/devices/by-type/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Device type: phone, tablet, laptop, wearable, or other"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (default: 1). Each page contains 50 devices."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "Fallback: API key as query parameter (less secure)"
+              }
+            ]
+          },
+          "docs": "Get all devices of a specific type (phone, tablet, laptop, wearable, or other). Results are paginated with 50 devices per page. **Note**: `image_b64` returns a 100x100 thumbnail."
+        },
+        {
+          "info": {
+            "name": "List Devices by Launch Year",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mobileapi.dev/devices/by-year/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "year",
+                "value": "",
+                "type": "query",
+                "description": "Launch year (4-digit format, e.g., 2023)"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (default: 1). Each page contains 50 items."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "Fallback: API key as query parameter (less secure)"
+              }
+            ]
+          },
+          "docs": "Get all devices released in a specific year. The year parameter should be a 4-digit year (e.g., 2023). Results are paginated with 50 items per page. **Note**: `image_b64` returns a 100x100 thumbnail."
+        },
+        {
+          "info": {
+            "name": "Search Device by Name or Model Number",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mobileapi.dev/devices/search/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "Fallback: API key as query parameter (optional for demo)"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Name of the device to search for (e.g., 'iPhone 15 Pro'). Mutually exclusive with 'model_number'."
+              },
+              {
+                "name": "model_number",
+                "value": "",
+                "type": "query",
+                "description": "Model number of the device to search for (e.g., 'A3520'). Mutually exclusive with 'name'."
+              },
+              {
+                "name": "manufacturer",
+                "value": "",
+                "type": "query",
+                "description": "Optional. Filter search results to devices from this manufacturer only. If no devices match the manufacturer, returns empty results."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Optional. Number of results to return per page (default: 10, max: 30). Use this to control how many devices are returned in the response. For example, limit=1 returns only the best match."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (default: 1). Each page contains 50 devices."
+              },
+              {
+                "name": "exact",
+                "value": "",
+                "type": "query",
+                "description": "Set to true for exact matching (default: false). When true, only returns devices with 100% match certainty (exact name or exact model number match)."
+              }
+            ]
+          },
+          "docs": "Retrieve device details by providing either a device name (e.g., 'iPhone 15 Pro') or a model number (e.g., 'A3520'), but not both. At least one parameter is required. Results are paginated (default: 10 per page, customizable via 'limit' parameter). Optionally filter by manufacturer. Exact model number matches are prioritized over name matches. **Note**: `image_b64` returns a 100x100 thumbnail."
+        },
+        {
+          "info": {
+            "name": "Get Device by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mobileapi.dev/devices/:id/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this device."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "Fallback: API key as query parameter (optional for demo)"
+              }
+            ]
+          },
+          "docs": "Retrieve detailed device information by providing its ID. **Note**: `image_b64` returns a 100x100 thumbnail. For full-resolution images, use `/devices/{id}/images` endpoint."
+        },
+        {
+          "info": {
+            "name": "Get Device Battery Specifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mobileapi.dev/devices/:id/battery/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this device."
+              }
+            ]
+          },
+          "docs": "Get battery specifications for a specific device."
+        },
+        {
+          "info": {
+            "name": "Get Device Body Specifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mobileapi.dev/devices/:id/body/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this device."
+              }
+            ]
+          },
+          "docs": "Get body specifications for a specific device."
+        },
+        {
+          "info": {
+            "name": "Get Device Communications Specifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mobileapi.dev/devices/:id/comms/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this device."
+              }
+            ]
+          },
+          "docs": "Get communications specifications for a specific device."
+        },
+        {
+          "info": {
+            "name": "Get Device Display Specifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mobileapi.dev/devices/:id/display/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this device."
+              }
+            ]
+          },
+          "docs": "Get display specifications for a specific device."
+        },
+        {
+          "info": {
+            "name": "Get Device Features Specifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mobileapi.dev/devices/:id/features/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this device."
+              }
+            ]
+          },
+          "docs": "Get features specifications for a specific device."
+        },
+        {
+          "info": {
+            "name": "Serve Full-Resolution Device Main Image",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mobileapi.dev/devices/:id/image/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "Fallback: API key as query parameter (less secure, visible in logs)"
+              }
+            ]
+          },
+          "docs": "Returns the full-resolution main image of a device as binary data. Consumes 1 API credit per request. Requires authentication via API key (header recommended, query param for backwards compatibility)."
+        },
+        {
+          "info": {
+            "name": "Get Device Images",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mobileapi.dev/devices/:id/images/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this device."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of images to return (default: 10, max: 30)."
+              }
+            ]
+          },
+          "docs": "Get all images for a specific device. Returns image URLs for full-resolution access (accessing image URLs consumes 1 credit per request). Main device image is included as the first entry with URL /devices/{id}/image/."
+        },
+        {
+          "info": {
+            "name": "Get Device Main Camera Specifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mobileapi.dev/devices/:id/main-camera/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this device."
+              }
+            ]
+          },
+          "docs": "Get main camera specifications for a specific device."
+        },
+        {
+          "info": {
+            "name": "Get Device Memory Specifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mobileapi.dev/devices/:id/memory/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this device."
+              }
+            ]
+          },
+          "docs": "Get memory specifications for a specific device."
+        },
+        {
+          "info": {
+            "name": "Get Device Miscellaneous Specifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mobileapi.dev/devices/:id/misc/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this device."
+              }
+            ]
+          },
+          "docs": "Get miscellaneous specifications for a specific device."
+        },
+        {
+          "info": {
+            "name": "Get Device Network Specifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mobileapi.dev/devices/:id/network/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this device."
+              }
+            ]
+          },
+          "docs": "Get network specifications for a specific device."
+        },
+        {
+          "info": {
+            "name": "Get Device Platform Specifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mobileapi.dev/devices/:id/platform/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this device."
+              }
+            ]
+          },
+          "docs": "Get platform specifications for a specific device."
+        },
+        {
+          "info": {
+            "name": "Get Device Selfie Camera Specifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mobileapi.dev/devices/:id/selfie-camera/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this device."
+              }
+            ]
+          },
+          "docs": "Get selfie camera specifications for a specific device."
+        },
+        {
+          "info": {
+            "name": "Get Device Sound Specifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mobileapi.dev/devices/:id/sound/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this device."
+              }
+            ]
+          },
+          "docs": "Get sound specifications for a specific device."
+        },
+        {
+          "info": {
+            "name": "Serve Device Thumbnail Image (100x100)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mobileapi.dev/devices/:id/thumb.png/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the 100x100 thumbnail image as PNG binary data. **Does NOT consume credits** - free to access."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,46 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mobile api payment_successful API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "payment_successful",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "payment_successful_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mobileapi.dev/payment_successful"
+          }
+        },
+        {
+          "info": {
+            "name": "payment_successful_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mobileapi.dev/payment_successful/"
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

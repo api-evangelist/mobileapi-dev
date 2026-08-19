@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mobile api images API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "images",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Serve Full-Resolution Gallery Image",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mobileapi.dev/images/:id/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "Fallback: API key as query parameter (less secure, visible in logs)"
+              }
+            ]
+          },
+          "docs": "Returns the full-resolution image as binary data. Consumes 1 API credit per request. Requires authentication via API key (header recommended, query param for backwards compatibility)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

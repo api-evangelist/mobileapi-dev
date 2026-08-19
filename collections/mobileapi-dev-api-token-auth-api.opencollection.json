@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mobile api api-token-auth API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "api-token-auth",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "api-token-auth_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.mobileapi.dev/api-token-auth/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

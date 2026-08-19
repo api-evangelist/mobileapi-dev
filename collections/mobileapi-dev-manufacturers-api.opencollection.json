@@ -1,0 +1,88 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mobile api manufacturers API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "manufacturers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Device Manufacturers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mobileapi.dev/manufacturers/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "Fallback: API key as query parameter (optional for demo)"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (default: 1). Each page contains 50 manufacturers."
+              }
+            ]
+          },
+          "docs": "Retrieve a list of all device manufacturers with their names and website URLs. Results are paginated with 50 manufacturers per page. Requires authentication."
+        },
+        {
+          "info": {
+            "name": "Get Manufacturer by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mobileapi.dev/manufacturers/:id/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this manufacturer."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "Fallback: API key as query parameter (optional for demo)"
+              }
+            ]
+          },
+          "docs": "Retrieve detailed manufacturer information by providing its ID. Returns manufacturer name, website URL, and logo."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

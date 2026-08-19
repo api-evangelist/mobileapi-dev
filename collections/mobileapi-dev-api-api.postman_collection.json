@@ -1,0 +1,229 @@
+{
+  "item": [
+    {
+      "id": "3b1e688e-b0b4-4952-a622-c150c9dc9cfe",
+      "name": "api",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "91b3c729-4345-44a5-84b4-b24a5d04c8a9",
+          "name": "A Viewset for Viewing Firewall Log Entries.",
+          "request": {
+            "name": "A Viewset for Viewing Firewall Log Entries.",
+            "description": {
+              "content": "This is a read-only viewset that allows authenticated admin users\nto view the firewall logs via REST API.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "firewall",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f618f4ea-3af5-4549-a192-981d27e977b7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "firewall",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"remote_address\": \"string\",\n    \"server_hostname\": \"string\",\n    \"url\": \"string\",\n    \"id\": 4860,\n    \"blocked\": true,\n    \"created_at\": \"2002-04-09T14:31:40.997Z\",\n    \"updated_at\": \"1984-02-08T06:43:20.323Z\"\n  },\n  {\n    \"remote_address\": \"string\",\n    \"server_hostname\": \"string\",\n    \"url\": \"string\",\n    \"id\": 7458,\n    \"blocked\": true,\n    \"created_at\": \"2021-10-10T07:58:44.726Z\",\n    \"updated_at\": \"1974-12-03T23:48:00.309Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "194c96f5-112c-4dc8-8aae-7b89f240885e",
+          "name": "A Viewset for Viewing Firewall Log Entries.",
+          "request": {
+            "name": "A Viewset for Viewing Firewall Log Entries.",
+            "description": {
+              "content": "This is a read-only viewset that allows authenticated admin users\nto view the firewall logs via REST API.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "firewall",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this Firewall API Log."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ff03cffa-af61-4ab5-898a-5b7143ca58dc",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "firewall",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this Firewall API Log."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"remote_address\": \"strin\",\n  \"server_hostname\": \"string\",\n  \"url\": \"string\",\n  \"id\": 2368,\n  \"blocked\": false,\n  \"created_at\": \"1989-02-17T10:47:39.450Z\",\n  \"updated_at\": \"2019-03-28T13:40:41.197Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.mobileapi.dev",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b5ad16e8-7364-4dce-8b20-f2028fe4a9b6",
+    "name": "Mobile api API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API providing structured device specifications, base64-encoded product images, and pricing metadata for 31,500+ smartphones, tablets, smartwatches, and laptops across 200+ manufacturers. Endpoints support paginated listing, fuzzy search by name or model number, autocomplete, browsing by manufacturer/year/type, per-category specifications (battery, display, platform, memory, cameras, network, sound, comms, features, body, misc), high-resolution images, manufacturer directory, account introspection (/me/), and an AI natural-language query endpoint.\n\nContact Support:\n Name: MobileAPI.dev Support\n Email: support@mobileapi.dev",
+      "type": "text/plain"
+    }
+  }
+}

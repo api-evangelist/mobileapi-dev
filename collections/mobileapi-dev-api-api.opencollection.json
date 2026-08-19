@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mobile api API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "api",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "A Viewset for Viewing Firewall Log Entries.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mobileapi.dev/api/firewall/"
+          },
+          "docs": "This is a read-only viewset that allows authenticated admin users\nto view the firewall logs via REST API."
+        },
+        {
+          "info": {
+            "name": "A Viewset for Viewing Firewall Log Entries.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mobileapi.dev/api/firewall/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Firewall API Log."
+              }
+            ]
+          },
+          "docs": "This is a read-only viewset that allows authenticated admin users\nto view the firewall logs via REST API."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,44 @@
+# MobileAPI.dev
+
+> Device specifications API for developers. Access 15,000+ smartphone, tablet, and wearable
+> specifications through a modern REST API.
+
+## About MobileAPI.dev
+
+MobileAPI.dev provides a comprehensive REST API for accessing device specifications, images, and
+pricing data. Our database includes 15,000+ devices from 200+ manufacturers including Apple,
+Samsung, Google, OnePlus, Xiaomi, and more.
+
+## Key Features
+
+- Complete device specifications (display, camera, battery, processor, memory, etc.)
+- High-quality device images (multiple angles and color variants)
+- Real-time pricing data across regions
+- Fast search with typo tolerance and autocomplete
+- RESTful JSON API with simple authentication
+- Code examples in Python, JavaScript, PHP, and cURL
+
+## API Endpoints
+
+- `/devices/search` - Search for devices by name
+- `/devices/{id}` - Get full device specifications
+- `/devices/autocomplete` - Autocomplete suggestions
+- `/manufacturers` - List all manufacturers
+
+## Pricing Plans
+
+- **Free**: 200 requests/month, 5 req/min rate limit
+- **Pro**: $29/month, 10,000 requests/month, 10 req/sec rate limit
+- **Enterprise**: Custom pricing, unlimited requests
+
+## Quick Links
+
+- Homepage: https://mobileapi.dev/
+- API Documentation: https://mobileapi.dev/docs/
+- Sign Up (Free): https://mobileapi.dev/signup/
+- Status Page: https://mobileapi.cronitorstatus.com/
+- Support: support@mobileapi.dev
+
+## Optional
+
+- Full documentation: https://mobileapi.dev/llms-full.txt

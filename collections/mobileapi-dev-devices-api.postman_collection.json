@@ -1,0 +1,5167 @@
+{
+  "item": [
+    {
+      "id": "e1436f78-ca87-4090-8517-1f4c5ca3dfa8",
+      "name": "devices",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "92bb0a31-a978-4d16-8d5b-9794c329e90b",
+          "name": "List All Devices",
+          "request": {
+            "name": "List All Devices",
+            "description": {
+              "content": "Retrieve a list of all devices. Results are paginated. **Note**: `image_b64` returns a 100x100 thumbnail. For full-resolution images, use the `/devices/{id}/images` endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "devices",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "Fallback: API key as query parameter (optional for demo)"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number (default: 1). Each page contains 50 devices."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "af92f81e-c3e7-4d10-8fa9-10cec1c44436",
+              "name": "Paginated list of devices with metadata",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Recommended: 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY'",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"id\": 335,\n    \"manufacturer_name\": \"string\",\n    \"device_type\": \"tablet\",\n    \"description\": \"string\",\n    \"colors\": \"string\",\n    \"storage\": \"string\",\n    \"screen_resolution\": \"string\",\n    \"weight\": \"string\",\n    \"thickness\": \"string\",\n    \"release_date\": \"string\",\n    \"camera\": \"string\",\n    \"battery_capacity\": \"string\",\n    \"hardware\": \"string\",\n    \"image_b64\": \"string\",\n    \"image_url\": \"string\"\n  },\n  {\n    \"name\": \"string\",\n    \"id\": 5079,\n    \"manufacturer_name\": \"string\",\n    \"device_type\": \"wearable\",\n    \"description\": \"string\",\n    \"colors\": \"string\",\n    \"storage\": \"string\",\n    \"screen_resolution\": \"string\",\n    \"weight\": \"string\",\n    \"thickness\": \"string\",\n    \"release_date\": \"string\",\n    \"camera\": \"string\",\n    \"battery_capacity\": \"string\",\n    \"hardware\": \"string\",\n    \"image_b64\": \"string\",\n    \"image_url\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1c6a9bac-2384-4445-ab4e-c3924d48e703",
+              "name": "Bad request, invalid page parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Recommended: 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY'",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5af3eacb-3d84-4077-9ed3-a182a887d519",
+              "name": "Unauthorized - Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Recommended: 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY'",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "856f08bf-0cd8-4c78-b79a-005177ba4c63",
+          "name": "Natural Language Device Query (AI-Powered) - Paid Users Only",
+          "request": {
+            "name": "Natural Language Device Query (AI-Powered) - Paid Users Only",
+            "description": {
+              "content": "Query devices using natural language. Examples: 'Get top 5 devices with the most RAM', 'Show me phones with best camera', 'Find cheapest 5G phones'. Powered by AI to understand and execute your query. **Note: This endpoint requires a paid subscription plan (Pro or Enterprise).**",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "devices",
+                "ai-query",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "(Required) Natural language query (e.g., 'top 5 devices with most RAM', 'phones with best battery')"
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "Fallback: API key as query parameter (requires paid plan)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e69fb2b5-c1d8-4339-a2cb-2a0b4b5ac475",
+              "name": "Query results with explanation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    "ai-query",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Recommended: 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY' (requires paid plan)",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"id\": 335,\n    \"manufacturer_name\": \"string\",\n    \"device_type\": \"tablet\",\n    \"description\": \"string\",\n    \"colors\": \"string\",\n    \"storage\": \"string\",\n    \"screen_resolution\": \"string\",\n    \"weight\": \"string\",\n    \"thickness\": \"string\",\n    \"release_date\": \"string\",\n    \"camera\": \"string\",\n    \"battery_capacity\": \"string\",\n    \"hardware\": \"string\",\n    \"image_b64\": \"string\",\n    \"image_url\": \"string\"\n  },\n  {\n    \"name\": \"string\",\n    \"id\": 5079,\n    \"manufacturer_name\": \"string\",\n    \"device_type\": \"wearable\",\n    \"description\": \"string\",\n    \"colors\": \"string\",\n    \"storage\": \"string\",\n    \"screen_resolution\": \"string\",\n    \"weight\": \"string\",\n    \"thickness\": \"string\",\n    \"release_date\": \"string\",\n    \"camera\": \"string\",\n    \"battery_capacity\": \"string\",\n    \"hardware\": \"string\",\n    \"image_b64\": \"string\",\n    \"image_url\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ed507d5a-e162-43ba-863e-22ad39ac0f42",
+              "name": "Bad request - missing query parameter or invalid query",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    "ai-query",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Recommended: 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY' (requires paid plan)",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "afd14325-cc78-45c2-9c3b-84efab72031b",
+              "name": "Unauthorized - invalid API key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    "ai-query",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Recommended: 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY' (requires paid plan)",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "787dd568-a2eb-4687-a114-0d9fd889166d",
+              "name": "Forbidden - paid plan required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    "ai-query",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Recommended: 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY' (requires paid plan)",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ca5ba0c4-50f9-49ca-a19f-32d903206a45",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    "ai-query",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Recommended: 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY' (requires paid plan)",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bdb56ed1-1984-4a49-a80e-6d0b96bc0a86",
+              "name": "LLM service unavailable (OpenAI API key not configured)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    "ai-query",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Recommended: 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY' (requires paid plan)",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3e7e6547-966d-4a61-b869-c2bf469ae10e",
+          "name": "Autocomplete Device Names",
+          "request": {
+            "name": "Autocomplete Device Names",
+            "description": {
+              "content": "Get autocomplete suggestions for device names. Returns simplified device data for typeahead/autocomplete features. Requires authentication.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "devices",
+                "autocomplete",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "Fallback: API key as query parameter (optional for demo)"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "(Required) Query string (minimum 5 characters)"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Maximum number of suggestions to return (default: 10, max: 30)."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3cb94852-238b-45f1-830b-701048b6a56d",
+              "name": "Array of autocomplete suggestions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    "autocomplete",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Recommended: 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY'",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "80ac208e-419d-49ce-9aa5-0156fca12a9b",
+              "name": "Bad request, invalid limit parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    "autocomplete",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Recommended: 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY'",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "983a7a35-e86f-4cf9-9482-677058c70a49",
+              "name": "Unauthorized - Invalid API key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    "autocomplete",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Recommended: 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY'",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "256ee5ca-0f15-4adc-8155-c9c5c332809c",
+          "name": "[Deprecated] List Devices by Brand - Use /by-Manufacturer/ Instead",
+          "request": {
+            "name": "[Deprecated] List Devices by Brand - Use /by-Manufacturer/ Instead",
+            "description": {
+              "content": "DEPRECATED: This endpoint is deprecated. Please use /devices/by-manufacturer/ instead. Retrieve all devices from a specific brand/manufacturer. Requires authentication.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "devices",
+                "by-brand",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "brand",
+                  "value": "<string>",
+                  "description": "(Required) Brand/Manufacturer name to filter devices (e.g., 'Apple', 'Samsung'). DEPRECATED: Use 'manufacturer' parameter with /by-manufacturer/ endpoint instead."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Maximum number of results to return (default: 10, max: 30)."
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "Fallback: API key as query parameter (less secure)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "923bab10-1254-4ba7-ab68-f866be8726c6",
+              "name": "List of devices",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    "by-brand",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "brand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Recommended: 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY'",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"id\": 2818,\n    \"manufacturer\": {\n      \"name\": \"string\",\n      \"id\": 6983,\n      \"logo_b64\": \"string\",\n      \"website_url\": \"http://bUGNNdFdg.kpdOM,Ar8I.8NstO,bliAONJ9WK25sWK1rSw7vVV4lQ,-CoTI3to7\"\n    },\n    \"manufacturer_name\": \"string\",\n    \"device_type\": \"wearable\",\n    \"description\": \"string\",\n    \"colors\": \"string\",\n    \"storage\": \"string\",\n    \"screen_resolution\": \"string\",\n    \"weight\": \"string\",\n    \"thickness\": \"string\",\n    \"release_date\": \"string\",\n    \"camera\": \"string\",\n    \"battery_capacity\": \"string\",\n    \"hardware\": \"string\",\n    \"image_b64\": \"string\",\n    \"image_url\": \"string\",\n    \"network\": {\n      \"id\": 4738,\n      \"technology\": \"string\",\n      \"bands_2g\": \"string\",\n      \"bands_3g\": \"string\",\n      \"bands_4g\": \"string\",\n      \"bands_5g\": \"string\",\n      \"speed\": \"string\"\n    },\n    \"body\": {\n      \"id\": 8356,\n      \"dimensions\": \"string\",\n      \"weight\": \"string\",\n      \"build\": \"string\",\n      \"sim\": \"string\",\n      \"other\": \"string\"\n    },\n    \"display\": {\n      \"id\": 2860,\n      \"type\": \"string\",\n      \"size\": \"string\",\n      \"resolution\": \"string\",\n      \"protection\": \"string\",\n      \"other\": \"string\"\n    },\n    \"platform\": {\n      \"id\": 1475,\n      \"os\": \"string\",\n      \"chipset\": \"string\",\n      \"cpu\": \"string\",\n      \"gpu\": \"string\"\n    },\n    \"memory\": {\n      \"id\": 9379,\n      \"card_slot\": \"string\",\n      \"internal\": \"string\",\n      \"other\": \"string\"\n    },\n    \"main_camera\": {\n      \"id\": 4046,\n      \"modules\": \"string\",\n      \"features\": \"string\",\n      \"video\": \"string\"\n    },\n    \"selfie_camera\": {\n      \"id\": 7097,\n      \"modules\": \"string\",\n      \"features\": \"string\",\n      \"video\": \"string\"\n    },\n    \"sound\": {\n      \"id\": 8006,\n      \"loudspeaker\": \"string\",\n      \"audio_jack\": \"string\"\n    },\n    \"comms\": {\n      \"id\": 3047,\n      \"wlan\": \"string\",\n      \"bluetooth\": \"string\",\n      \"positioning\": \"string\",\n      \"nfc\": \"string\",\n      \"radio\": \"string\",\n      \"usb\": \"string\"\n    },\n    \"features\": {\n      \"id\": 805,\n      \"sensors\": \"string\",\n      \"other\": \"string\"\n    },\n    \"battery\": {\n      \"id\": 8366,\n      \"type\": \"string\",\n      \"charging\": \"string\"\n    },\n    \"misc\": {\n      \"id\": 7842,\n      \"model_numbers\": \"string\",\n      \"sar_us\": \"string\",\n      \"sar_eu\": \"string\",\n      \"price\": \"string\"\n    }\n  },\n  {\n    \"name\": \"string\",\n    \"id\": 3083,\n    \"manufacturer\": {\n      \"name\": \"string\",\n      \"id\": 9160,\n      \"logo_b64\": \"string\",\n      \"website_url\": \"http://ekhooRKsvoUOq.twmpBuALhiPWwGH\"\n    },\n    \"manufacturer_name\": \"string\",\n    \"device_type\": \"other\",\n    \"description\": \"string\",\n    \"colors\": \"string\",\n    \"storage\": \"string\",\n    \"screen_resolution\": \"string\",\n    \"weight\": \"string\",\n    \"thickness\": \"string\",\n    \"release_date\": \"string\",\n    \"camera\": \"string\",\n    \"battery_capacity\": \"string\",\n    \"hardware\": \"string\",\n    \"image_b64\": \"string\",\n    \"image_url\": \"string\",\n    \"network\": {\n      \"id\": 8146,\n      \"technology\": \"string\",\n      \"bands_2g\": \"string\",\n      \"bands_3g\": \"string\",\n      \"bands_4g\": \"string\",\n      \"bands_5g\": \"string\",\n      \"speed\": \"string\"\n    },\n    \"body\": {\n      \"id\": 7562,\n      \"dimensions\": \"string\",\n      \"weight\": \"string\",\n      \"build\": \"string\",\n      \"sim\": \"string\",\n      \"other\": \"string\"\n    },\n    \"display\": {\n      \"id\": 9333,\n      \"type\": \"string\",\n      \"size\": \"string\",\n      \"resolution\": \"string\",\n      \"protection\": \"string\",\n      \"other\": \"string\"\n    },\n    \"platform\": {\n      \"id\": 6494,\n      \"os\": \"string\",\n      \"chipset\": \"string\",\n      \"cpu\": \"string\",\n      \"gpu\": \"string\"\n    },\n    \"memory\": {\n      \"id\": 4345,\n      \"card_slot\": \"string\",\n      \"internal\": \"string\",\n      \"other\": \"string\"\n    },\n    \"main_camera\": {\n      \"id\": 3091,\n      \"modules\": \"string\",\n      \"features\": \"string\",\n      \"video\": \"string\"\n    },\n    \"selfie_camera\": {\n      \"id\": 417,\n      \"modules\": \"string\",\n      \"features\": \"string\",\n      \"video\": \"string\"\n    },\n    \"sound\": {\n      \"id\": 3172,\n      \"loudspeaker\": \"string\",\n      \"audio_jack\": \"string\"\n    },\n    \"comms\": {\n      \"id\": 6288,\n      \"wlan\": \"string\",\n      \"bluetooth\": \"string\",\n      \"positioning\": \"string\",\n      \"nfc\": \"string\",\n      \"radio\": \"string\",\n      \"usb\": \"string\"\n    },\n    \"features\": {\n      \"id\": 2703,\n      \"sensors\": \"string\",\n      \"other\": \"string\"\n    },\n    \"battery\": {\n      \"id\": 1495,\n      \"type\": \"string\",\n      \"charging\": \"string\"\n    },\n    \"misc\": {\n      \"id\": 4701,\n      \"model_numbers\": \"string\",\n      \"sar_us\": \"string\",\n      \"sar_eu\": \"string\",\n      \"price\": \"string\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "243d5097-a69e-4a03-8baa-495bc74ee2d4",
+              "name": "Bad request, missing parameter 'brand' or invalid limit",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    "by-brand",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "brand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Recommended: 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY'",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d9e70bc6-b581-4731-9948-ffcf465ae5bc",
+              "name": "Unauthorized - Invalid API key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    "by-brand",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "brand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Recommended: 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY'",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "830349b6-f2d8-487d-b45e-4ad7133a7250",
+              "name": "Brand not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    "by-brand",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "brand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Recommended: 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY'",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "70699193-ce7b-4397-a0d6-0025d0af69aa",
+          "name": "List Devices by Manufacturer",
+          "request": {
+            "name": "List Devices by Manufacturer",
+            "description": {
+              "content": "Retrieve all devices from a specific manufacturer. Results are paginated with 50 devices per page. **Note**: `image_b64` returns a 100x100 thumbnail.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "devices",
+                "by-manufacturer",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "manufacturer",
+                  "value": "<string>",
+                  "description": "(Required) Manufacturer name to filter devices (e.g., 'Apple', 'Samsung')."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number (default: 1). Each page contains 50 devices."
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "Fallback: API key as query parameter (less secure)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "70b8203c-403f-4eb7-a587-164697b0025e",
+              "name": "Paginated list of devices with metadata",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    "by-manufacturer",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "manufacturer",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Recommended: 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY'",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"id\": 2818,\n    \"manufacturer\": {\n      \"name\": \"string\",\n      \"id\": 6983,\n      \"logo_b64\": \"string\",\n      \"website_url\": \"http://bUGNNdFdg.kpdOM,Ar8I.8NstO,bliAONJ9WK25sWK1rSw7vVV4lQ,-CoTI3to7\"\n    },\n    \"manufacturer_name\": \"string\",\n    \"device_type\": \"wearable\",\n    \"description\": \"string\",\n    \"colors\": \"string\",\n    \"storage\": \"string\",\n    \"screen_resolution\": \"string\",\n    \"weight\": \"string\",\n    \"thickness\": \"string\",\n    \"release_date\": \"string\",\n    \"camera\": \"string\",\n    \"battery_capacity\": \"string\",\n    \"hardware\": \"string\",\n    \"image_b64\": \"string\",\n    \"image_url\": \"string\",\n    \"network\": {\n      \"id\": 4738,\n      \"technology\": \"string\",\n      \"bands_2g\": \"string\",\n      \"bands_3g\": \"string\",\n      \"bands_4g\": \"string\",\n      \"bands_5g\": \"string\",\n      \"speed\": \"string\"\n    },\n    \"body\": {\n      \"id\": 8356,\n      \"dimensions\": \"string\",\n      \"weight\": \"string\",\n      \"build\": \"string\",\n      \"sim\": \"string\",\n      \"other\": \"string\"\n    },\n    \"display\": {\n      \"id\": 2860,\n      \"type\": \"string\",\n      \"size\": \"string\",\n      \"resolution\": \"string\",\n      \"protection\": \"string\",\n      \"other\": \"string\"\n    },\n    \"platform\": {\n      \"id\": 1475,\n      \"os\": \"string\",\n      \"chipset\": \"string\",\n      \"cpu\": \"string\",\n      \"gpu\": \"string\"\n    },\n    \"memory\": {\n      \"id\": 9379,\n      \"card_slot\": \"string\",\n      \"internal\": \"string\",\n      \"other\": \"string\"\n    },\n    \"main_camera\": {\n      \"id\": 4046,\n      \"modules\": \"string\",\n      \"features\": \"string\",\n      \"video\": \"string\"\n    },\n    \"selfie_camera\": {\n      \"id\": 7097,\n      \"modules\": \"string\",\n      \"features\": \"string\",\n      \"video\": \"string\"\n    },\n    \"sound\": {\n      \"id\": 8006,\n      \"loudspeaker\": \"string\",\n      \"audio_jack\": \"string\"\n    },\n    \"comms\": {\n      \"id\": 3047,\n      \"wlan\": \"string\",\n      \"bluetooth\": \"string\",\n      \"positioning\": \"string\",\n      \"nfc\": \"string\",\n      \"radio\": \"string\",\n      \"usb\": \"string\"\n    },\n    \"features\": {\n      \"id\": 805,\n      \"sensors\": \"string\",\n      \"other\": \"string\"\n    },\n    \"battery\": {\n      \"id\": 8366,\n      \"type\": \"string\",\n      \"charging\": \"string\"\n    },\n    \"misc\": {\n      \"id\": 7842,\n      \"model_numbers\": \"string\",\n      \"sar_us\": \"string\",\n      \"sar_eu\": \"string\",\n      \"price\": \"string\"\n    }\n  },\n  {\n    \"name\": \"string\",\n    \"id\": 3083,\n    \"manufacturer\": {\n      \"name\": \"string\",\n      \"id\": 9160,\n      \"logo_b64\": \"string\",\n      \"website_url\": \"http://ekhooRKsvoUOq.twmpBuALhiPWwGH\"\n    },\n    \"manufacturer_name\": \"string\",\n    \"device_type\": \"other\",\n    \"description\": \"string\",\n    \"colors\": \"string\",\n    \"storage\": \"string\",\n    \"screen_resolution\": \"string\",\n    \"weight\": \"string\",\n    \"thickness\": \"string\",\n    \"release_date\": \"string\",\n    \"camera\": \"string\",\n    \"battery_capacity\": \"string\",\n    \"hardware\": \"string\",\n    \"image_b64\": \"string\",\n    \"image_url\": \"string\",\n    \"network\": {\n      \"id\": 8146,\n      \"technology\": \"string\",\n      \"bands_2g\": \"string\",\n      \"bands_3g\": \"string\",\n      \"bands_4g\": \"string\",\n      \"bands_5g\": \"string\",\n      \"speed\": \"string\"\n    },\n    \"body\": {\n      \"id\": 7562,\n      \"dimensions\": \"string\",\n      \"weight\": \"string\",\n      \"build\": \"string\",\n      \"sim\": \"string\",\n      \"other\": \"string\"\n    },\n    \"display\": {\n      \"id\": 9333,\n      \"type\": \"string\",\n      \"size\": \"string\",\n      \"resolution\": \"string\",\n      \"protection\": \"string\",\n      \"other\": \"string\"\n    },\n    \"platform\": {\n      \"id\": 6494,\n      \"os\": \"string\",\n      \"chipset\": \"string\",\n      \"cpu\": \"string\",\n      \"gpu\": \"string\"\n    },\n    \"memory\": {\n      \"id\": 4345,\n      \"card_slot\": \"string\",\n      \"internal\": \"string\",\n      \"other\": \"string\"\n    },\n    \"main_camera\": {\n      \"id\": 3091,\n      \"modules\": \"string\",\n      \"features\": \"string\",\n      \"video\": \"string\"\n    },\n    \"selfie_camera\": {\n      \"id\": 417,\n      \"modules\": \"string\",\n      \"features\": \"string\",\n      \"video\": \"string\"\n    },\n    \"sound\": {\n      \"id\": 3172,\n      \"loudspeaker\": \"string\",\n      \"audio_jack\": \"string\"\n    },\n    \"comms\": {\n      \"id\": 6288,\n      \"wlan\": \"string\",\n      \"bluetooth\": \"string\",\n      \"positioning\": \"string\",\n      \"nfc\": \"string\",\n      \"radio\": \"string\",\n      \"usb\": \"string\"\n    },\n    \"features\": {\n      \"id\": 2703,\n      \"sensors\": \"string\",\n      \"other\": \"string\"\n    },\n    \"battery\": {\n      \"id\": 1495,\n      \"type\": \"string\",\n      \"charging\": \"string\"\n    },\n    \"misc\": {\n      \"id\": 4701,\n      \"model_numbers\": \"string\",\n      \"sar_us\": \"string\",\n      \"sar_eu\": \"string\",\n      \"price\": \"string\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cc707461-6130-4ab9-b420-a04ce1f122dc",
+              "name": "Bad request, missing parameter 'manufacturer' or invalid page",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    "by-manufacturer",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "manufacturer",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Recommended: 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY'",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1eb37e78-b93b-449d-8674-580cb650f14c",
+              "name": "Unauthorized - Invalid API key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    "by-manufacturer",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "manufacturer",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Recommended: 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY'",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "893391b4-a913-498b-97f4-e218b2da718b",
+              "name": "Manufacturer not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    "by-manufacturer",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "manufacturer",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Recommended: 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY'",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1e02ac4c-18fe-4346-9c37-40b08a824c4d",
+          "name": "List Devices by Type",
+          "request": {
+            "name": "List Devices by Type",
+            "description": {
+              "content": "Get all devices of a specific type (phone, tablet, laptop, wearable, or other). Results are paginated with 50 devices per page. **Note**: `image_b64` returns a 100x100 thumbnail.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "devices",
+                "by-type",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "(Required) Device type: phone, tablet, laptop, wearable, or other"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number (default: 1). Each page contains 50 devices."
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "Fallback: API key as query parameter (less secure)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "13cfe7db-2468-49cc-8b02-86a6de1920db",
+              "name": "Paginated list of devices for the specified type with metadata",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    "by-type",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Recommended: 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY'",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"id\": 335,\n    \"manufacturer_name\": \"string\",\n    \"device_type\": \"tablet\",\n    \"description\": \"string\",\n    \"colors\": \"string\",\n    \"storage\": \"string\",\n    \"screen_resolution\": \"string\",\n    \"weight\": \"string\",\n    \"thickness\": \"string\",\n    \"release_date\": \"string\",\n    \"camera\": \"string\",\n    \"battery_capacity\": \"string\",\n    \"hardware\": \"string\",\n    \"image_b64\": \"string\",\n    \"image_url\": \"string\"\n  },\n  {\n    \"name\": \"string\",\n    \"id\": 5079,\n    \"manufacturer_name\": \"string\",\n    \"device_type\": \"wearable\",\n    \"description\": \"string\",\n    \"colors\": \"string\",\n    \"storage\": \"string\",\n    \"screen_resolution\": \"string\",\n    \"weight\": \"string\",\n    \"thickness\": \"string\",\n    \"release_date\": \"string\",\n    \"camera\": \"string\",\n    \"battery_capacity\": \"string\",\n    \"hardware\": \"string\",\n    \"image_b64\": \"string\",\n    \"image_url\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c8acca09-b6cb-4080-abf2-bc1690b9199a",
+              "name": "No devices found for the specified type",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    "by-type",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Recommended: 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY'",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "325439be-675a-4a48-8fec-d7bdf6cac6ee",
+              "name": "Bad request, missing or invalid type/page parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    "by-type",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Recommended: 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY'",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4a18bb12-10be-4af3-a441-cb0fec36d3df",
+              "name": "Unauthorized - Invalid API key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    "by-type",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Recommended: 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY'",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "58f4446d-66ac-484d-bcc6-1426f2b0a319",
+          "name": "List Devices by Launch Year",
+          "request": {
+            "name": "List Devices by Launch Year",
+            "description": {
+              "content": "Get all devices released in a specific year. The year parameter should be a 4-digit year (e.g., 2023). Results are paginated with 50 items per page. **Note**: `image_b64` returns a 100x100 thumbnail.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "devices",
+                "by-year",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<integer>",
+                  "description": "(Required) Launch year (4-digit format, e.g., 2023)"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number (default: 1). Each page contains 50 items."
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "Fallback: API key as query parameter (less secure)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9656bf55-63d5-4fc2-8706-71b85e0ed0e7",
+              "name": "Paginated list of devices for the specified year with metadata",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    "by-year",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "year",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Recommended: 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY'",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"id\": 2818,\n    \"manufacturer\": {\n      \"name\": \"string\",\n      \"id\": 6983,\n      \"logo_b64\": \"string\",\n      \"website_url\": \"http://bUGNNdFdg.kpdOM,Ar8I.8NstO,bliAONJ9WK25sWK1rSw7vVV4lQ,-CoTI3to7\"\n    },\n    \"manufacturer_name\": \"string\",\n    \"device_type\": \"wearable\",\n    \"description\": \"string\",\n    \"colors\": \"string\",\n    \"storage\": \"string\",\n    \"screen_resolution\": \"string\",\n    \"weight\": \"string\",\n    \"thickness\": \"string\",\n    \"release_date\": \"string\",\n    \"camera\": \"string\",\n    \"battery_capacity\": \"string\",\n    \"hardware\": \"string\",\n    \"image_b64\": \"string\",\n    \"image_url\": \"string\",\n    \"network\": {\n      \"id\": 4738,\n      \"technology\": \"string\",\n      \"bands_2g\": \"string\",\n      \"bands_3g\": \"string\",\n      \"bands_4g\": \"string\",\n      \"bands_5g\": \"string\",\n      \"speed\": \"string\"\n    },\n    \"body\": {\n      \"id\": 8356,\n      \"dimensions\": \"string\",\n      \"weight\": \"string\",\n      \"build\": \"string\",\n      \"sim\": \"string\",\n      \"other\": \"string\"\n    },\n    \"display\": {\n      \"id\": 2860,\n      \"type\": \"string\",\n      \"size\": \"string\",\n      \"resolution\": \"string\",\n      \"protection\": \"string\",\n      \"other\": \"string\"\n    },\n    \"platform\": {\n      \"id\": 1475,\n      \"os\": \"string\",\n      \"chipset\": \"string\",\n      \"cpu\": \"string\",\n      \"gpu\": \"string\"\n    },\n    \"memory\": {\n      \"id\": 9379,\n      \"card_slot\": \"string\",\n      \"internal\": \"string\",\n      \"other\": \"string\"\n    },\n    \"main_camera\": {\n      \"id\": 4046,\n      \"modules\": \"string\",\n      \"features\": \"string\",\n      \"video\": \"string\"\n    },\n    \"selfie_camera\": {\n      \"id\": 7097,\n      \"modules\": \"string\",\n      \"features\": \"string\",\n      \"video\": \"string\"\n    },\n    \"sound\": {\n      \"id\": 8006,\n      \"loudspeaker\": \"string\",\n      \"audio_jack\": \"string\"\n    },\n    \"comms\": {\n      \"id\": 3047,\n      \"wlan\": \"string\",\n      \"bluetooth\": \"string\",\n      \"positioning\": \"string\",\n      \"nfc\": \"string\",\n      \"radio\": \"string\",\n      \"usb\": \"string\"\n    },\n    \"features\": {\n      \"id\": 805,\n      \"sensors\": \"string\",\n      \"other\": \"string\"\n    },\n    \"battery\": {\n      \"id\": 8366,\n      \"type\": \"string\",\n      \"charging\": \"string\"\n    },\n    \"misc\": {\n      \"id\": 7842,\n      \"model_numbers\": \"string\",\n      \"sar_us\": \"string\",\n      \"sar_eu\": \"string\",\n      \"price\": \"string\"\n    }\n  },\n  {\n    \"name\": \"string\",\n    \"id\": 3083,\n    \"manufacturer\": {\n      \"name\": \"string\",\n      \"id\": 9160,\n      \"logo_b64\": \"string\",\n      \"website_url\": \"http://ekhooRKsvoUOq.twmpBuALhiPWwGH\"\n    },\n    \"manufacturer_name\": \"string\",\n    \"device_type\": \"other\",\n    \"description\": \"string\",\n    \"colors\": \"string\",\n    \"storage\": \"string\",\n    \"screen_resolution\": \"string\",\n    \"weight\": \"string\",\n    \"thickness\": \"string\",\n    \"release_date\": \"string\",\n    \"camera\": \"string\",\n    \"battery_capacity\": \"string\",\n    \"hardware\": \"string\",\n    \"image_b64\": \"string\",\n    \"image_url\": \"string\",\n    \"network\": {\n      \"id\": 8146,\n      \"technology\": \"string\",\n      \"bands_2g\": \"string\",\n      \"bands_3g\": \"string\",\n      \"bands_4g\": \"string\",\n      \"bands_5g\": \"string\",\n      \"speed\": \"string\"\n    },\n    \"body\": {\n      \"id\": 7562,\n      \"dimensions\": \"string\",\n      \"weight\": \"string\",\n      \"build\": \"string\",\n      \"sim\": \"string\",\n      \"other\": \"string\"\n    },\n    \"display\": {\n      \"id\": 9333,\n      \"type\": \"string\",\n      \"size\": \"string\",\n      \"resolution\": \"string\",\n      \"protection\": \"string\",\n      \"other\": \"string\"\n    },\n    \"platform\": {\n      \"id\": 6494,\n      \"os\": \"string\",\n      \"chipset\": \"string\",\n      \"cpu\": \"string\",\n      \"gpu\": \"string\"\n    },\n    \"memory\": {\n      \"id\": 4345,\n      \"card_slot\": \"string\",\n      \"internal\": \"string\",\n      \"other\": \"string\"\n    },\n    \"main_camera\": {\n      \"id\": 3091,\n      \"modules\": \"string\",\n      \"features\": \"string\",\n      \"video\": \"string\"\n    },\n    \"selfie_camera\": {\n      \"id\": 417,\n      \"modules\": \"string\",\n      \"features\": \"string\",\n      \"video\": \"string\"\n    },\n    \"sound\": {\n      \"id\": 3172,\n      \"loudspeaker\": \"string\",\n      \"audio_jack\": \"string\"\n    },\n    \"comms\": {\n      \"id\": 6288,\n      \"wlan\": \"string\",\n      \"bluetooth\": \"string\",\n      \"positioning\": \"string\",\n      \"nfc\": \"string\",\n      \"radio\": \"string\",\n      \"usb\": \"string\"\n    },\n    \"features\": {\n      \"id\": 2703,\n      \"sensors\": \"string\",\n      \"other\": \"string\"\n    },\n    \"battery\": {\n      \"id\": 1495,\n      \"type\": \"string\",\n      \"charging\": \"string\"\n    },\n    \"misc\": {\n      \"id\": 4701,\n      \"model_numbers\": \"string\",\n      \"sar_us\": \"string\",\n      \"sar_eu\": \"string\",\n      \"price\": \"string\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f7acaa2a-14f1-4039-b07a-9eb5333be2ec",
+              "name": "No devices found for the specified year",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    "by-year",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "year",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Recommended: 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY'",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ebf9e7cf-3b49-4ef2-9e89-87c941c7a555",
+              "name": "Bad request, missing or invalid year/page parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    "by-year",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "year",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Recommended: 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY'",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f9186bd7-7f30-4b04-a7e7-e70aed4d7793",
+              "name": "Unauthorized - Invalid API key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    "by-year",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "year",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Recommended: 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY'",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3f20ec42-0230-4888-ab57-29a638836f57",
+          "name": "Search Device by Name or Model Number",
+          "request": {
+            "name": "Search Device by Name or Model Number",
+            "description": {
+              "content": "Retrieve device details by providing either a device name (e.g., 'iPhone 15 Pro') or a model number (e.g., 'A3520'), but not both. At least one parameter is required. Results are paginated (default: 10 per page, customizable via 'limit' parameter). Optionally filter by manufacturer. Exact model number matches are prioritized over name matches. **Note**: `image_b64` returns a 100x100 thumbnail.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "devices",
+                "search",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "Fallback: API key as query parameter (optional for demo)"
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "Name of the device to search for (e.g., 'iPhone 15 Pro'). Mutually exclusive with 'model_number'."
+                },
+                {
+                  "disabled": false,
+                  "key": "model_number",
+                  "value": "<string>",
+                  "description": "Model number of the device to search for (e.g., 'A3520'). Mutually exclusive with 'name'."
+                },
+                {
+                  "disabled": false,
+                  "key": "manufacturer",
+                  "value": "<string>",
+                  "description": "Optional. Filter search results to devices from this manufacturer only. If no devices match the manufacturer, returns empty results."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Optional. Number of results to return per page (default: 10, max: 30). Use this to control how many devices are returned in the response. For example, limit=1 returns only the best match."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number (default: 1). Each page contains 50 devices."
+                },
+                {
+                  "disabled": false,
+                  "key": "exact",
+                  "value": "<boolean>",
+                  "description": "Set to true for exact matching (default: false). When true, only returns devices with 100% match certainty (exact name or exact model number match)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "89f1f2f0-3388-4ac8-b379-6c15639b656d",
+              "name": "Paginated list of matching devices with metadata. Each device includes a 'match_type' field indicating whether it matched by 'name', 'exact_model', or 'partial_model'.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    "search",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "manufacturer",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "exact",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Recommended: 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY'",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"id\": 3839,\n  \"manufacturer\": {\n    \"name\": \"string\",\n    \"id\": 7142,\n    \"logo_b64\": \"string\",\n    \"website_url\": \"http://HpYFNViBrPbpqsNQJYBG.ibkOtI22XrvcABqDJFPaPS7Uk.qhed+c3MKpKQzolcNpQOV-rMLoOgTazvt,dm9kuj\"\n  },\n  \"manufacturer_name\": \"string\",\n  \"device_type\": \"tablet\",\n  \"description\": \"string\",\n  \"colors\": \"string\",\n  \"storage\": \"string\",\n  \"screen_resolution\": \"string\",\n  \"weight\": \"string\",\n  \"thickness\": \"string\",\n  \"release_date\": \"string\",\n  \"camera\": \"string\",\n  \"battery_capacity\": \"string\",\n  \"hardware\": \"string\",\n  \"image_b64\": \"string\",\n  \"image_url\": \"string\",\n  \"network\": {\n    \"id\": 7021,\n    \"technology\": \"string\",\n    \"bands_2g\": \"string\",\n    \"bands_3g\": \"string\",\n    \"bands_4g\": \"string\",\n    \"bands_5g\": \"string\",\n    \"speed\": \"string\"\n  },\n  \"body\": {\n    \"id\": 8073,\n    \"dimensions\": \"string\",\n    \"weight\": \"string\",\n    \"build\": \"string\",\n    \"sim\": \"string\",\n    \"other\": \"string\"\n  },\n  \"display\": {\n    \"id\": 8184,\n    \"type\": \"string\",\n    \"size\": \"string\",\n    \"resolution\": \"string\",\n    \"protection\": \"string\",\n    \"other\": \"string\"\n  },\n  \"platform\": {\n    \"id\": 9965,\n    \"os\": \"string\",\n    \"chipset\": \"string\",\n    \"cpu\": \"string\",\n    \"gpu\": \"string\"\n  },\n  \"memory\": {\n    \"id\": 7334,\n    \"card_slot\": \"string\",\n    \"internal\": \"string\",\n    \"other\": \"string\"\n  },\n  \"main_camera\": {\n    \"id\": 1711,\n    \"modules\": \"string\",\n    \"features\": \"string\",\n    \"video\": \"string\"\n  },\n  \"selfie_camera\": {\n    \"id\": 7808,\n    \"modules\": \"string\",\n    \"features\": \"string\",\n    \"video\": \"string\"\n  },\n  \"sound\": {\n    \"id\": 2841,\n    \"loudspeaker\": \"string\",\n    \"audio_jack\": \"string\"\n  },\n  \"comms\": {\n    \"id\": 4964,\n    \"wlan\": \"string\",\n    \"bluetooth\": \"string\",\n    \"positioning\": \"string\",\n    \"nfc\": \"string\",\n    \"radio\": \"string\",\n    \"usb\": \"string\"\n  },\n  \"features\": {\n    \"id\": 8916,\n    \"sensors\": \"string\",\n    \"other\": \"string\"\n  },\n  \"battery\": {\n    \"id\": 9037,\n    \"type\": \"string\",\n    \"charging\": \"string\"\n  },\n  \"misc\": {\n    \"id\": 4138,\n    \"model_numbers\": \"string\",\n    \"sar_us\": \"string\",\n    \"sar_eu\": \"string\",\n    \"price\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "166e30f7-e0fb-4b13-b830-a8645bcc1941",
+              "name": "Bad request: must provide either 'name' or 'model_number' (but not both), or invalid page",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    "search",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "manufacturer",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "exact",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Recommended: 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY'",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8ca3511b-4916-4e94-8c3e-bd6e03e425ea",
+              "name": "Device not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    "search",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "manufacturer",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "exact",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Recommended: 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY'",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0fc6f0f0-9ca6-49a4-8d12-942a35eb9542",
+          "name": "Get Device by ID",
+          "request": {
+            "name": "Get Device by ID",
+            "description": {
+              "content": "Retrieve detailed device information by providing its ID. **Note**: `image_b64` returns a 100x100 thumbnail. For full-resolution images, use `/devices/{id}/images` endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "devices",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "Fallback: API key as query parameter (optional for demo)"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this device."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2d78d12b-12ba-45db-a462-33af39e532ae",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Recommended: 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY'",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"id\": 3839,\n  \"manufacturer\": {\n    \"name\": \"string\",\n    \"id\": 7142,\n    \"logo_b64\": \"string\",\n    \"website_url\": \"http://HpYFNViBrPbpqsNQJYBG.ibkOtI22XrvcABqDJFPaPS7Uk.qhed+c3MKpKQzolcNpQOV-rMLoOgTazvt,dm9kuj\"\n  },\n  \"manufacturer_name\": \"string\",\n  \"device_type\": \"tablet\",\n  \"description\": \"string\",\n  \"colors\": \"string\",\n  \"storage\": \"string\",\n  \"screen_resolution\": \"string\",\n  \"weight\": \"string\",\n  \"thickness\": \"string\",\n  \"release_date\": \"string\",\n  \"camera\": \"string\",\n  \"battery_capacity\": \"string\",\n  \"hardware\": \"string\",\n  \"image_b64\": \"string\",\n  \"image_url\": \"string\",\n  \"network\": {\n    \"id\": 7021,\n    \"technology\": \"string\",\n    \"bands_2g\": \"string\",\n    \"bands_3g\": \"string\",\n    \"bands_4g\": \"string\",\n    \"bands_5g\": \"string\",\n    \"speed\": \"string\"\n  },\n  \"body\": {\n    \"id\": 8073,\n    \"dimensions\": \"string\",\n    \"weight\": \"string\",\n    \"build\": \"string\",\n    \"sim\": \"string\",\n    \"other\": \"string\"\n  },\n  \"display\": {\n    \"id\": 8184,\n    \"type\": \"string\",\n    \"size\": \"string\",\n    \"resolution\": \"string\",\n    \"protection\": \"string\",\n    \"other\": \"string\"\n  },\n  \"platform\": {\n    \"id\": 9965,\n    \"os\": \"string\",\n    \"chipset\": \"string\",\n    \"cpu\": \"string\",\n    \"gpu\": \"string\"\n  },\n  \"memory\": {\n    \"id\": 7334,\n    \"card_slot\": \"string\",\n    \"internal\": \"string\",\n    \"other\": \"string\"\n  },\n  \"main_camera\": {\n    \"id\": 1711,\n    \"modules\": \"string\",\n    \"features\": \"string\",\n    \"video\": \"string\"\n  },\n  \"selfie_camera\": {\n    \"id\": 7808,\n    \"modules\": \"string\",\n    \"features\": \"string\",\n    \"video\": \"string\"\n  },\n  \"sound\": {\n    \"id\": 2841,\n    \"loudspeaker\": \"string\",\n    \"audio_jack\": \"string\"\n  },\n  \"comms\": {\n    \"id\": 4964,\n    \"wlan\": \"string\",\n    \"bluetooth\": \"string\",\n    \"positioning\": \"string\",\n    \"nfc\": \"string\",\n    \"radio\": \"string\",\n    \"usb\": \"string\"\n  },\n  \"features\": {\n    \"id\": 8916,\n    \"sensors\": \"string\",\n    \"other\": \"string\"\n  },\n  \"battery\": {\n    \"id\": 9037,\n    \"type\": \"string\",\n    \"charging\": \"string\"\n  },\n  \"misc\": {\n    \"id\": 4138,\n    \"model_numbers\": \"string\",\n    \"sar_us\": \"string\",\n    \"sar_eu\": \"string\",\n    \"price\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f220eabe-42a4-4183-9ca6-3899be2c8727",
+              "name": "Bad Request - Insufficient credits",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Recommended: 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY'",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "32380ee7-4d19-4f9a-b521-14466751a476",
+              "name": "Unauthorized - Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Recommended: 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY'",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "51dee947-454f-4805-a050-fc12d76a9c64",
+              "name": "Not Found - Device with given ID does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Recommended: 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY'",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b9000f43-1e07-4c7d-a596-e7b59c69a778",
+          "name": "Get Device Battery Specifications",
+          "request": {
+            "name": "Get Device Battery Specifications",
+            "description": {
+              "content": "Get battery specifications for a specific device.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "devices",
+                ":id",
+                "battery",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this device."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9b4b45d3-0fb8-4f4b-832d-e3fde0e1d350",
+              "name": "Battery specifications",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":id",
+                    "battery",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 2855,\n  \"type\": \"string\",\n  \"charging\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2261c1db-9a6d-427f-99a5-9b24d469bd66",
+              "name": "Device or battery specifications not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":id",
+                    "battery",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "db0d9bc5-7043-4bfd-9093-74a92d357257",
+          "name": "Get Device Body Specifications",
+          "request": {
+            "name": "Get Device Body Specifications",
+            "description": {
+              "content": "Get body specifications for a specific device.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "devices",
+                ":id",
+                "body",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this device."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "34ee9071-de0d-4c77-a188-f12473f53b66",
+              "name": "Body specifications",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":id",
+                    "body",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 5642,\n  \"dimensions\": \"string\",\n  \"weight\": \"string\",\n  \"build\": \"string\",\n  \"sim\": \"string\",\n  \"other\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4cea7ac6-2bb9-4153-8df3-07b6d32aaaf4",
+              "name": "Device or body specifications not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":id",
+                    "body",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "394e1241-9162-4610-9447-8e0d415ee4a4",
+          "name": "Get Device Communications Specifications",
+          "request": {
+            "name": "Get Device Communications Specifications",
+            "description": {
+              "content": "Get communications specifications for a specific device.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "devices",
+                ":id",
+                "comms",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this device."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c6bf4684-43ab-4bc8-b793-05e1079599e3",
+              "name": "Communications specifications",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":id",
+                    "comms",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4990,\n  \"wlan\": \"string\",\n  \"bluetooth\": \"string\",\n  \"positioning\": \"string\",\n  \"nfc\": \"string\",\n  \"radio\": \"string\",\n  \"usb\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dd87e374-0272-4def-a482-a8548a304934",
+              "name": "Device or communications specifications not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":id",
+                    "comms",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e69df8ea-dc75-437d-82b0-b107eb077af4",
+          "name": "Get Device Display Specifications",
+          "request": {
+            "name": "Get Device Display Specifications",
+            "description": {
+              "content": "Get display specifications for a specific device.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "devices",
+                ":id",
+                "display",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this device."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a72cae08-25d7-4d67-8612-0b18baea03bf",
+              "name": "Display specifications",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":id",
+                    "display",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 7036,\n  \"type\": \"string\",\n  \"size\": \"string\",\n  \"resolution\": \"string\",\n  \"protection\": \"string\",\n  \"other\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "36a008e2-2484-4fcb-aca3-68cab8e1b3e7",
+              "name": "Device or display specifications not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":id",
+                    "display",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1880b3b9-9b6f-477e-90f5-ef6cacc5bfd8",
+          "name": "Get Device Features Specifications",
+          "request": {
+            "name": "Get Device Features Specifications",
+            "description": {
+              "content": "Get features specifications for a specific device.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "devices",
+                ":id",
+                "features",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this device."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cd22a6ab-5b57-485b-8691-71498a71a624",
+              "name": "Features specifications",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":id",
+                    "features",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 929,\n  \"sensors\": \"string\",\n  \"other\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "20e98b39-2295-4167-b47f-943e76321c25",
+              "name": "Device or features specifications not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":id",
+                    "features",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1df20648-779e-46ed-931c-9e1c9a7e18ee",
+          "name": "Serve Full-Resolution Device Main Image",
+          "request": {
+            "name": "Serve Full-Resolution Device Main Image",
+            "description": {
+              "content": "Returns the full-resolution main image of a device as binary data. Consumes 1 API credit per request. Requires authentication via API key (header recommended, query param for backwards compatibility).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "devices",
+                ":id",
+                "image",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "Fallback: API key as query parameter (less secure, visible in logs)"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "813efc07-d4b2-4dd4-a6f9-9a7560ef59e0",
+              "name": "Binary image data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":id",
+                    "image",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Recommended: 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY'",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a79eedf5-d7eb-4082-b813-a36d6c2b191b",
+              "name": "Unauthorized - API key required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":id",
+                    "image",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Recommended: 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY'",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b2f833c6-badb-4c52-a212-cd2e2faa9772",
+              "name": "Device or image not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":id",
+                    "image",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Recommended: 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY'",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "abe9060a-1317-4f09-8480-997547f436a8",
+              "name": "Rate limit exceeded - monthly credits exhausted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":id",
+                    "image",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Recommended: 'Token YOUR_API_KEY' or 'Bearer YOUR_API_KEY'",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d850eb8a-4c3d-4fe1-8152-43be4fc4a242",
+          "name": "Get Device Images",
+          "request": {
+            "name": "Get Device Images",
+            "description": {
+              "content": "Get all images for a specific device. Returns image URLs for full-resolution access (accessing image URLs consumes 1 credit per request). Main device image is included as the first entry with URL /devices/{id}/image/.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "devices",
+                ":id",
+                "images",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Maximum number of images to return (default: 10, max: 30)."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this device."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f54eca46-2083-4863-b1b5-66d92af1952d",
+              "name": "Device images with URLs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":id",
+                    "images",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 7312,\n    \"image_url\": \"string\",\n    \"caption\": \"string\",\n    \"is_official\": false,\n    \"order\": 180329253\n  },\n  {\n    \"id\": 9027,\n    \"image_url\": \"string\",\n    \"caption\": \"string\",\n    \"is_official\": true,\n    \"order\": -1128442323\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "06eb894b-31b7-4cb1-98a5-b2ae0dbb4fc6",
+              "name": "Bad request, invalid limit parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":id",
+                    "images",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "92eda986-5bd6-4ff0-96d5-9384f763a1b4",
+              "name": "Device not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":id",
+                    "images",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "42770591-52ed-4a8d-bd3f-3823233eecd5",
+          "name": "Get Device Main Camera Specifications",
+          "request": {
+            "name": "Get Device Main Camera Specifications",
+            "description": {
+              "content": "Get main camera specifications for a specific device.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "devices",
+                ":id",
+                "main-camera",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this device."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "021d9d54-922d-4778-ad0e-46587a2c6961",
+              "name": "Main camera specifications",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":id",
+                    "main-camera",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4665,\n  \"modules\": \"string\",\n  \"features\": \"string\",\n  \"video\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3c38cee9-c852-4cab-b5a6-5782a0a8f513",
+              "name": "Device or main camera specifications not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":id",
+                    "main-camera",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0137d91f-4cb3-4269-bbb7-843a1dc7aa01",
+          "name": "Get Device Memory Specifications",
+          "request": {
+            "name": "Get Device Memory Specifications",
+            "description": {
+              "content": "Get memory specifications for a specific device.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "devices",
+                ":id",
+                "memory",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this device."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f7617f0e-f663-492c-b5f2-921da60ab232",
+              "name": "Memory specifications",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":id",
+                    "memory",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6603,\n  \"card_slot\": \"string\",\n  \"internal\": \"string\",\n  \"other\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bfdea786-ded5-46df-a375-8170d9aa7a27",
+              "name": "Device or memory specifications not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":id",
+                    "memory",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "53561138-1faf-47b3-b2e4-eb457f6d7d05",
+          "name": "Get Device Miscellaneous Specifications",
+          "request": {
+            "name": "Get Device Miscellaneous Specifications",
+            "description": {
+              "content": "Get miscellaneous specifications for a specific device.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "devices",
+                ":id",
+                "misc",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this device."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "67740962-fd83-4f00-97c0-693081c6aa1e",
+              "name": "Miscellaneous specifications",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":id",
+                    "misc",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4415,\n  \"model_numbers\": \"string\",\n  \"sar_us\": \"string\",\n  \"sar_eu\": \"string\",\n  \"price\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a73d0af1-96e8-47da-87f4-eccf903ce5c4",
+              "name": "Device or miscellaneous specifications not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":id",
+                    "misc",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ae6991f4-4cea-4805-82a4-0db124d29811",
+          "name": "Get Device Network Specifications",
+          "request": {
+            "name": "Get Device Network Specifications",
+            "description": {
+              "content": "Get network specifications for a specific device.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "devices",
+                ":id",
+                "network",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this device."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cebfe4ec-d29f-4364-bc9b-f3b9a49a6f94",
+              "name": "Network specifications",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":id",
+                    "network",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 5941,\n  \"technology\": \"string\",\n  \"bands_2g\": \"string\",\n  \"bands_3g\": \"string\",\n  \"bands_4g\": \"string\",\n  \"bands_5g\": \"string\",\n  \"speed\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9552bb6c-cc52-4277-ba57-8265377f0ccf",
+              "name": "Device or network specifications not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":id",
+                    "network",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a0126649-80ea-4e84-bd55-db8e5aad15ce",
+          "name": "Get Device Platform Specifications",
+          "request": {
+            "name": "Get Device Platform Specifications",
+            "description": {
+              "content": "Get platform specifications for a specific device.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "devices",
+                ":id",
+                "platform",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this device."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "de1bba57-177e-42cc-8888-77403f06cb85",
+              "name": "Platform specifications",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":id",
+                    "platform",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6431,\n  \"os\": \"string\",\n  \"chipset\": \"string\",\n  \"cpu\": \"string\",\n  \"gpu\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a2fbbb50-b21f-4d07-bf2d-3a4e96c4c4d9",
+              "name": "Device or platform specifications not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":id",
+                    "platform",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bd7bd519-e22f-4f66-ac79-758f470a54f2",
+          "name": "Get Device Selfie Camera Specifications",
+          "request": {
+            "name": "Get Device Selfie Camera Specifications",
+            "description": {
+              "content": "Get selfie camera specifications for a specific device.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "devices",
+                ":id",
+                "selfie-camera",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this device."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "43f4800f-bf1e-44b4-b76e-07843cb8859b",
+              "name": "Selfie camera specifications",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":id",
+                    "selfie-camera",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 638,\n  \"modules\": \"string\",\n  \"features\": \"string\",\n  \"video\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d33d6c8a-0eb1-4eaa-9d0c-1a8b22989d5e",
+              "name": "Device or selfie camera specifications not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":id",
+                    "selfie-camera",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "52dd907f-47dc-4e63-a339-63d368d30922",
+          "name": "Get Device Sound Specifications",
+          "request": {
+            "name": "Get Device Sound Specifications",
+            "description": {
+              "content": "Get sound specifications for a specific device.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "devices",
+                ":id",
+                "sound",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this device."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "59ffc997-f05d-41a4-90ae-6cd2bdf7a159",
+              "name": "Sound specifications",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":id",
+                    "sound",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 7050,\n  \"loudspeaker\": \"string\",\n  \"audio_jack\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a7e92a86-ab36-4b30-9be9-3bc3d1a39757",
+              "name": "Device or sound specifications not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":id",
+                    "sound",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fdd650ff-eebf-4e4e-9a9c-989f316d798a",
+          "name": "Serve Device Thumbnail Image (100x100)",
+          "request": {
+            "name": "Serve Device Thumbnail Image (100x100)",
+            "description": {
+              "content": "Returns the 100x100 thumbnail image as PNG binary data. **Does NOT consume credits** - free to access.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "devices",
+                ":id",
+                "thumb.png",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bcc591b3-669f-4eae-a2fc-c4cb5c1bd21f",
+              "name": "Binary PNG image data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":id",
+                    "thumb.png",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c51d8007-d400-4996-a731-6fc4acae8f13",
+              "name": "Device or thumbnail not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":id",
+                    "thumb.png",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.mobileapi.dev",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "30c4d86a-fef2-4f7e-9ea0-4b2565e23cf3",
+    "name": "Mobile api devices API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API providing structured device specifications, base64-encoded product images, and pricing metadata for 31,500+ smartphones, tablets, smartwatches, and laptops across 200+ manufacturers. Endpoints support paginated listing, fuzzy search by name or model number, autocomplete, browsing by manufacturer/year/type, per-category specifications (battery, display, platform, memory, cameras, network, sound, comms, features, body, misc), high-resolution images, manufacturer directory, account introspection (/me/), and an AI natural-language query endpoint.\n\nContact Support:\n Name: MobileAPI.dev Support\n Email: support@mobileapi.dev",
+      "type": "text/plain"
+    }
+  }
+}
