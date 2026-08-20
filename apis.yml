@@ -29,6 +29,14 @@ tags:
   - Mobile Data
   - Phone Specs
   - REST API
+  - Software-as-a-Service
+tags_raw:
+  - Data API
+  - Developer Tools
+  - Device Specifications
+  - Mobile Data
+  - Phone Specs
+  - REST API
   - SaaS
 url: https://raw.githubusercontent.com/api-evangelist/mobileapi-dev/refs/heads/main/apis.yml
 created: '2026-05-06'
@@ -40,7 +48,8 @@ apis:
   description: The api API from MobileAPI.dev — 2 operation(s) for api.
   humanURL: https://mobileapi.dev/
   baseURL: https://api.mobileapi.dev/
-  tags:
+  tags: []
+  tags_raw:
   - api
   properties:
   - type: OpenAPI
@@ -335,6 +344,8 @@ apis:
   humanURL: https://mobileapi.dev/
   baseURL: https://api.mobileapi.dev/
   tags:
+  - Devices
+  tags_raw:
   - devices
   properties:
   - type: OpenAPI
@@ -433,6 +444,8 @@ apis:
   humanURL: https://mobileapi.dev/
   baseURL: https://api.mobileapi.dev/
   tags:
+  - Image
+  tags_raw:
   - images
   properties:
   - type: OpenAPI
@@ -531,6 +544,8 @@ apis:
   humanURL: https://mobileapi.dev/
   baseURL: https://api.mobileapi.dev/
   tags:
+  - Manufacturers
+  tags_raw:
   - manufacturers
   properties:
   - type: OpenAPI
@@ -629,6 +644,8 @@ apis:
   humanURL: https://mobileapi.dev/
   baseURL: https://api.mobileapi.dev/
   tags:
+  - Me
+  tags_raw:
   - me
   properties:
   - type: OpenAPI
@@ -726,7 +743,8 @@ apis:
   description: The payment_successful API from MobileAPI.dev — 2 operation(s) for payment_successful.
   humanURL: https://mobileapi.dev/
   baseURL: https://api.mobileapi.dev/
-  tags:
+  tags: []
+  tags_raw:
   - payment_successful
   properties:
   - type: OpenAPI
@@ -825,6 +843,8 @@ apis:
   humanURL: https://mobileapi.dev/
   baseURL: https://api.mobileapi.dev/
   tags:
+  - Status
+  tags_raw:
   - status
   properties:
   - type: OpenAPI
