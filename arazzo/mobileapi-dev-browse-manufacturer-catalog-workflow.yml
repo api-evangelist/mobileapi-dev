@@ -11,8 +11,11 @@ info:
     description.
   version: 1.0.0
 sourceDescriptions:
-- name: mobileApi
-  url: ../openapi/mobileapi-openapi.yml
+- name: devicesApi
+  url: ../openapi/mobileapi-dev-devices-api-openapi.yml
+  type: openapi
+- name: manufacturersApi
+  url: ../openapi/mobileapi-dev-manufacturers-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: browse-manufacturer-catalog

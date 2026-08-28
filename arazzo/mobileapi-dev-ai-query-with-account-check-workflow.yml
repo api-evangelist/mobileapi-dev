@@ -13,8 +13,11 @@ info:
     description.
   version: 1.0.0
 sourceDescriptions:
-- name: mobileApi
-  url: ../openapi/mobileapi-openapi.yml
+- name: devicesApi
+  url: ../openapi/mobileapi-dev-devices-api-openapi.yml
+  type: openapi
+- name: meApi
+  url: ../openapi/mobileapi-dev-me-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: ai-query-with-account-check
