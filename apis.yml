@@ -8,6 +8,18 @@ description: >-
   endpoint, replacing in-house scraping of GSMArena-style sources for device-catalog, comparison, e-commerce, trade-in,
   repair, and insurance applications.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
