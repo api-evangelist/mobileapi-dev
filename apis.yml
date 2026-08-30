@@ -556,7 +556,7 @@ apis:
   humanURL: https://mobileapi.dev/
   baseURL: https://api.mobileapi.dev/
   tags:
-  - Manufacturers
+  - manufacturers
   tags_raw:
   - manufacturers
   properties:
