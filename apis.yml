@@ -951,6 +951,8 @@ apis:
   - type: JSONLD
     url: json-ld/mobileapi-dev-context.jsonld
 common:
+  - type: Website
+    url: https://www.mobileapi.dev/
   - type: AgenticAccess
     url: agentic-access/mobileapi-dev-agentic-access.yml
   - type: VulnerabilityDisclosure
