@@ -1,15 +1,7 @@
 {
   "provider": "mobileapi-dev",
   "sources": [
-    "mobileapi-dev-api-api-openapi.yml",
-    "mobileapi-dev-api-token-auth-api-openapi.yml",
-    "mobileapi-dev-demo-x7k9m2p4-api-openapi.yml",
-    "mobileapi-dev-devices-api-openapi.yml",
-    "mobileapi-dev-images-api-openapi.yml",
-    "mobileapi-dev-manufacturers-api-openapi.yml",
-    "mobileapi-dev-me-api-openapi.yml",
-    "mobileapi-dev-payment-successful-api-openapi.yml",
-    "mobileapi-dev-status-api-openapi.yml"
+    "_original/mobileapi-openapi.yml"
   ],
   "outputs": [
     "mobileapi-dev-api-api-openapi.yml",
@@ -25,6 +17,29 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "mobileapi-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "mobileapi-openapi.yml: declared missing tag: api",
+    "mobileapi-openapi.yml: declared missing tag: api-token-auth",
+    "mobileapi-openapi.yml: declared missing tag: demo-x7k9m2p4",
+    "mobileapi-openapi.yml: declared missing tag: devices",
+    "mobileapi-openapi.yml: declared missing tag: images",
+    "mobileapi-openapi.yml: declared missing tag: manufacturers",
+    "mobileapi-openapi.yml: declared missing tag: me",
+    "mobileapi-openapi.yml: declared missing tag: payment_successful",
+    "mobileapi-openapi.yml: declared missing tag: status",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "mobileapi-dev-api-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mobileapi-dev-api-token-auth-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mobileapi-dev-demo-x7k9m2p4-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mobileapi-dev-devices-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mobileapi-dev-images-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mobileapi-dev-manufacturers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mobileapi-dev-me-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mobileapi-dev-payment-successful-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mobileapi-dev-status-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

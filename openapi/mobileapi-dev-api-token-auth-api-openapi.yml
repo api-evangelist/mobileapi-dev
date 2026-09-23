@@ -1,7 +1,7 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Mobile api api-token-auth API
-  description: REST API providing structured device specifications, base64-encoded product images, and pricing metadata for 31,500+ smartphones, tablets, smartwatches, and laptops across 200+ manufacturers. Endpoints support paginated listing, fuzzy search by name or model number, autocomplete, browsing by manufacturer/year/type, per-category specifications (battery, display, platform, memory, cameras, network, sound, comms, features, body, misc), high-resolution images, manufacturer directory, account introspection (/me/), and an AI natural-language query endpoint.
+  title: Mobile API Token Auth API
+  description: REST API providing structured device specifications, base64-encoded product images, and pricing metadata for 31,500+ smartphones, tablets, smartwatches, and laptops across 200+ manufacturers.
   termsOfService: https://app.getterms.io/view/AG2Np/terms-of-service/en-us
   contact:
     name: MobileAPI.dev Support
@@ -37,6 +37,8 @@ paths:
                 $ref: '#/components/schemas/AuthToken'
       tags:
       - api-token-auth
+      summary: Api token auth create
+      x-summary-source: derived
 components:
   schemas:
     AuthToken:

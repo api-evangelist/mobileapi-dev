@@ -1,0 +1,25 @@
+# Front Door AI Index — mobileapi-dev — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: mobileapi-dev
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.mobileapi.dev
+  final_host: mobileapi.dev
+  ownership: own
+  owner: mobileapi-dev
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 3
+  host_score: 3
+  density: 2.72
+  words: 1103
+  tiers:
+    agentic: 0
+    core: 3
+    model: 0
+  ambiguous: 0
+  top_terms:
+    AI: 3
