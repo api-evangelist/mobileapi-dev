@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Mobile API
+  title: Mobile Firewall API
   description: REST API providing structured device specifications, base64-encoded product images, and pricing metadata for 31,500+ smartphones, tablets, smartwatches, and laptops across 200+ manufacturers.
   termsOfService: https://app.getterms.io/view/AG2Np/terms-of-service/en-us
   contact:
@@ -15,7 +15,7 @@ security:
 - ApiKeyHeader: []
 - ApiKeyQuery: []
 tags:
-- name: api
+- name: Firewall
 paths:
   /api/firewall/:
     parameters: []
@@ -35,7 +35,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/FirewallAPILog'
       tags:
-      - api
+      - Firewall
   /api/firewall/{id}/:
     parameters:
     - name: id
@@ -58,7 +58,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/FirewallAPILog'
       tags:
-      - api
+      - Firewall
 components:
   schemas:
     FirewallAPILog:

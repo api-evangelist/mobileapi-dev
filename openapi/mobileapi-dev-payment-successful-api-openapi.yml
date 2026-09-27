@@ -32,7 +32,7 @@ paths:
   /payment_successful/:
     parameters: []
     get:
-      operationId: payment_successful_list
+      operationId: getPaymentSuccessful
       description: ''
       responses:
         '200':
@@ -41,6 +41,8 @@ paths:
       - payment_successful
       summary: Payment successful list
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: payment_successful_list
 components:
   securitySchemes:
     ApiKeyHeader:
