@@ -14,9 +14,7 @@
     "mobileapi-dev-payment-successful-api-openapi.yml",
     "mobileapi-dev-status-api-openapi.yml"
   ],
-  "archived": [
-    "deleted 1 superseded output(s) from the previous generation"
-  ],
+  "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
@@ -33,14 +31,13 @@
     "mobileapi-openapi.yml: declared missing tag: me",
     "mobileapi-openapi.yml: declared missing tag: payment_successful",
     "mobileapi-openapi.yml: declared missing tag: status",
-    "superseded outputs removed: mobileapi-dev-api-api-openapi.yml",
-    "apis.yml register: written (+1 apis, 9 total)"
+    "apis.yml register: already-registered"
   ],
   "skipped": [
-    "mobileapi-dev-api-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "mobileapi-dev-api-token-auth-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "mobileapi-dev-demo-x7k9m2p4-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "mobileapi-dev-devices-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mobileapi-dev-firewall-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "mobileapi-dev-images-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "mobileapi-dev-manufacturers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "mobileapi-dev-me-api-openapi.yml: previously refined output, superseded by openapi/_original/",
