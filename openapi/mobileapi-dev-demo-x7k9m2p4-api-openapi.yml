@@ -783,85 +783,44 @@ paths:
       - demo-x7k9m2p4
 components:
   schemas:
-    Misc:
+    Comms:
       type: object
       properties:
         id:
           title: ID
           type: integer
           readOnly: true
-        model_numbers:
-          title: Model numbers
-          description: Model numbers/variants
+        wlan:
+          title: Wlan
+          description: Wi-Fi specifications
           type: string
           maxLength: 255
-        sar_us:
-          title: Sar us
-          description: SAR value (US)
+        bluetooth:
+          title: Bluetooth
+          description: Bluetooth version and features
           type: string
           maxLength: 255
-        sar_eu:
-          title: Sar eu
-          description: SAR value (EU)
+        positioning:
+          title: Positioning
+          description: GPS and positioning systems
           type: string
           maxLength: 255
-        price:
-          title: Price
-          description: Price information
+        nfc:
+          title: Nfc
+          description: NFC availability
+          type: string
+          maxLength: 100
+        radio:
+          title: Radio
+          description: FM radio availability
+          type: string
+          maxLength: 100
+        usb:
+          title: Usb
+          description: USB specifications
           type: string
           maxLength: 255
-    Memory:
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        card_slot:
-          title: Card slot
-          description: Memory card slot information
-          type: string
-          maxLength: 255
-        internal:
-          title: Internal
-          description: Internal storage and RAM options
-          type: string
-        other:
-          title: Other
-          description: Other memory specifications (NVMe, UFS, etc.)
-          type: string
-    Network:
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        technology:
-          title: Technology
-          description: Network technologies (e.g., GSM / CDMA / HSPA / LTE / 5G)
-          type: string
-        bands_2g:
-          title: Bands 2g
-          description: 2G bands
-          type: string
-        bands_3g:
-          title: Bands 3g
-          description: 3G bands
-          type: string
-        bands_4g:
-          title: Bands 4g
-          description: 4G/LTE bands
-          type: string
-        bands_5g:
-          title: Bands 5g
-          description: 5G bands
-          type: string
-        speed:
-          title: Speed
-          description: Network speed information
-          type: string
-    SelfieCamera:
+    MainCamera:
       type: object
       properties:
         id:
@@ -870,17 +829,17 @@ components:
           readOnly: true
         modules:
           title: Modules
-          description: Front camera modules/sensors (Single, Dual, etc.)
+          description: Camera modules/sensors (Single, Dual, Triple, Quad, etc.)
           type: string
         features:
           title: Features
-          description: Front camera features (HDR, face unlock, etc.)
+          description: Camera features (LED flash, HDR, panorama, etc.)
           type: string
         video:
           title: Video
-          description: Front camera video recording capabilities
+          description: Video recording capabilities
           type: string
-    Display:
+    Battery:
       type: object
       properties:
         id:
@@ -889,26 +848,27 @@ components:
           readOnly: true
         type:
           title: Type
-          description: Display type (OLED, LCD, etc.) and features
-          type: string
-        size:
-          title: Size
-          description: Screen size
+          description: Battery type and capacity (Li-Ion, Li-Po, mAh)
           type: string
           maxLength: 255
-        resolution:
-          title: Resolution
-          description: Screen resolution
+        charging:
+          title: Charging
+          description: Charging capabilities (wired, wireless, fast charging, etc.)
           type: string
-          maxLength: 255
-        protection:
-          title: Protection
-          description: Screen protection (Gorilla Glass, etc.)
+    Features:
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        sensors:
+          title: Sensors
+          description: Device sensors (accelerometer, gyro, fingerprint, etc.)
           type: string
-          maxLength: 255
         other:
           title: Other
-          description: Other display features
+          description: Other features (UWB, emergency SOS, satellite, etc.)
           type: string
     Platform:
       type: object
@@ -937,61 +897,33 @@ components:
           description: GPU specifications
           type: string
           maxLength: 255
-    Manufacturer:
-      required:
-      - name
+    Misc:
       type: object
       properties:
         id:
           title: ID
           type: integer
           readOnly: true
-        name:
-          title: Name
+        model_numbers:
+          title: Model numbers
+          description: Model numbers/variants
           type: string
           maxLength: 255
-          minLength: 1
-        logo_b64:
-          title: Logo b64
-          type: string
-          readOnly: true
-        website_url:
-          title: Website url
-          description: Manufacturer official website URL
-          type:
-          - string
-          - 'null'
-          format: uri
-          maxLength: 500
-    Body:
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        dimensions:
-          title: Dimensions
-          description: Device dimensions
+        sar_us:
+          title: Sar us
+          description: SAR value (US)
           type: string
           maxLength: 255
-        weight:
-          title: Weight
-          description: Device weight
+        sar_eu:
+          title: Sar eu
+          description: SAR value (EU)
           type: string
-          maxLength: 100
-        build:
-          title: Build
-          description: Build materials and construction
+          maxLength: 255
+        price:
+          title: Price
+          description: Price information
           type: string
-        sim:
-          title: Sim
-          description: SIM card information
-          type: string
-        other:
-          title: Other
-          description: Other body specifications (IP rating, features, etc.)
-          type: string
+          maxLength: 255
     DeviceList:
       required:
       - name
@@ -1077,62 +1009,34 @@ components:
           title: Image url
           type: string
           readOnly: true
-    Image:
+    Body:
       type: object
       properties:
         id:
           title: ID
           type: integer
           readOnly: true
-        image_url:
-          title: Image url
-          type: string
-          readOnly: true
-        caption:
-          title: Caption
-          description: Image caption/description
+        dimensions:
+          title: Dimensions
+          description: Device dimensions
           type: string
           maxLength: 255
-        is_official:
-          title: Is official
-          description: Is this an official product image?
-          type: boolean
-        order:
-          title: Order
-          description: Display order
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-    Features:
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        sensors:
-          title: Sensors
-          description: Device sensors (accelerometer, gyro, fingerprint, etc.)
+        weight:
+          title: Weight
+          description: Device weight
+          type: string
+          maxLength: 100
+        build:
+          title: Build
+          description: Build materials and construction
+          type: string
+        sim:
+          title: Sim
+          description: SIM card information
           type: string
         other:
           title: Other
-          description: Other features (UWB, emergency SOS, satellite, etc.)
-          type: string
-    Battery:
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        type:
-          title: Type
-          description: Battery type and capacity (Li-Ion, Li-Po, mAh)
-          type: string
-          maxLength: 255
-        charging:
-          title: Charging
-          description: Charging capabilities (wired, wireless, fast charging, etc.)
+          description: Other body specifications (IP rating, features, etc.)
           type: string
     Device:
       required:
@@ -1245,6 +1149,158 @@ components:
           $ref: '#/components/schemas/Battery'
         misc:
           $ref: '#/components/schemas/Misc'
+    Image:
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        image_url:
+          title: Image url
+          type: string
+          readOnly: true
+        caption:
+          title: Caption
+          description: Image caption/description
+          type: string
+          maxLength: 255
+        is_official:
+          title: Is official
+          description: Is this an official product image?
+          type: boolean
+        order:
+          title: Order
+          description: Display order
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+    SelfieCamera:
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        modules:
+          title: Modules
+          description: Front camera modules/sensors (Single, Dual, etc.)
+          type: string
+        features:
+          title: Features
+          description: Front camera features (HDR, face unlock, etc.)
+          type: string
+        video:
+          title: Video
+          description: Front camera video recording capabilities
+          type: string
+    Memory:
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        card_slot:
+          title: Card slot
+          description: Memory card slot information
+          type: string
+          maxLength: 255
+        internal:
+          title: Internal
+          description: Internal storage and RAM options
+          type: string
+        other:
+          title: Other
+          description: Other memory specifications (NVMe, UFS, etc.)
+          type: string
+    Manufacturer:
+      required:
+      - name
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 255
+          minLength: 1
+        logo_b64:
+          title: Logo b64
+          type: string
+          readOnly: true
+        website_url:
+          title: Website url
+          description: Manufacturer official website URL
+          type:
+          - string
+          - 'null'
+          format: uri
+          maxLength: 500
+    Display:
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        type:
+          title: Type
+          description: Display type (OLED, LCD, etc.) and features
+          type: string
+        size:
+          title: Size
+          description: Screen size
+          type: string
+          maxLength: 255
+        resolution:
+          title: Resolution
+          description: Screen resolution
+          type: string
+          maxLength: 255
+        protection:
+          title: Protection
+          description: Screen protection (Gorilla Glass, etc.)
+          type: string
+          maxLength: 255
+        other:
+          title: Other
+          description: Other display features
+          type: string
+    Network:
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        technology:
+          title: Technology
+          description: Network technologies (e.g., GSM / CDMA / HSPA / LTE / 5G)
+          type: string
+        bands_2g:
+          title: Bands 2g
+          description: 2G bands
+          type: string
+        bands_3g:
+          title: Bands 3g
+          description: 3G bands
+          type: string
+        bands_4g:
+          title: Bands 4g
+          description: 4G/LTE bands
+          type: string
+        bands_5g:
+          title: Bands 5g
+          description: 5G bands
+          type: string
+        speed:
+          title: Speed
+          description: Network speed information
+          type: string
     Sound:
       type: object
       properties:
@@ -1262,62 +1318,6 @@ components:
           description: 3.5mm audio jack availability
           type: string
           maxLength: 100
-    Comms:
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        wlan:
-          title: Wlan
-          description: Wi-Fi specifications
-          type: string
-          maxLength: 255
-        bluetooth:
-          title: Bluetooth
-          description: Bluetooth version and features
-          type: string
-          maxLength: 255
-        positioning:
-          title: Positioning
-          description: GPS and positioning systems
-          type: string
-          maxLength: 255
-        nfc:
-          title: Nfc
-          description: NFC availability
-          type: string
-          maxLength: 100
-        radio:
-          title: Radio
-          description: FM radio availability
-          type: string
-          maxLength: 100
-        usb:
-          title: Usb
-          description: USB specifications
-          type: string
-          maxLength: 255
-    MainCamera:
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        modules:
-          title: Modules
-          description: Camera modules/sensors (Single, Dual, Triple, Quad, etc.)
-          type: string
-        features:
-          title: Features
-          description: Camera features (LED flash, HDR, panorama, etc.)
-          type: string
-        video:
-          title: Video
-          description: Video recording capabilities
-          type: string
   securitySchemes:
     ApiKeyHeader:
       type: apiKey
