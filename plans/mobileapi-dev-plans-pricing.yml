@@ -1,3 +1,8 @@
+# Provenance stamped 2026-10-07 (roadmap#943): written by an API Evangelist sweep (dated 2026-05-06 by the file itself), not
+# harvested from the provider. `method: generated` so the economics campaign may replace it with a
+# dated, verbatim transcription; every figure below is unverified until it does.
+method: generated
+generated: '2026-05-06'
 specification: API Commons Plans
 specificationVersion: '0.1'
 schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
@@ -164,3 +169,40 @@ common:
   - label: Currency
     type: policy
     description: Pricing is published in USD.
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  - negotiated
+  - subscription
+  units:
+  - request
+  plans:
+  - name: Free
+    access: free
+    model: free
+    model_how: derived
+    units:
+    - request
+    periods:
+    - minute
+    - month
+  - name: Pro
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - request
+    periods:
+    - month
+    - second
+  - name: Enterprise
+    access: negotiated
+    model: negotiated
+    model_how: stated
+    units:
+    - request
+    periods:
+    - month
+    - second
