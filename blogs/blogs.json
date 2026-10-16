@@ -2,11 +2,11 @@
   "repo": "mobileapi-dev",
   "feeds": [
     {
-      "source": "https://mobileapi.dev/signin/",
-      "feed_url": "https://mobileapi.dev/signin/",
+      "source": "https://mobileapi.dev/blog/",
+      "feed_url": "https://mobileapi.dev/blog/feed/",
       "title": "",
       "saved": 0,
-      "method": "none"
+      "method": "discovered"
     },
     {
       "source": "https://mobileapi.dev/blog/feed/",
@@ -14,9 +14,16 @@
       "title": "",
       "saved": 0,
       "method": "feed"
+    },
+    {
+      "source": "https://mobileapi.dev/signin/",
+      "feed_url": "https://mobileapi.dev/signin/",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
-  "fetched": "2026-10-03T12:30:02Z",
+  "fetched": "2026-10-10T13:15:00Z",
   "post_count": 20,
   "feed_nature": "vendor-blog",
   "feed_nature_basis": "path_blog",
