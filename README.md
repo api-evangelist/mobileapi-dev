@@ -1,4 +1,4 @@
-# MobileAPI.dev (mobileapi-dev)
+# MobileAPI.dev
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,133 +66,215 @@
 
 MobileAPI.dev is a commercial REST API that provides structured device specifications, product images, and metadata for over 31,500 smartphones, tablets, smartwatches, and laptops from more than 200 brands. The API exposes 12 normalized spec categories per device (Network, Body, Display, Platform, Memory, Main Camera, Selfie Camera, Sound, Comms, Features, Battery, Misc), fuzzy search, autocomplete, manufacturer indices, and a natural-language AI query endpoint, replacing in-house scraping of GSMArena-style sources for device-catalog, comparison, e-commerce, trade-in, repair, and insurance applications.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/mobileapi-dev/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/mobileapi-dev/refs/heads/main/apis.yml)
+**Areas:** Data API · Developer Tools · Device Specifications · Mobile Data · Phone Specs · REST API · Software-as-a-Service
 
-## Scope
+## MobileAPI.dev on APIs.io
 
-- **Type:** Index
+Everything profiled for MobileAPI.dev is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/mobileapi-dev/](https://apis.io/providers/mobileapi-dev/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (9)
 
-- Data API
-- Developer Tools
-- Device Specifications
-- Mobile Data
-- Phone Specs
-- REST API
-- SaaS
+- [MobileAPI.dev API Token Auth API](https://apis.io/apis/mobileapi-dev/mobileapi-dev-api-token-auth-api/) — The api-token-auth API from MobileAPI.dev — 1 operation(s) for api-token-auth.
+- [MobileAPI.dev Demo X7k9m2p4 API](https://apis.io/apis/mobileapi-dev/mobileapi-dev-demo-x7k9m2p4-api/) — The demo-x7k9m2p4 API from MobileAPI.dev — 23 operation(s) for demo-x7k9m2p4.
+- [MobileAPI.dev Devices API](https://apis.io/apis/mobileapi-dev/mobileapi-dev-devices-api/) — The devices API from MobileAPI.dev — 24 operation(s) for devices.
+- [MobileAPI.dev Images API](https://apis.io/apis/mobileapi-dev/mobileapi-dev-images-api/) — The images API from MobileAPI.dev — 1 operation(s) for images.
+- [MobileAPI.dev Manufacturers API](https://apis.io/apis/mobileapi-dev/mobileapi-dev-manufacturers-api/) — The manufacturers API from MobileAPI.dev — 2 operation(s) for manufacturers.
+- [MobileAPI.dev Me API](https://apis.io/apis/mobileapi-dev/mobileapi-dev-me-api/) — The me API from MobileAPI.dev — 1 operation(s) for me.
+- [MobileAPI.dev Payment Successful API](https://apis.io/apis/mobileapi-dev/mobileapi-dev-payment-successful-api/) — The payment_successful API from MobileAPI.dev — 2 operation(s) for payment_successful.
+- [MobileAPI.dev Status API](https://apis.io/apis/mobileapi-dev/mobileapi-dev-status-api/) — The status API from MobileAPI.dev — 1 operation(s) for status.
+- [MobileAPI.dev Firewall API](https://apis.io/apis/mobileapi-dev/mobileapi-dev-firewall-api/) — The Firewall API from MobileAPI.dev — 2 operation(s) for firewall.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-06
-- **Modified:** 2026-05-06
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Arazzo workflows (6)
 
-### MobileAPI
+Multi-step workflows that chain operations into a business task.
 
-REST API providing device specifications, base64-encoded product images, and pricing metadata for 31,500+ smartphones, tablets, smartwatches, and laptops across 200+ manufacturers. Endpoints support paginated device listing, fuzzy search by name or model number, autocomplete, browsing by manufacturer/year/type, per-category specification retrieval (battery, display, platform, memory, cameras, network, sound, comms, features, body, misc), high-resolution images, manufacturer directory, account introspection (/me/), and an AI natural-language query endpoint that translates plain-English questions into structured device results.
+- [MobileAPI AI Query with Account Check](https://apis.io/arazzos/mobileapi-dev/mobileapi-dev-ai-query-with-account-check-workflow/)
+- [MobileAPI Assemble Device Spec Sheet](https://apis.io/arazzos/mobileapi-dev/mobileapi-dev-assemble-spec-sheet-workflow/)
+- [MobileAPI Autocomplete and Resolve Device](https://apis.io/arazzos/mobileapi-dev/mobileapi-dev-autocomplete-resolve-device-workflow/)
+- [MobileAPI Browse a Manufacturer Catalog](https://apis.io/arazzos/mobileapi-dev/mobileapi-dev-browse-manufacturer-catalog-workflow/)
+- [MobileAPI Browse Devices by Type and Year](https://apis.io/arazzos/mobileapi-dev/mobileapi-dev-browse-type-year-workflow/)
+- [MobileAPI Search Device and Load Full Detail](https://apis.io/arazzos/mobileapi-dev/mobileapi-dev-search-device-detail-workflow/)
 
-- **Human URL:** [https://mobileapi.dev/](https://mobileapi.dev/)
-- **Base URL:** `https://api.mobileapi.dev/`
+#### Agentic access (1)
 
-#### Tags
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- Autocomplete
-- Device Catalog
-- Device Specifications
-- Fuzzy Search
-- Manufacturers
-- Mobile Devices
-- Natural Language Query
-- Product Images
-- REST API
-- Smartphones
-- Smartwatches
-- Tablets
+- [Mobileapi Dev Agentic Access](https://apis.io/agentic-access/mobileapi-dev/mobileapi-dev-agentic-access/)
 
-#### Properties
+#### JSON Schema (16)
 
-- [Documentation](https://mobileapi.dev/docs/)
-- [API Reference](https://mobileapi.dev/docs/)
-- [OpenAPI](openapi/mobileapi-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/mobileapi.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/mobileapi.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Getting Started](https://mobileapi.dev/docs/)
-- [Authentication](https://mobileapi.dev/docs/)
-- [Rate Limits](https://mobileapi.dev/docs/)
-- [Code Examples](https://mobileapi.dev/docs/)
-- [JSON Schema](json-schema/mobileapi-battery-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/mobileapi-body-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/mobileapi-comms-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/mobileapi-device-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/mobileapi-devicelist-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/mobileapi-display-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/mobileapi-features-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/mobileapi-image-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/mobileapi-maincamera-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/mobileapi-manufacturer-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/mobileapi-memory-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/mobileapi-misc-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/mobileapi-network-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/mobileapi-platform-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/mobileapi-selfiecamera-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/mobileapi-sound-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Structure](json-structure/mobileapi-battery-structure.json)
-- [JSON Structure](json-structure/mobileapi-body-structure.json)
-- [JSON Structure](json-structure/mobileapi-comms-structure.json)
-- [JSON Structure](json-structure/mobileapi-device-structure.json)
-- [JSON Structure](json-structure/mobileapi-devicelist-structure.json)
-- [JSON Structure](json-structure/mobileapi-display-structure.json)
-- [JSON Structure](json-structure/mobileapi-features-structure.json)
-- [JSON Structure](json-structure/mobileapi-image-structure.json)
-- [JSON Structure](json-structure/mobileapi-maincamera-structure.json)
-- [JSON Structure](json-structure/mobileapi-manufacturer-structure.json)
-- [JSON Structure](json-structure/mobileapi-memory-structure.json)
-- [JSON Structure](json-structure/mobileapi-misc-structure.json)
-- [JSON Structure](json-structure/mobileapi-network-structure.json)
-- [JSON Structure](json-structure/mobileapi-platform-structure.json)
-- [JSON Structure](json-structure/mobileapi-selfiecamera-structure.json)
-- [JSON Structure](json-structure/mobileapi-sound-structure.json)
-- [Example](examples/mobileapi-ai-query-example.json)
-- [Example](examples/mobileapi-autocomplete-example.json)
-- [Example](examples/mobileapi-device-example.json)
-- [Example](examples/mobileapi-devicelist-example.json)
-- [Example](examples/mobileapi-manufacturer-example.json)
-- [JSON-LD](json-ld/mobileapi-dev-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
+The data models the API reads and writes.
 
-## Common Properties
+- [Battery](https://apis.io/schemas/mobileapi-dev/mobileapi-battery/)
+- [Body](https://apis.io/schemas/mobileapi-dev/mobileapi-body/)
+- [Comms](https://apis.io/schemas/mobileapi-dev/mobileapi-comms/)
+- [Device](https://apis.io/schemas/mobileapi-dev/mobileapi-device/)
+- [DeviceList](https://apis.io/schemas/mobileapi-dev/mobileapi-devicelist/)
+- [Display](https://apis.io/schemas/mobileapi-dev/mobileapi-display/)
+- [Features](https://apis.io/schemas/mobileapi-dev/mobileapi-features/)
+- [Image](https://apis.io/schemas/mobileapi-dev/mobileapi-image/)
+- [MainCamera](https://apis.io/schemas/mobileapi-dev/mobileapi-maincamera/)
+- [Manufacturer](https://apis.io/schemas/mobileapi-dev/mobileapi-manufacturer/)
+- [Memory](https://apis.io/schemas/mobileapi-dev/mobileapi-memory/)
+- [Misc](https://apis.io/schemas/mobileapi-dev/mobileapi-misc/)
+- [Network](https://apis.io/schemas/mobileapi-dev/mobileapi-network/)
+- [Platform](https://apis.io/schemas/mobileapi-dev/mobileapi-platform/)
+- [SelfieCamera](https://apis.io/schemas/mobileapi-dev/mobileapi-selfiecamera/)
+- [Sound](https://apis.io/schemas/mobileapi-dev/mobileapi-sound/)
 
-- [Arazzo Workflows](arazzo/) — [Arazzo Specification](https://spec.openapis.org/arazzo/latest.html)
-- [LinkedIn](https://www.linkedin.com/company/mobileapidev)
-- [Portal](https://mobileapi.dev/)
+#### JSON Structure (16)
+
+Data models expressed in JSON Structure.
+
+- [Mobileapi Battery Structure](https://apis.io/json-structure/mobileapi-dev/mobileapi-battery-structure/)
+- [Mobileapi Body Structure](https://apis.io/json-structure/mobileapi-dev/mobileapi-body-structure/)
+- [Mobileapi Comms Structure](https://apis.io/json-structure/mobileapi-dev/mobileapi-comms-structure/)
+- [Mobileapi Device Structure](https://apis.io/json-structure/mobileapi-dev/mobileapi-device-structure/)
+- [Mobileapi Devicelist Structure](https://apis.io/json-structure/mobileapi-dev/mobileapi-devicelist-structure/)
+- [Mobileapi Display Structure](https://apis.io/json-structure/mobileapi-dev/mobileapi-display-structure/)
+- [Mobileapi Features Structure](https://apis.io/json-structure/mobileapi-dev/mobileapi-features-structure/)
+- [Mobileapi Image Structure](https://apis.io/json-structure/mobileapi-dev/mobileapi-image-structure/)
+- [Mobileapi Maincamera Structure](https://apis.io/json-structure/mobileapi-dev/mobileapi-maincamera-structure/)
+- [Mobileapi Manufacturer Structure](https://apis.io/json-structure/mobileapi-dev/mobileapi-manufacturer-structure/)
+- [Mobileapi Memory Structure](https://apis.io/json-structure/mobileapi-dev/mobileapi-memory-structure/)
+- [Mobileapi Misc Structure](https://apis.io/json-structure/mobileapi-dev/mobileapi-misc-structure/)
+- [Mobileapi Network Structure](https://apis.io/json-structure/mobileapi-dev/mobileapi-network-structure/)
+- [Mobileapi Platform Structure](https://apis.io/json-structure/mobileapi-dev/mobileapi-platform-structure/)
+- [Mobileapi Selfiecamera Structure](https://apis.io/json-structure/mobileapi-dev/mobileapi-selfiecamera-structure/)
+- [Mobileapi Sound Structure](https://apis.io/json-structure/mobileapi-dev/mobileapi-sound-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Mobileapi Dev Context](https://apis.io/jsonld/mobileapi-dev/mobileapi-dev-context/)
+
+#### Examples (4)
+
+Example requests and responses.
+
+- [Mobileapi Ai Query Example](https://apis.io/examples/mobileapi-dev/mobileapi-ai-query-example/)
+- [Mobileapi Device Example](https://apis.io/examples/mobileapi-dev/mobileapi-device-example/)
+- [Mobileapi Devicelist Example](https://apis.io/examples/mobileapi-dev/mobileapi-devicelist-example/)
+- [Mobileapi Manufacturer Example](https://apis.io/examples/mobileapi-dev/mobileapi-manufacturer-example/)
+
+#### Collections (11)
+
+Postman and Open Collection request collections.
+
+- [MobileAPI](https://apis.io/collections/mobileapi-dev/open-mobileapi/)
+- [Mobile api API](https://apis.io/collections/mobileapi-dev/open-mobileapi-dev-api-api/)
+- [Mobile api api-token-auth API](https://apis.io/collections/mobileapi-dev/open-mobileapi-dev-api-token-auth-api/)
+- [Mobile api demo-x7k9m2p4 API](https://apis.io/collections/mobileapi-dev/open-mobileapi-dev-demo-x7k9m2p4-api/)
+- [Mobile api devices API](https://apis.io/collections/mobileapi-dev/open-mobileapi-dev-devices-api/)
+- [Mobile api images API](https://apis.io/collections/mobileapi-dev/open-mobileapi-dev-images-api/)
+- [Mobile api manufacturers API](https://apis.io/collections/mobileapi-dev/open-mobileapi-dev-manufacturers-api/)
+- [Mobile api me API](https://apis.io/collections/mobileapi-dev/open-mobileapi-dev-me-api/)
+- [Mobile api payment_successful API](https://apis.io/collections/mobileapi-dev/open-mobileapi-dev-payment-successful-api/)
+- [Mobile api status API](https://apis.io/collections/mobileapi-dev/open-mobileapi-dev-status-api/)
+- [MobileAPI](https://apis.io/collections/mobileapi-dev/postman-mobileapi/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [MobileAPI.dev — jsonschema rules](https://apis.io/rules/mobileapi-dev/mobileapi-dev-jsonschema-spectral-rules/)
+- [MobileAPI.dev — mobileapi rules](https://apis.io/rules/mobileapi-dev/mobileapi-rules/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Mobileapi Dev Authentication](https://apis.io/security/mobileapi-dev/mobileapi-dev-authentication/)
+- [Mobileapi Dev Domain Security](https://apis.io/security/mobileapi-dev/mobileapi-dev-domain-security/)
+- [Mobileapi Dev Vulnerability Disclosure](https://apis.io/security/mobileapi-dev/mobileapi-dev-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Mobileapi Dev Plans Pricing](https://apis.io/plans/mobileapi-dev/mobileapi-dev-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Mobileapi Dev Rate Limits](https://apis.io/rate-limits/mobileapi-dev/mobileapi-dev-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Mobileapi Dev Finops](https://apis.io/finops/mobileapi-dev/mobileapi-dev-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.mobileapi.dev/)
 - [Documentation](https://mobileapi.dev/docs/)
 - [Pricing](https://mobileapi.dev/#pricing)
-- [Plans](https://mobileapi.dev/#pricing)
-- [Sign Up](https://mobileapi.dev/signup/)
-- [Login](https://mobileapi.dev/signin/)
 - [Blog](https://mobileapi.dev/blog/)
-- [Support](mailto:support@mobileapi.dev)
-- [Contact](mailto:support@mobileapi.dev)
-- [Status Page](https://mobileapi.cronitorstatus.com/)
-- [GitHub Organization](https://github.com/MobileAPI-dev)
-- [GitHub Repository](https://github.com/MobileAPI-dev/mobileapi-examples)
-- [Code Examples](https://github.com/MobileAPI-dev/mobileapi-examples)
-- [Terms of Service](https://app.getterms.io/view/AG2Np/terms-of-service/en-us)
-- [Privacy Policy](https://app.getterms.io/view/AG2Np/privacy/en-us)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
-- [Plans](undefined)
-- [Rate Limits](undefined)
-- [Spectral Rules](rules/mobileapi-rules.yml)
-- [Vocabulary](vocabulary/mobileapi-dev-vocabulary.yml)
-- [Plans](plans/mobileapi-dev-plans-pricing.yml)
-- [Rate Limits](rate-limits/mobileapi-dev-rate-limits.yml)
-- [Fin Ops](finops/mobileapi-dev-finops.yml)
-- [L L Ms Txt](https://mobileapi.dev/llms.txt)
+- [Terms of service](https://app.getterms.io/view/AG2Np/terms-of-service/en-us)
+- [Privacy policy](https://app.getterms.io/view/AG2Np/privacy/en-us)
+- [GitHub](https://github.com/MobileAPI-dev)
+- [Status](https://mobileapi.cronitorstatus.com/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 50.4** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 61.1 |
+| Contract governance | 13.6 |
+| Operational transparency | 36.8 |
+| Developer ergonomics | 58.3 |
+| Access clarity | 40.8 |
+
+**Agent readiness 22.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | partial |
+| Operation Distinctiveness | mostly |
+
+**Regulatory alignment 30.4** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/mobileapi-dev/](https://apis.io/providers/mobileapi-dev/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for MobileAPI.dev: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/mobileapi-dev/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
